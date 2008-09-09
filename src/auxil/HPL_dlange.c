@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -134,7 +134,7 @@ double HPL_dlange
 /*
  * Find norm_1( A ).
  */
-      work = (double*)malloc( N * sizeof( double ) );
+      work = (double*)malloc( (size_t)(N) * sizeof( double ) );
       if( work == NULL )
       { HPL_abort( __LINE__, "HPL_dlange", "Memory allocation failed" ); }
       else
@@ -157,7 +157,7 @@ double HPL_dlange
 /*
  * Find norm_inf( A )
  */
-      work = (double*)malloc( M * sizeof( double ) );
+      work = (double*)malloc( (size_t)(M) * sizeof( double ) );
       if( work == NULL )
       { HPL_abort( __LINE__, "HPL_dlange", "Memory allocation failed" ); }
       else

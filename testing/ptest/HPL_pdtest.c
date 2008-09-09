@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -160,7 +160,9 @@ void HPL_pdtest
 /*
  * Allocate dynamic memory
  */
-   vptr = (void*)malloc( (ALGO->align + (mat.ld+1)*(mat.nq))*sizeof(double) );
+   vptr = (void*)malloc( ( (size_t)(ALGO->align) + 
+                           (size_t)(mat.ld+1) * (size_t)(mat.nq) ) *
+                         sizeof(double) );
    info[0] = (vptr == NULL); info[1] = myrow; info[2] = mycol;
    (void) HPL_all_reduce( (void *)(info), 3, HPL_INT, HPL_max,
                           GRID->all_comm );
@@ -225,10 +227,14 @@ void HPL_pdtest
                  ( (double)(N) / wtime[0] ) ) * 
                  ( ( 2.0 / 3.0 ) * (double)(N) + ( 3.0 / 2.0 ) );
 
-      cpfact = ( ( ALGO->pfact == HPL_LEFT_LOOKING ) ? 'L' :
-                 ( ( ALGO->pfact == HPL_CROUT ) ? 'C' : 'R' ) );
-      crfact = ( ( ALGO->rfact == HPL_LEFT_LOOKING ) ? 'L' :
-                 ( ( ALGO->rfact == HPL_CROUT ) ? 'C' : 'R' ) );
+      cpfact = ( ( (HPL_T_FACT)(ALGO->pfact) == 
+                   (HPL_T_FACT)(HPL_LEFT_LOOKING) ) ?  (char)('L') :
+                 ( ( (HPL_T_FACT)(ALGO->pfact) == (HPL_T_FACT)(HPL_CROUT) ) ?
+                   (char)('C') : (char)('R') ) );
+      crfact = ( ( (HPL_T_FACT)(ALGO->rfact) == 
+                   (HPL_T_FACT)(HPL_LEFT_LOOKING) ) ?  (char)('L') :
+                 ( ( (HPL_T_FACT)(ALGO->rfact) == (HPL_T_FACT)(HPL_CROUT) ) ? 
+                   (char)('C') : (char)('R') ) );
 
       if(      ALGO->btopo == HPL_1RING   ) ctop = '0';
       else if( ALGO->btopo == HPL_1RING_M ) ctop = '1';

@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -123,9 +123,11 @@ int HPL_reduce
    i = size - 1; while( i > 1 ) { i >>= 1; d++; }
 
    if( DTYPE == HPL_INT )
-      buffer = (void *)( (int *)   malloc( COUNT * sizeof( int    ) ) );
+      buffer = (void *)( (int *)   malloc( (size_t)(COUNT) * 
+                                           sizeof( int    ) ) );
    else
-      buffer = (void *)( (double *)malloc( COUNT * sizeof( double ) ) );
+      buffer = (void *)( (double *)malloc( (size_t)(COUNT) *
+                                           sizeof( double ) ) );
 
    if( !( buffer ) )
    { HPL_pabort( __LINE__, "HPL_reduce", "Memory allocation failed" ); }

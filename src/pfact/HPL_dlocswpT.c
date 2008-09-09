@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -326,7 +326,7 @@ void HPL_dlocswpT
  */
          if( myrow == (int)(WORK[3]) )
          {
-            A2 = Mptr( PANEL->A, II + (int)(WORK[1]), 0, lda );
+            A2 = Mptr( PANEL->A, II + (size_t)(WORK[1]), 0, lda );
 
             for( i = 0; i < nu; i += HPL_LOCSWP_DEPTH,
                  Wr0 += HPL_LOCSWP_DEPTH )

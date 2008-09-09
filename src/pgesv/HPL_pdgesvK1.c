@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -110,7 +110,7 @@ void HPL_pdgesvK1
 /*
  * Allocate a panel list of length depth + 1 (depth >= 1)
  */
-   panel = (HPL_T_panel **)malloc( (depth+1)*sizeof( HPL_T_panel *) );
+   panel = (HPL_T_panel **)malloc( (size_t)(depth+1)*sizeof( HPL_T_panel *) );
    if( panel == NULL )
    { HPL_pabort( __LINE__, "HPL_pdgesvK1", "Memory allocation failed" ); }
 /*

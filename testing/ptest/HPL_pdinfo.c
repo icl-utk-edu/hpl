@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -638,7 +638,7 @@ label_error:
 /*
  * Broadcast array sizes
  */
-   iwork = (int *)malloc( 15 * sizeof( int ) );
+   iwork = (int *)malloc( (size_t)(15) * sizeof( int ) );
    if( rank == 0 )
    {
       iwork[ 0] = *NS;      iwork[ 1] = *NBS;
@@ -664,7 +664,7 @@ label_error:
  */
    lwork = (*NS) + (*NBS) + 2 * (*NPQS) + (*NPFS) + (*NBMS) + 
            (*NDVS) + (*NRFS) + (*NTPS) + (*NDHS) + 1;
-   iwork = (int *)malloc( lwork * sizeof( int ) );
+   iwork = (int *)malloc( (size_t)(lwork) * sizeof( int ) );
    if( rank == 0 )
    {
       j = 0;
@@ -758,8 +758,8 @@ label_error:
                    "======================================",
                    "======================================" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
-          "HPLinpack 1.0a  --  High-Performance Linpack benchmark  --  ",
-          " January 20, 2004" );
+          "HPLinpack 1.0b  --  High-Performance Linpack benchmark  -- ",
+          "December 15, 2004" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
           "Written by A. Petitet and R. Clint Whaley,  ",
           "Innovative Computing Labs.,  UTK" );

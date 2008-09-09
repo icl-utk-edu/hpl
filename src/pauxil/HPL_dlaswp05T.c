@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -148,7 +148,8 @@ void HPL_dlaswp05T
    {
       for( i = 0; i < M; i++ )
       {
-         a0 = A + LINDXA[i]; u0 = U0 + LINDXAU[i] * LDU;
+         a0 = A  + (size_t)(LINDXA[ i]);
+         u0 = U0 + (size_t)(LINDXAU[i]) * (size_t)(LDU);
 
          *a0 = u0[ 0]; a0 += LDA;
 #if ( HPL_LASWP05T_DEPTH >  1 )
@@ -184,7 +185,8 @@ void HPL_dlaswp05T
    {
       for( i = 0; i < M; i++ )
       {
-         a0 = A + LINDXA[i]; u0 = U0 + LINDXAU[i] * LDU;
+         a0 = A  + (size_t)(LINDXA[ i]);
+         u0 = U0 + (size_t)(LINDXAU[i]) * (size_t)(LDU);
          for( j = 0; j < nr; j++, a0 += LDA ) { *a0 = u0[j]; }
       }
    }

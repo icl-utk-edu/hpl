@@ -13,6 +13,44 @@ LINK        = "#0000ff">
 
 <H2>HPL Errata - Bugs</H2>
 
+Gregory Bauer  found  a  problem  size  corresponding  to the 
+periodicity of the pseudo-random matrix generator used in the
+HPL  timing  program. This causes  the  LU  factorization  to
+detect the singularity of the input matrix as it should have.<BR><BR>
+
+A problem size of 2^17 = 131072 causes columns 14 modulo 2^14
+(i.e. 16384)  (starting from 0)  to be bitwise identical on a 
+homogeneous platform.  Every problem size  being a power of 2 
+and larger than  2^15  will  feature a similar problem if one 
+searches far enough in the columns of the square input matrix.<BR><BR>
+
+The pseudo-random  generator  uses  the  linear  congruential
+algorithm:  X(n+1) = (a * X(n) + c) mod m as described in the
+Art of Computer  Programming, Knuth 1973,  Vol. 2. In the HPL 
+case, m is set to 2^31.<BR><BR>
+
+It is very important  to realize that this issue is a problem
+of  the  testing  part  of the  HPL software.  The  numerical 
+properties  of the  algorithms  used in the factorization and 
+the solve should not be questioned because of this.  In fact,
+this is just the opposite: the factorization demonstrated the
+weakness of the testing part of the software by detecting the
+singularity of the input matrix.<BR><BR>
+
+This issue of  the testing program  is not easy to fix.  This 
+pseudo-random  generator  has  very useful properties despite 
+this.  It is  thus currently recommended to HPL users willing
+to test matrices of size larger than  2^15  to  not use power
+twos.<BR><BR>
+ 
+<H3>Issues fixed in Version 1.0b, December 15th, 2004</H3>
+
+When the matrix size is such that one needs  more  than 16 GB
+per  MPI  rank,  the  intermediate  calculation  (mat.ld+1) * 
+mat.nq in  HPL_pdtest.c  ends up  overflowing  because  it is
+done using  32-bit arithmetic.   This issue has been fixed by
+typecasting to size_t; Thanks to John Baron.<BR><BR>
+
 <H3>Issues fixed in Version 1.0a, January 20th, 2004</H3>
 
 The  MPI  process  grid numbering scheme defaults now to row-

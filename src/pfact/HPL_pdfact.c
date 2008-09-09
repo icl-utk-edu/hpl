@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -118,9 +118,9 @@ void HPL_pdfact
    HPL_ptimer( HPL_TIMING_RPFACT );
 #endif
    align = PANEL->algo->align;
-   vptr  = (void *)malloc( ( align + 
-                             ((4+((unsigned int)(jb) << 1)) << 1) ) *
-                           sizeof(double) );
+   vptr  = (void *)malloc( ( (size_t)(align) + 
+              (size_t)(((4+((unsigned int)(jb) << 1)) << 1) )) *
+              sizeof(double) );
    if( vptr == NULL )
    { HPL_pabort( __LINE__, "HPL_pdfact", "Memory allocation failed" ); }
 /*

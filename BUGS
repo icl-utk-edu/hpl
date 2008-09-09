@@ -1,8 +1,37 @@
 ==============================================================
  List of the known problems with the HPL software
 
- Current as of release 1.0a - January 20, 2004
+ Current as of release 1.0b - December 15, 2004
 ==============================================================
+
+Gregory Bauer (UIUC) found a problem size corresponding to the
+periodicity of the pseudo-random  matrix generator used in the
+HPL timing program. This causes the LU factorization to detect
+the singularity of the input matrix as it should have.
+                                                                                
+A problem size of  2^17 = 131072 causes columns 14 modulo 2^14 
+i.e. 16384 (starting from 0)  to be bitwise identical on a ho-
+mogeneous platform.  Every problem size being a power of 2 and
+larger  than  2^15  will  feature  a  similar  problem  if one
+searches far enough in the columns of the square input matrix.
+                                                                                
+The pseudo-random generator uses the linear congruential algo-
+rithm: X(n+1) = (a * X(n) + c) mod m  as described in  the Art 
+of Computer Programming,  Knuth 1973, Vol. 2. In the HPL case,
+m is set to 2^31.
+                                                                                
+It is very important  to realize  that this issue is a problem 
+of the testing part of the HPL software. The numerical proper-
+ties of the algorithms used in the factorization and the solve
+should  not  be  questioned because of this.  In fact, this is 
+just the opposite: the factorization demonstrated the weakness
+of the testing part of the software  by detecting the singula-
+rity of the input matrix.
+                                                                                
+This  issue of  the testing program is not easy  to fix.  This 
+pseudo-random  generator  has  very  useful properties despite 
+this. It is thus currently recommended to HPL users willing to
+test matrices of size larger than 2^15 to not use power twos.
 
 ==============================================================
  

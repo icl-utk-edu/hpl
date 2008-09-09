@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -149,7 +149,9 @@ void HPL_pdlaswp00T
 /*
  * Allocate space for temporary W (ldW * jb)
  */
-   vptr = (void*)malloc( (align + (jb * ldW)) * sizeof(double) );
+   vptr = (void*)malloc( ( (size_t)(align) + 
+                           ((size_t)(jb) * (size_t)(ldW))) * 
+                           sizeof(double) );
    if( vptr == NULL )
    { HPL_pabort( __LINE__, "HPL_pdlaswp00T", "Memory allocation failed" ); }
 

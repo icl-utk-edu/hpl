@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -96,7 +96,8 @@
  * Mptr returns a pointer to a_( i_, j_ ) for readability reasons and
  * also less silly errors ...
  */
-#define    Mptr( a_, i_, j_, lda_ ) ( (a_) + (i_) + (j_)*(lda_) )
+#define    Mptr( a_, i_, j_, lda_ ) \
+   ( (a_) + (size_t)(i_) + (size_t)(j_)*(size_t)(lda_) )
 /*
  * Align pointer
  */

@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -140,7 +140,7 @@ void HPL_pdlaprnt
    (void) HPL_grid_info( GRID, &nprow, &npcol, &myrow, &mycol );
    Acomm = GRID->all_comm; 
    if( ( myrow == 0 ) && ( mycol == 0 ) )
-      buf = (double*)malloc( NB * sizeof( double ) );
+      buf = (double*)malloc( (size_t)(NB) * sizeof( double ) );
 
    for( j = 0; j < N; j += NB )
    {

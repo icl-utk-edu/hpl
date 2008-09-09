@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -148,7 +148,8 @@ void HPL_dlaswp02N
  */
    if( ( M <= 0 ) || ( N <= 0 ) ) return;
 
-   for( i = 0; i < M; i++ ) *(W0+i*LDW) = (double)(LINDXAU[i]);
+   for( i = 0; i < M; i++ ) 
+      *(W0+(size_t)(i)*(size_t)(LDW)) = (double)(LINDXAU[i]);
 
    nr = N - ( nu = (int)( ( (unsigned int)(N) >> HPL_LASWP02N_LOG2_DEPTH ) <<
                           HPL_LASWP02N_LOG2_DEPTH ) );
@@ -158,7 +159,7 @@ void HPL_dlaswp02N
    {
       for( i = 0; i < M; i++ )
       {
-         a0 = A0 + LINDXA[i]; w0 = W + i * LDW;
+         a0 = A0 + (size_t)(LINDXA[i]); w0 = W + (size_t)(i) * (size_t)(LDW);
 
          w0[ 0] = *a0; a0 += LDA;
 #if ( HPL_LASWP02N_DEPTH >  1 )
@@ -194,7 +195,7 @@ void HPL_dlaswp02N
    {
       for( i = 0; i < M; i++ )
       {
-         a0 = A0 + LINDXA[i]; w0 = W + i * LDW;
+         a0 = A0 + (size_t)(LINDXA[i]); w0 = W + (size_t)(i) * (size_t)(LDW);
          for( j = 0; j < nr; j++, a0 += LDA ) { w0[j] = *a0; }
       }
    }

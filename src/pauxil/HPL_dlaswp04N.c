@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -179,7 +179,9 @@ void HPL_dlaswp04N
    {
       for( i =  0; i < M0; i++ )
       {
-         a0 = A + LINDXA[i]; u0 = U + LINDXAU[i]; w0 = w + i * LDW;
+         a0 = A + (size_t)(LINDXA[i]);
+         u0 = U + (size_t)(LINDXAU[i]);
+         w0 = w + (size_t)(i) * (size_t)(LDW);
 
          *a0 = *u0; *u0 = w0[ 0]; a0 += LDA; u0 += LDU;
 #if ( HPL_LASWP04N_DEPTH >  1 )
@@ -227,7 +229,8 @@ void HPL_dlaswp04N
 
       for( i = M0; i < M1; i++ )
       {
-         u0 = U + (int)(*(W0+i*LDW)); w0 = w + i * LDW;
+         u0 = U + (size_t)(*(W0+(size_t)(i)*(size_t)(LDW)));
+         w0 = w + (size_t)(i) * (size_t)(LDW);
 
          *u0 = w0[ 0]; u0 += LDU;
 #if ( HPL_LASWP04N_DEPTH >  1 )
@@ -263,13 +266,16 @@ void HPL_dlaswp04N
    {
       for( i = 0; i < M0; i++ )
       {
-         a0 = A + LINDXA[i]; u0 = U + LINDXAU[i]; w0 = w + i * LDW;
+         a0 = A + (size_t)(LINDXA[i]);
+         u0 = U + (size_t)(LINDXAU[i]);
+         w0 = w + (size_t)(i) * (size_t)(LDW);
          for( j = 0; j < nr; j++, a0 += LDA, u0 += LDU )
          { *a0 = *u0; *u0 = w0[j]; }
       }
       for( i = M0; i < M1; i++ )
       {
-         u0 = U + (int)(*(W0+i*LDW)); w0 = w + i * LDW;
+         u0 = U + (size_t)(*(W0+(size_t)(i)*(size_t)(LDW)));
+         w0 = w + (size_t)(i) * (size_t)(LDW);
          for( j = 0; j < nr; j++, u0 += LDU ) { *u0 = w0[j]; }
       }
    }

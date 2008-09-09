@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -159,7 +159,7 @@ void HPL_pdtrsv
    n1 = ( npcol - 1 ) * nb; n1 = Mmax( n1, nb );
    if( Anp > 0 )
    {
-      W = (double*)malloc( Mmin( n1, Anp ) * sizeof( double ) );
+      W = (double*)malloc( (size_t)(Mmin( n1, Anp )) * sizeof( double ) );
       if( W == NULL )
       { HPL_pabort( __LINE__, "HPL_pdtrsv", "Memory allocation failed" ); }
       Wfr = 1;

@@ -1,6 +1,6 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0a - January 20, 2004                          
+ *    HPL - 1.0b - December 15, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
@@ -209,7 +209,8 @@ void HPL_pdpanel_init
       if( nprow > 1 )                                 /* space for U */
       { nu = nq - JB; lwork += JB * Mmax( 0, nu ); }
 
-      if( !( PANEL->WORK = (void *)malloc( lwork * sizeof( double ) ) ) )
+      if( !( PANEL->WORK = (void *)malloc( (size_t)(lwork) * 
+                                           sizeof( double ) ) ) )
       {
          HPL_pabort( __LINE__, "HPL_pdpanel_init",
                      "Memory allocation failed" );
@@ -240,7 +241,8 @@ void HPL_pdpanel_init
          lwork += JB * Mmax( 0, nu );
       }
 
-      if( !( PANEL->WORK = (void *)malloc( lwork * sizeof( double ) ) ) )
+      if( !( PANEL->WORK = (void *)malloc( (size_t)(lwork) *
+                                           sizeof( double ) ) ) )
       {
          HPL_pabort( __LINE__, "HPL_pdpanel_init",
                      "Memory allocation failed" );
@@ -334,7 +336,7 @@ void HPL_pdpanel_init
       lwork = 4 + (9 * JB) + (3 * nprow) + itmp1;
    }
 
-   PANEL->IWORK = (int *)malloc( lwork * sizeof( int ) );
+   PANEL->IWORK = (int *)malloc( (size_t)(lwork) * sizeof( int ) );
 
    if( PANEL->IWORK == NULL )
    { HPL_pabort( __LINE__, "HPL_pdpanel_init", "Memory allocation failed" ); }
