@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -74,13 +74,13 @@ lib.grd : $(HPL_panobj)
 # ######################################################################
 #
 HPL_pdpanel_new.o      : ../HPL_pdpanel_new.c      $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanel_new.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanel_new.c
 HPL_pdpanel_init.o     : ../HPL_pdpanel_init.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanel_init.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanel_init.c
 HPL_pdpanel_disp.o     : ../HPL_pdpanel_disp.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanel_disp.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanel_disp.c
 HPL_pdpanel_free.o     : ../HPL_pdpanel_free.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanel_free.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanel_free.c
 #
 # ######################################################################
 #

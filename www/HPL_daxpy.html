@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_daxpy HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_daxpy HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_daxpy</B> y := y + alpha * x.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_daxpy(</CODE>
 <CODE>const int</CODE>
@@ -67,7 +67,7 @@ INCY    (local input)                 const int
 </PRE>
 
 <H1>Example</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <PRE>
 int main(int argc, char *argv[])
 {
@@ -75,16 +75,15 @@ int main(int argc, char *argv[])
    x[0] = 1.0; x[1] = 2.0; x[2] = 3.0;
    y[0] = 4.0; y[1] = 5.0; y[2] = 6.0;
    HPL_daxpy( 3, 2.0, x, 1, y, 1 );
-   printf("y=[%f,%f,%f]", y[0], y[1], y[2]);
-   exit(0);
-   return(0);
+   printf("y=[%f,%f,%f]\n", y[0], y[1], y[2]);
+   exit(0); return(0);
 }
 </PRE>
 
 <H1>See Also</H1>
 <A HREF="HPL_dcopy.html">HPL_dcopy</A>,
 <A HREF="HPL_dscal.html">HPL_dscal</A>,
-<A HREF="HPL_dswap.html">HPL_dswap</A>
+<A HREF="HPL_dswap.html">HPL_dswap</A>.
 
 </BODY>
 </HTML>

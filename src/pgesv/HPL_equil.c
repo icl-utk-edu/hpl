@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,32 +52,32 @@
 #ifdef STDC_HEADERS
 void HPL_equil
 (
-   HPL_T_panel *              PBCST,
-   int *                      IFLAG,
-   HPL_T_panel *              PANEL,
-   const enum HPL_TRANS       TRANS,
-   const int                  N,
-   double *                   U,
-   const int                  LDU,
-   int *                      IPLEN,
-   const int *                IPMAP,
-   const int *                IPMAPM1,
-   int *                      IWORK
+   HPL_T_panel *                    PBCST,
+   int *                            IFLAG,
+   HPL_T_panel *                    PANEL,
+   const enum HPL_TRANS             TRANS,
+   const int                        N,
+   double *                         U,
+   const int                        LDU,
+   int *                            IPLEN,
+   const int *                      IPMAP,
+   const int *                      IPMAPM1,
+   int *                            IWORK
 )
 #else
 void HPL_equil
 ( PBCST, IFLAG, PANEL, TRANS, N, U, LDU, IPLEN, IPMAP, IPMAPM1, IWORK )
-   HPL_T_panel *              PBCST;
-   int *                      IFLAG;
-   HPL_T_panel *              PANEL;
-   const enum HPL_TRANS       TRANS;
-   const int                  N;
-   double *                   U;
-   const int                  LDU;
-   int *                      IPLEN;
-   const int *                IPMAP;
-   const int *                IPMAPM1;
-   int *                      IWORK;
+   HPL_T_panel *                    PBCST;
+   int *                            IFLAG;
+   HPL_T_panel *                    PANEL;
+   const enum HPL_TRANS             TRANS;
+   const int                        N;
+   double *                         U;
+   const int                        LDU;
+   int *                            IPLEN;
+   const int *                      IPMAP;
+   const int *                      IPMAPM1;
+   int *                            IWORK;
 #endif
 {
 /* 
@@ -97,7 +97,7 @@ void HPL_equil
  *         On entry,  PBCST  points to the data structure containing the
  *         panel (to be broadcast) information.
  *
- * IFLAG   (local intput/output)         int *
+ * IFLAG   (local input/output)          int *
  *         On entry, IFLAG  indicates  whether or not  the broadcast has
  *         already been completed.  If not,  probing will occur, and the
  *         outcome will be contained in IFLAG on exit.

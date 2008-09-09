@@ -1,8 +1,8 @@
-.TH HPL_pdtest 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_pdtest 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_pdtest \- Perform one test.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_pdtest(\fR
@@ -26,7 +26,7 @@ solver,  checks  the  accuracy  of the  obtained vector solution  and
 writes this information to the file pointed to by TEST->outfp.
 .SH ARGUMENTS
 .TP 8
-TEST    (global input)                HPL_T_test *
+TEST    (global input)          HPL_T_test *
 On entry,  TEST  points  to a testing data structure:  outfp
 specifies the output file where the results will be printed.
 It is only defined and used by the process  0  of the  grid.
@@ -43,32 +43,21 @@ incremented by one;  if the test fails, kfail is incremented
 by one; if the test is skipped, kskip is incremented by one.
 ktest is left unchanged.
 .TP 8
-GRID    (local input)                 HPL_T_grid *
+GRID    (local input)           HPL_T_grid *
 On entry,  GRID  points  to the data structure containing the
 process grid information.
 .TP 8
-ALGO    (global input)                HPL_T_palg *
+ALGO    (global input)          HPL_T_palg *
 On entry,  ALGO  points to  the data structure containing the
 algorithmic parameters to be used for this test.
 .TP 8
-N       (global input)                const int
+N       (global input)          const int
 On entry,  N specifies the order of the coefficient matrix A.
 N must be at least zero.
 .TP 8
-NB      (global input)                const int
+NB      (global input)          const int
 On entry,  NB specifies the blocking factor used to partition
 and distribute the matrix A. NB must be larger than one.
 .SH SEE ALSO
-.BR HPL_pddriver (3),
-.BR HPL_pdinfo (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_pddriver \ (3),
+.BR HPL_pdinfo \ (3).

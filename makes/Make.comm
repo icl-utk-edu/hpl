@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -75,33 +75,33 @@ lib.grd : $(HPL_comobj)
 # ######################################################################
 #
 HPL_1ring.o            : ../HPL_1ring.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_1ring.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_1ring.c
 HPL_1rinM.o            : ../HPL_1rinM.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_1rinM.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_1rinM.c
 HPL_2ring.o            : ../HPL_2ring.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_2ring.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_2ring.c
 HPL_2rinM.o            : ../HPL_2rinM.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_2rinM.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_2rinM.c
 HPL_blong.o            : ../HPL_blong.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_blong.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_blong.c
 HPL_blonM.o            : ../HPL_blonM.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_blonM.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_blonM.c
 HPL_packL.o            : ../HPL_packL.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_packL.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_packL.c
 HPL_copyL.o            : ../HPL_copyL.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_copyL.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_copyL.c
 HPL_binit.o            : ../HPL_binit.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_binit.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_binit.c
 HPL_bcast.o            : ../HPL_bcast.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_bcast.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_bcast.c
 HPL_bwait.o            : ../HPL_bwait.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_bwait.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_bwait.c
 HPL_send.o             : ../HPL_send.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_send.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_send.c
 HPL_recv.o             : ../HPL_recv.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_recv.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_recv.c
 HPL_sdrv.o             : ../HPL_sdrv.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_sdrv.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_sdrv.c
 #
 # ######################################################################
 # 

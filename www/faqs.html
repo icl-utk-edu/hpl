@@ -20,8 +20,6 @@ LINK        = "#0000ff">
 <LI><A HREF="faqs.html#1node">What about the one processor case ?</A>
 <LI><A HREF="faqs.html#options">Why so many options in HPL.dat ?</A>
 <LI><A HREF="faqs.html#outperf">Can HPL be outperformed ?</A>
-<LI><A HREF="faqs.html#alpha_bug00">Execution dies with "Floating point
-exception" on Compaq Alpha 21264 processor based node</A>
 </UL>
 <HR NOSHADE>
 
@@ -107,44 +105,10 @@ Specific knowledge about  a  particular system  is always a source of
 performance   gains.  Even  from  a generic  point  of  view,  better
 algorithms  or  more  efficient  formulation  of the classic ones are
 potential winners.<BR><BR>
-<HR NOSHADE>
-
-<H3><A NAME="alpha_bug00">Execution dies with "Floating point
-exception" on Compaq Alpha 21264 processor based node</A></H3>
-
-Some older version of the cxml BLAS library seems to require operands
-adresses to be aligned on  64  or 96 bytes boundaries. This error was
-tracked  down  to  the  Level 2  BLAS  DGER  routine.  It  is  rather
-difficult to reproduce in a small example program since  the operands
-A,  X  and  Y  need to be stored at specific places in memory for the
-problem to occur. There  are  at  least 4 possibles independent fixes
-(applying one of them should be enough):
-<OL>
-<LI>Get the latest cxml library.<BR><BR>
-
-<LI>Do not use the right-looking variant of  the panel factorization:
-Line 14 of the input data file HPL.dat  should  not contain a 2.  Use
-only 0s or 1s on that line.<BR><BR>
-
-<LI>Link  in the Fortran 77 reference implementation of that routine.
-Download the source from <A HREF="http://www.netlib.org/blas.dger.f">
-netlib</A>  and  compile  it.  Move the object file "dger.o" into the
-hpl/testing/ptest/&#60arch&#62 directory. Edit the Makefile there and
-add "dger.o" to the list of object files.  Issue  in that directory a
-"make clean; make".   You should have just built a patched executable
-(hpl/bin/&#60arch&#62/xhpl).<BR><BR>
-
-<LI>Another possible fix that does not seem to always work  is to set
-the value of the ALIGN parameter in the data input file
-hpl/bin/&#60arch&#62/HPL.dat  to  a multiple of 8 (or 12) larger than
-or equal to 8 (or 12).<BR><BR>
-
-</OL>
 
 <HR NOSHADE>
 <CENTER>
 <A HREF = "index.html">            [Home]</A>
-<A HREF = "mailto:hpl@cs.utk.edu"> [Contact]</A>
 <A HREF = "copyright.html">        [Copyright and Licensing Terms]</A>
 <A HREF = "algorithm.html">        [Algorithm]</A>
 <A HREF = "scalability.html">      [Scalability]</A>

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,20 +52,20 @@
 #ifdef STDC_HEADERS
 void HPL_pdtest
 (
-   HPL_T_test *               TEST,
-   HPL_T_grid *               GRID,
-   HPL_T_palg *               ALGO,
-   const int                  N,
-   const int                  NB
+   HPL_T_test *                     TEST,
+   HPL_T_grid *                     GRID,
+   HPL_T_palg *                     ALGO,
+   const int                        N,
+   const int                        NB
 )
 #else
 void HPL_pdtest
 ( TEST, GRID, ALGO, N, NB )
-   HPL_T_test *               TEST;
-   HPL_T_grid *               GRID;
-   HPL_T_palg *               ALGO;
-   const int                  N;
-   const int                  NB;
+   HPL_T_test *                     TEST;
+   HPL_T_grid *                     GRID;
+   HPL_T_palg *                     ALGO;
+   const int                        N;
+   const int                        NB;
 #endif
 {
 /* 
@@ -239,7 +239,8 @@ void HPL_pdtest
 
       if( wtime[0] > HPL_rzero )
          HPL_fprintf( TEST->outfp,
-             "W%1d%c%c%1d%c%1d %12d %5d %5d %5d %18.2f %18.3e\n",
+             "W%c%1d%c%c%1d%c%1d%12d %5d %5d %5d %18.2f %18.3e\n",
+             ( GRID->order == HPL_ROW_MAJOR ? 'R' : 'C' ),
              ALGO->depth, ctop, crfact, ALGO->nbdiv, cpfact, ALGO->nbmin,
              N, NB, nprow, npcol, wtime[0], Gflops );
    }

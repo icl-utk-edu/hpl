@@ -1,8 +1,8 @@
-.TH HPL_fprintf 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_fprintf 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_fprintf \- fprintf + fflush wrapper.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_fprintf(\fR
@@ -17,41 +17,28 @@ HPL_fprintf \- fprintf + fflush wrapper.
 is a wrapper around fprintf flushing the output stream.
 .SH ARGUMENTS
 .TP 8
-STREAM  (local input)                 FILE *
+STREAM  (local input)           FILE *
 On entry, STREAM specifies the output stream.
 .TP 8
-FORM    (local input)                 const char *
+FORM    (local input)           const char *
 On entry, FORM specifies the format, i.e., how the subsequent
 arguments are converted for output.
 .TP 8
-        (local input)                 ...
+        (local input)           ...
 On entry,  ...  is the list of arguments to be printed within
 the format string.
 .SH EXAMPLE
-\fI\&#include <hpl.h>\fR
+\fI\&#include "hpl.h"\fR
  
 int main(int argc, char *argv[])
 .br
 {
 .br
-   HPL_fprintf( stdout, "Hello World." );
+   HPL_fprintf( stdout, "Hello World.\en" );
 .br
-   exit(0);
-.br
-   return(0);
+   exit(0); return(0);
 .br
 }
 .SH SEE ALSO
-.BR HPL_abort (3),
-.BR HPL_warn (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_abort \ (3),
+.BR HPL_warn \ (3).

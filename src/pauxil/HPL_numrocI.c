@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,24 +52,24 @@
 #ifdef STDC_HEADERS
 int HPL_numrocI
 (
-   const int                  N,
-   const int                  I,
-   const int                  INB,
-   const int                  NB,
-   const int                  PROC,
-   const int                  SRCPROC,
-   const int                  NPROCS
+   const int                        N,
+   const int                        I,
+   const int                        INB,
+   const int                        NB,
+   const int                        PROC,
+   const int                        SRCPROC,
+   const int                        NPROCS
 )
 #else
 int HPL_numrocI
 ( N, I, INB, NB, PROC, SRCPROC, NPROCS )
-   const int                  N;
-   const int                  I;
-   const int                  INB;
-   const int                  NB;
-   const int                  PROC;
-   const int                  SRCPROC;
-   const int                  NPROCS;
+   const int                        N;
+   const int                        I;
+   const int                        INB;
+   const int                        NB;
+   const int                        PROC;
+   const int                        SRCPROC;
+   const int                        NPROCS;
 #endif
 {
 /* 

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -70,7 +70,7 @@
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_dmatgen
+void                             HPL_dmatgen
 STDC_ARGS( (
    const int,
    const int,
@@ -78,41 +78,41 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-void              HPL_lmul
+void                             HPL_lmul
 STDC_ARGS( (
    int *,
    int *,
    int *
 ) );
-void              HPL_ladd
+void                             HPL_ladd
 STDC_ARGS( (
    int *,
    int *,
    int *
 ) );
-void              HPL_xjumpm
-STDC_ARGS( (
-   const int,
-   int *,
-   int *,
-   int *,
-   int *,
-   int *,
-   int *
-) );
-void              HPL_setran
+void                             HPL_xjumpm
 STDC_ARGS( (
    const int,
+   int *,
+   int *,
+   int *,
+   int *,
+   int *,
    int *
 ) );
-void              HPL_jumpit
+void                             HPL_setran
+STDC_ARGS( (
+   const int,
+   int *
+) );
+void                             HPL_jumpit
 STDC_ARGS( (
    int *,
    int *,
    int *,
    int *
 ) );
-double            HPL_rand STDC_ARGS( ( void ) );
+double                           HPL_rand STDC_ARGS( ( void ) );
 
 #endif
 /*

@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -75,24 +75,6 @@ LIBdir       = $(TOPdir)/lib/$(ARCH)
 HPLlib       = $(LIBdir)/libhpl.a 
 #
 # ----------------------------------------------------------------------
-# - Compilers / linkers - Optimization flags ---------------------------
-# ----------------------------------------------------------------------
-#
-CC           = cc
-NOOPT        =
-CCFLAGS      = -D_INCLUDE_POSIX_SOURCE -DUseTimes -Aa +O4
-#
-# On some platforms,  it is necessary  to use the Fortran linker to find
-# the Fortran internals used in the BLAS library.
-#
-LINKER       = cc
-LINKFLAGS    = -Aa
-#
-ARCHIVER     = ar
-ARFLAGS      = r
-RANLIB       = echo
-#
-# ----------------------------------------------------------------------
 # - MPI directories - library ------------------------------------------
 # ----------------------------------------------------------------------
 # MPIinc tells the C compiler where to find the MPI header files, MPIlib
@@ -106,6 +88,12 @@ MPIinc       = -I$(MPIdir)/include -I$(MPIplat)/include
 MPIlib       = $(MPIplat)/lib/libmpich.a
 #
 # ----------------------------------------------------------------------
+# - BLAS library -------------------------------------------------------
+# ----------------------------------------------------------------------
+#
+BLASlib      = /usr/lib/pa1.1/libblas.a
+#
+# ----------------------------------------------------------------------
 # - F77 / C interface --------------------------------------------------
 # ----------------------------------------------------------------------
 # You can skip this section  if and only if  you are not planning to use
@@ -117,14 +105,14 @@ MPIlib       = $(MPIplat)/lib/libmpich.a
 # 1) name space (How C calls a Fortran 77 routine)
 #
 # -DAdd_              : all lower case and a suffixed underscore  (Suns,
-#                       Intel, ...),
+#                       Intel, ...),                           [default]
 # -DNoChange          : all lower case (IBM RS6000),
 # -DUpCase            : all upper case (Cray),
-# -Df77IsF2C          : the FORTRAN compiler in use is f2c.
+# -DAdd__             : the FORTRAN compiler in use is f2c.
 #
 # 2) C and Fortran 77 integer mapping
 #
-# -DF77_INTEGER=int   : Fortran 77 INTEGER is a C int,
+# -DF77_INTEGER=int   : Fortran 77 INTEGER is a C int,         [default]
 # -DF77_INTEGER=long  : Fortran 77 INTEGER is a C long,
 # -DF77_INTEGER=short : Fortran 77 INTEGER is a C short. 
 #
@@ -133,24 +121,18 @@ MPIlib       = $(MPIplat)/lib/libmpich.a
 # -DStringSunStyle    : The string address is passed at the string loca-
 #                       tion on the stack, and the string length is then
 #                       passed as  an  F77_INTEGER  after  all  explicit
-#                       stack arguments,
+#                       stack arguments,                       [default]
 # -DStringStructPtr   : The address  of  a  structure  is  passed  by  a 
 #                       Fortran 77  string,  and the structure is of the
 #                       form: struct {char *cp; F77_INTEGER len;},
 # -DStringStructVal   : A structure is passed by value for each  Fortran
 #                       77 string,  and  the  structure is  of the form: 
 #                       struct {char *cp; F77_INTEGER len;},
-# -DCrayStyle         : Special option for  Cray  machines,  which  uses 
+# -DStringCrayStyle   : Special option for  Cray  machines,  which  uses 
 #                       Cray  fcd  (fortran  character  descriptor)  for 
 #                       interoperation. 
 #
 F2CDEFS      = -DNoChange -DF77_INTEGER=int -DStringSunStyle 
-#
-# ----------------------------------------------------------------------
-# - BLAS library -------------------------------------------------------
-# ----------------------------------------------------------------------
-#
-BLASlib      = /usr/lib/pa1.1/libblas.a
 #
 # ----------------------------------------------------------------------
 # - HPL includes / libraries / specifics -------------------------------
@@ -175,5 +157,23 @@ HPL_OPTS     =
 # ----------------------------------------------------------------------
 #
 HPL_DEFS     = $(HPL_INCLUDES) $(F2CDEFS) $(HPL_OPTS)
+#
+# ----------------------------------------------------------------------
+# - Compilers / linkers - Optimization flags ---------------------------
+# ----------------------------------------------------------------------
+#
+CC           = cc
+CCNOOPT      = $(HPL_DEFS)
+CCFLAGS      = $(HPL_DEFS) -D_INCLUDE_POSIX_SOURCE -DUseTimes -Aa +O4
+#
+# On some platforms,  it is necessary  to use the Fortran linker to find
+# the Fortran internals used in the BLAS library.
+#
+LINKER       = cc
+LINKFLAGS    = -Aa
+#
+ARCHIVER     = ar
+ARFLAGS      = r
+RANLIB       = echo
 #
 # ----------------------------------------------------------------------

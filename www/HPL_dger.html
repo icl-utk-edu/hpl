@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_dger HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_dger HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_dger</B> A := alpha * x * y^T + A.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_dger(</CODE>
 <CODE>const enum HPL_ORDER</CODE>
@@ -102,7 +102,7 @@ LDA     (local input)                 const int
 </PRE>
 
 <H1>Example</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <PRE>
 int main(int argc, char *argv[])
 {
@@ -111,15 +111,14 @@ int main(int argc, char *argv[])
    x[0] = 2.0; x[1] = 1.0; y[2] = 1.0; y[3] = 2.0;
    HPL_dger( HplColumnMajor, 2, 2, 2.0, x, 1, y, 1,
              a, 2 );
-   printf("y=[%f,%f]", y[0], y[1]);
-   exit(0);
-   return(0);
+   printf("y=[%f,%f]\n", y[0], y[1]);
+   exit(0); return(0);
 }
 </PRE>
 
 <H1>See Also</H1>
 <A HREF="HPL_dgemv.html">HPL_dgemv</A>,
-<A HREF="HPL_dtrsv.html">HPL_dtrsv</A>
+<A HREF="HPL_dtrsv.html">HPL_dtrsv</A>.
 
 </BODY>
 </HTML>

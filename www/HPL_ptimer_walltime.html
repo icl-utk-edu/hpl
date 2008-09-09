@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_ptimer_walltime HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_ptimer_walltime HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,24 +10,17 @@
 <B>HPL_ptimer_walltime</B> Return the elapsed (wall-clock) time.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>double</CODE>
 <CODE>HPL_ptimer_walltime();</CODE>
 
 <H1>Description</H1>
 <B>HPL_ptimer_walltime</B>
 returns the elapsed (wall-clock) time.
- 
-If HPL_USE_PentiumCPS  is defined to be the clock cycle per second on
-an i[56]86 Intel processor (e.g., HPL_USE_PentiumCPS is defined to be
-300  on a  300 Mhz Pentium processor), we read the internal processor
-counters.  If HPL_USE_GETTIMEOFDAY  is  defined,  the  gettimeofday()
-function is used to return  the elapsed wallclock time of the system.
-Otherwise, the MPI_Wtime() function is used (default).
 
 <H1>See Also</H1>
 <A HREF="HPL_ptimer_cputime.html">HPL_ptimer_cputime</A>,
-<A HREF="HPL_ptimer.html">HPL_ptimer</A>
+<A HREF="HPL_ptimer.html">HPL_ptimer</A>.
 
 </BODY>
 </HTML>

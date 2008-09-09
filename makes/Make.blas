@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -72,23 +72,23 @@ lib.grd : $(HPL_blaobj)
 # ######################################################################
 #
 HPL_dcopy.o            : ../HPL_dcopy.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dcopy.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dcopy.c
 HPL_daxpy.o            : ../HPL_daxpy.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_daxpy.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_daxpy.c
 HPL_dscal.o            : ../HPL_dscal.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dscal.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dscal.c
 HPL_idamax.o           : ../HPL_idamax.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_idamax.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_idamax.c
 HPL_dgemv.o            : ../HPL_dgemv.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dgemv.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dgemv.c
 HPL_dtrsv.o            : ../HPL_dtrsv.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dtrsv.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dtrsv.c
 HPL_dger.o             : ../HPL_dger.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dger.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dger.c
 HPL_dgemm.o            : ../HPL_dgemm.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dgemm.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dgemm.c
 HPL_dtrsm.o            : ../HPL_dtrsm.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dtrsm.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dtrsm.c
 #
 # ######################################################################
 #

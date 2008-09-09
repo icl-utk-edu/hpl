@@ -1,8 +1,8 @@
-.TH HPL_packL 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_packL 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_packL \- Form the MPI structure for the row ring broadcasts.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&int\fR
 \fB\&HPL_packL(\fR
@@ -22,32 +22,21 @@ Successful  completion  is  indicated  by  the  returned  error  code
 MPI_SUCCESS.
 .SH ARGUMENTS
 .TP 8
-PANEL   (input/output)                HPL_T_panel *
+PANEL   (input/output)          HPL_T_panel *
 On entry,  PANEL  points to the  current panel data structure
 being broadcast.
 .TP 8
-INDEX   (input)                       const int
+INDEX   (input)                 const int
 On entry,  INDEX  points  to  the  first entry of the  packed
 buffer being broadcast.
 .TP 8
-LEN     (input)                       const int
+LEN     (input)                 const int
 On entry, LEN is the length of the packed buffer.
 .TP 8
-IBUF    (input)                       const int
+IBUF    (input)                 const int
 On entry, IBUF  specifies the panel buffer/count/type entries
 that should be initialized.
 .SH SEE ALSO
-.BR HPL_binit (3),
-.BR HPL_bcast (3),
-.BR HPL_bwait (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_binit \ (3),
+.BR HPL_bcast \ (3),
+.BR HPL_bwait \ (3).

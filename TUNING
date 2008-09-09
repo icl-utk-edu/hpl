@@ -1,7 +1,7 @@
 ==============================================================
  Performance Tuning and setting up the input data file HPL.dat
  
- Current as of release 1.0 - September 27, 2000
+ Current as of release 1.0a - January 20, 2004
 ==============================================================
  Check out  the website  www.netlib.org/benchmark/hpl  for the
  latest information.
@@ -97,8 +97,14 @@
  
  means  that  one  wants  xhpl  to use 5 (specified in line 7)
  block sizes, namely 80, 100, 120, 140 and 160.
+
+ Line 9 specifies how the  MPI processes should be mapped onto
+ the nodes of your platform.  There are currently two possible
+ mappings, namely row- and column-major. This feature is main-
+ ly  useful  when these nodes  are  themselves multi-processor
+ computers. A row-major mapping is recommended.
  
- Line 9: This line  specifies  the  number  of process grid to
+ Line 10: This line specifies  the  number  of process grid to
  be runned.  This  number  should be less than or equal to 20.
  The first integer is significant, the rest is ignored. If the
  line reads:
@@ -108,31 +114,31 @@
  this  means  that you are willing to try 2 process grid sizes 
  that will be specified in the next line.
  
- Line 10-11: These  two  lines specify  the  number of process
+ Line 11-12: These  two  lines specify  the  number of process
  rows  and  columns of each grid you want to run on.  Assuming
- the line above (9) started with 2, the 2 first positive inte-
- gers of those two lines are significant, the rest is ignored.
- For example:
+ the line above (10) started with 2,  the 2 first positive in-
+ tegers of those two lines are significant,  the rest is igno-
+ red. For example:
  
  1 2          Ps
  6 8          Qs
  
- means that one wants to run xhpl on 2 process grids (line 9),
- namely 1 by 6 and 2 by 8. Note: In this example, it is requi-
- red then to start xhpl on at least 16 nodes (max of P_ixQ_i).
- The  runs  on  the two grids will be consecutive.  If one was 
- starting xhpl on more than 16 nodes, say 52,  only 6 would be
- used for the first grid (1x6) and then 16 (2x8) would be used
- for the second grid. The fact that you started the MPI job on
- 52 nodes, will not make HPL use all of them. In this example,
- only 16 would be used.  If one wants to run xhpl with 52 pro-
- cesses  one  needs to specify a grid of 52 nodes, for example 
- the following lines would do the job:
+ means  that one wants to run  xhpl  on  2 process grids (line
+ 10), namely 1 by 6 and 2 by 8.  Note:  In this example, it is
+ required then to start xhpl on at least 16 nodes  (max of P_i
+ xQ_i). The runs on the two grids will be consecutive.  If one
+ was starting xhpl on more than 16 nodes, say 52, only 6 would
+ be used for the first grid  (1x6) and then 16  (2x8) would be
+ used for the second grid.  The fact  that you started the MPI 
+ job on 52 nodes,  will not make HPL use all of them.  In this 
+ example, only 16 would be used. If one wants to run xhpl with
+ 52 processes one needs to specify a grid of 52 processes, for
+ example the following lines would do the job:
  
  4  2         Ps
  13 8         Qs
  
- Line 12: This  line  specifies  the  threshold  the residuals
+ Line 13: This  line  specifies  the  threshold  the residuals
  should be compared to.  The  residuals  should be or order 1,
  but are in practice slightly less than this, typically 0.001.
  This  line  is  made of a real number, the rest is unsignifi-
@@ -177,7 +183,7 @@
  PFACT. The following lines of HPL.dat allows you to set those
  parameters.
  
- Lines 13-20: (Example 1)
+ Lines 14-21: (Example 1)
  3       # of panel fact
  0 1 2   PFACTs (0=left, 1=Crout, 2=Right)
  4       # of recursive stopping criterium
@@ -189,7 +195,7 @@
  
  This  example  would  try all variants of PFACT, 4 values for
  NBMIN,  namely 1, 2, 4 and 8,  3 values for NDIV namely 2,  3 
- and 4, and all variants for RFACT.  Lines 13-20: (Example 1)
+ and 4, and all variants for RFACT.  Lines 14-21: (Example 1)
 
  2       # of panel fact
  2 0     PFACTs (0=left, 1=Crout, 2=Right)
@@ -208,13 +214,13 @@
  lumn is broadcast in process rows  using  a virtual  ring to-
  pology. HPL offers various choices, and one most  likely want
  to use the increasing ring modified encoded as 1.  4  is also
- a good choice. Lines 21-22: (Example 1):
+ a good choice. Lines 22-23: (Example 1):
 
  1       # of broadcast
  1       BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
  
  This will cause HPL  to broadcast the current panel using the
- increasing ring modified topology. Lines 21-22: (Example 2):
+ increasing ring modified topology. Lines 22-23: (Example 2):
  
  2       # of broadcast
  0 4     BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
@@ -223,7 +229,7 @@
  increasing ring virtual topology and the long message algori-
  thm.
  
- Lines 23-24  allow  to  specify  the look-ahead depth used by
+ Lines 24-25  allow  to  specify  the look-ahead depth used by
  HPL. A depth of 0 means that the next panel is factorized af-
  ter the update by the current panel is completely finished. A
  depth of 1 means that the next panel is factorized immediate-
@@ -235,20 +241,20 @@
  blem size  before one can see the performance gain. So use 1,
  if you do not know better,  otherwise  you may want to try 0.
  Look-ahead of depths 2  and larger will probably not give you
- better results.  Lines 23-24: (Example 1):
+ better results.  Lines 24-25: (Example 1):
  
  1       # of lookahead depth
  1       DEPTHs (>=0)
  
  This will cause HPL to use a look-ahead of depth 1.
- Lines 23-24: (Example 2):
+ Lines 24-25: (Example 2):
  
  2       # of lookahead depth
  0 1     DEPTHs (>=0)
  
  This will cause HPL to use a look-ahead of depths 0 and 1.
 
- Lines 25-26  allow to specify  the swapping algorithm used by
+ Lines 26-27  allow to specify  the swapping algorithm used by
  HPL for all tests.  There  are  currently  two swapping algo-
  rithms  available,  one  based  on "binary exchange"  and the
  other one based on a  "spread-roll"  procedure  (also  called 
@@ -256,15 +262,15 @@
  ly to be more efficient. The user can also choose to mix both
  variants, that is "binary-exchange"  for  a number of columns
  less  than a threshold value, and then the  "spread-roll" al-
- gorithm.  This threshold  value is then specified on Line 26.
- Lines 25-26: (Example 1):
+ gorithm.  This threshold  value is then specified on Line 27.
+ Lines 26-27: (Example 1):
 
  1       SWAP (0=bin-exch,1=long,2=mix)
  60      swapping threshold
 
  This will cause HPL to use the "long" or  "spread-roll" swap-
  ping algorithm.  Note  that a threshold  is specified in that
- example but not used by HPL. Lines 25-26: (Example 2):
+ example but not used by HPL. Lines 26-27: (Example 2):
 
  2       SWAP (0=bin-exch,1=long,2=mix)
  60      swapping threshold
@@ -274,24 +280,24 @@
  the row panel.  Otherwise,  the  "binary-exchange"  algorithm
  will be used instead.
 
- Line 27  allows  to specify whether the upper triangle of the
+ Line 28  allows  to specify whether the upper triangle of the
  panel  of  columns  should  be  stored  in  no-transposed  or
  transposed form. Example:
 
  0            L1 in (0=transposed,1=no-transposed) form
 
- Line 28 allows to specify whether the panel of rows  U should
+ Line 29 allows to specify whether the panel of rows  U should
  be stored in no-transposed or transposed form. Example:
  
  0            U  in (0=transposed,1=no-transposed) form
 
- Line 29 enables/disables the equilibration phase. This option
- will not be used unless you selected 1 or 2 in Line 25. Ex:
+ Line 30 enables/disables the equilibration phase. This option
+ will not be used unless you selected 1 or 2 in Line 26. Ex:
 
  1            Equilibration (0=no,1=yes)
 
 
- Line 30  allows  to  specify  the alignment in memory for the
+ Line 31  allows  to  specify  the alignment in memory for the
  memory space allocated by HPL. On modern machines, one proba-
  bly wants to use 4, 8 or 16. This may result in a tiny amount
  of memory wasted. Example:
@@ -327,12 +333,16 @@
  slightly better  results for large problem sizes because of a
  slighlty higher flop rate.
 
- 2) HPL likes "square" or slightly flat process grids.  Unless
+ 2)  The process mapping  should  not matter  if  the nodes of
+ your platform are single processor computers.  If these nodes
+ are multi-processors, a row-major mapping is recommended.
+
+ 3) HPL likes "square" or slightly flat process grids.  Unless
  you  are using  a very small process grid, stay away from the 
  1-by-Q and P-by-1 process grids.
 
- 3) Panel factorization parameters:  a good start are the fol-
- lowing for the lines 13-20:
+ 4) Panel factorization parameters:  a good start are the fol-
+ lowing for the lines 14-21:
 
  1       # of panel fact
  1       PFACTs (0=left, 1=Crout, 2=Right)
@@ -343,10 +353,10 @@
  1       # of recursive panel fact.
  2       RFACTs (0=left, 1=Crout, 2=Right)
 
- 4) Broadcast parameters: at this time, it is far from obvious
+ 5) Broadcast parameters: at this time, it is far from obvious
  to me what the best setting is,  so i would probably try them
  all. If I had to guess I would probably start with the follo-
- wing for the lines 21-22:
+ wing for the lines 22-23:
  
  2       # of broadcast
  1 3     BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
@@ -356,15 +366,15 @@
  machines  featuring  very  fast nodes  comparatively  to  the 
  network.
 
- 5) Look-ahead depth: as mentioned above  0 or 1 are likely to 
+ 6) Look-ahead depth: as mentioned above  0 or 1 are likely to 
  be the best choices.  This also  depends  on the problem size
  and machine configuration, so I would try "no look-ahead (0)"
- and "look-ahead of depth 1 (1)". That is for lines 23-24:
+ and "look-ahead of depth 1 (1)". That is for lines 24-25:
  
  2       # of lookahead depth
  0 1     DEPTHs (>=0)
 
- 6) Swapping:  one  can select only one of the three algorithm 
+ 7) Swapping:  one  can select only one of the three algorithm 
  in the input file. Theoretically, mix (2) should win, however
  long (1) might just be good enough. The  difference should be
  small between those two assuming  a swapping threshold of the 
@@ -372,7 +382,7 @@
  very large, HPL will use bin_exch (0) most of the time and if
  it  is  very  small  (< NB) long (1)  will always be used. In 
  short  and  assuming  the  block size (NB)  used is say 60, I 
- would choose for the lines 25-26:
+ would choose for the lines 26-27:
 
  2       SWAP (0=bin-exch,1=long,2=mix)
  60      swapping threshold 
@@ -381,8 +391,8 @@
  of processes  in every column of the process grid  (say < 4),
  very little performance difference should be observable.
 
- 7) Local storage:  I do not think Line 27 matters.  Pick 0 in
- doubt.  Line 28 is more important.  It controls how the panel
+ 8) Local storage:  I do not think Line 28 matters.  Pick 0 in
+ doubt.  Line 29 is more important.  It controls how the panel
  of rows should be stored. No doubt 0 is better. The caveat is
  that in that case the matrix-multiply function is called with
  ( Notrans, Trans, ... ), that is C := C - A B^T.  Unless  the
@@ -394,14 +404,14 @@
  0       L1 in (0=transposed,1=no-transposed) form
  0       U  in (0=transposed,1=no-transposed) form
 
- 8) Equilibration:  It  is hard to tell  whether equilibration
+ 9) Equilibration:  It  is hard to tell  whether equilibration
  should always be performed or not. Not knowing much about the
  random matrix generated and because the overhead is so small
  compared to the possible gain, I turn it on all the time.
 
  1       Equilibration (0=no,1=yes)
 
- 9) For  alignment,  4 should be plenty,  but just to be safe,
+ 10) For  alignment, 4 should be plenty,  but just to be safe,
  one may want to pick 8 instead.
 
  8       memory alignment in double (> 0)

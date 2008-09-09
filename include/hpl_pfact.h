@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -75,7 +75,7 @@ typedef void (*HPL_T_UPD_FUN)
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_dlocmax
+void                             HPL_dlocmax
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -84,70 +84,21 @@ STDC_ARGS( (
    double *
 ) );
 
-void              HPL_dlocswpN
+void                             HPL_dlocswpN
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
    const int,
    double *
 ) );
-void              HPL_dlocswpT
+void                             HPL_dlocswpT
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
    const int,
    double *
 ) );
-void              HPL_pdmxswp
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-
-void              HPL_pdpancrN
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-void              HPL_pdpancrT
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-void              HPL_pdpanllN
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-void              HPL_pdpanllT
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-void              HPL_pdpanrlN
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int,
-   const int,
-   double *
-) );
-void              HPL_pdpanrlT
+void                             HPL_pdmxswp
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -156,7 +107,7 @@ STDC_ARGS( (
    double *
 ) );
 
-void              HPL_pdrpancrN
+void                             HPL_pdpancrN
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -164,7 +115,7 @@ STDC_ARGS( (
    const int,
    double *
 ) );
-void              HPL_pdrpancrT
+void                             HPL_pdpancrT
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -172,7 +123,7 @@ STDC_ARGS( (
    const int,
    double *
 ) );
-void              HPL_pdrpanllN
+void                             HPL_pdpanllN
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -180,7 +131,7 @@ STDC_ARGS( (
    const int,
    double *
 ) );
-void              HPL_pdrpanllT
+void                             HPL_pdpanllT
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -188,7 +139,7 @@ STDC_ARGS( (
    const int,
    double *
 ) );
-void              HPL_pdrpanrlN
+void                             HPL_pdpanrlN
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -196,7 +147,7 @@ STDC_ARGS( (
    const int,
    double *
 ) );
-void              HPL_pdrpanrlT
+void                             HPL_pdpanrlT
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -205,7 +156,56 @@ STDC_ARGS( (
    double *
 ) );
 
-void              HPL_pdfact
+void                             HPL_pdrpancrN
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+void                             HPL_pdrpancrT
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+void                             HPL_pdrpanllN
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+void                             HPL_pdrpanllT
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+void                             HPL_pdrpanrlN
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+void                             HPL_pdrpanrlT
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int,
+   const int,
+   double *
+) );
+
+void                             HPL_pdfact
 STDC_ARGS( (
    HPL_T_panel *
 ) );

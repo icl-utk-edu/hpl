@@ -1,8 +1,8 @@
-.TH HPL_dcopy 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_dcopy 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_dcopy \- y := x.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_dcopy(\fR
@@ -22,29 +22,29 @@ HPL_dcopy \- y := x.
 copies the vector x into the vector y.
 .SH ARGUMENTS
 .TP 8
-N       (local input)                 const int
+N       (local input)           const int
 On entry, N specifies the length of the vectors  x  and  y. N
 must be at least zero.
 .TP 8
-X       (local input)                 const double *
+X       (local input)           const double *
 On entry,  X  is an incremented array of dimension  at  least
 ( 1 + ( n - 1 ) * abs( INCX ) )  that  contains the vector x.
 .TP 8
-INCX    (local input)                 const int
+INCX    (local input)           const int
 On entry, INCX specifies the increment for the elements of X.
 INCX must not be zero.
 .TP 8
-Y       (local input/output)          double *
+Y       (local input/output)    double *
 On entry,  Y  is an incremented array of dimension  at  least
 ( 1 + ( n - 1 ) * abs( INCY ) )  that  contains the vector y.
 On exit, the entries of the incremented array  Y  are updated
 with the entries of the incremented array X.
 .TP 8
-INCY    (local input)                 const int
+INCY    (local input)           const int
 On entry, INCY specifies the increment for the elements of Y.
 INCY must not be zero.
 .SH EXAMPLE
-\fI\&#include <hpl.h>\fR
+\fI\&#include "hpl.h"\fR
  
 int main(int argc, char *argv[])
 .br
@@ -58,25 +58,12 @@ int main(int argc, char *argv[])
 .br
    HPL_dcopy( 3, x, 1, y, 1 );
 .br
-   printf("y=[%f,%f,%f]", y[0], y[1], y[2]);
+   printf("y=[%f,%f,%f]\en", y[0], y[1], y[2]);
 .br
-   exit(0);
-.br
-   return(0);
+   exit(0); return(0);
 .br
 }
 .SH SEE ALSO
-.BR HPL_daxpy (3),
-.BR HPL_dscal (3),
-.BR HPL_dswap (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_daxpy \ (3),
+.BR HPL_dscal \ (3),
+.BR HPL_dswap \ (3).

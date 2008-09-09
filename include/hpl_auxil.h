@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -79,13 +79,13 @@ typedef enum
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_fprintf
+void                             HPL_fprintf
 STDC_ARGS( (
    FILE *,
    const char *,
    ...
 ) );
-void              HPL_warn
+void                             HPL_warn
 STDC_ARGS( (
    FILE *,
    int,
@@ -93,14 +93,14 @@ STDC_ARGS( (
    const char *,
    ...
 ) );
-void              HPL_abort
+void                             HPL_abort
 STDC_ARGS( (
    int,
    const char *,
    const char *,
    ...
 ) );
-void              HPL_dlacpy
+void                             HPL_dlacpy
 STDC_ARGS( (
    const int,
    const int,
@@ -109,7 +109,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dlatcpy
+void                             HPL_dlatcpy
 STDC_ARGS( (
    const int,
    const int,
@@ -118,7 +118,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dlaprnt
+void                             HPL_dlaprnt
 STDC_ARGS( (
    const int,
    const int,
@@ -128,7 +128,7 @@ STDC_ARGS( (
    const int,
    const char *
 ) );
-double            HPL_dlange
+double                           HPL_dlange
 STDC_ARGS( (
    const HPL_T_NORM,
    const int,
@@ -136,7 +136,7 @@ STDC_ARGS( (
    const double *,
    const int
 ) );
-double            HPL_dlamch
+double                           HPL_dlamch
 STDC_ARGS( (
    const HPL_T_MACH
 ) );

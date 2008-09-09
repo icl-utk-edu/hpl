@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -100,6 +100,7 @@ int main( ARGC, ARGV )
                               mycol, myrow, ns, nbs, nbms, ndhs, ndvs,
                               npcol, npfs, npqs, nprow, nrfs, ntps, 
                               rank, size, tswap;
+   HPL_T_ORDER                pmapping;
    HPL_T_FACT                 rpfa;
    HPL_T_SWAP                 fswap;
 /* ..
@@ -122,6 +123,7 @@ int main( ARGC, ARGV )
  * 29 30 34 35  Ns
  * 4            # of NBs
  * 1 2 3 4      NBs
+ * 0            PMAP process mapping (0=Row-,1=Column-major)
  * 3            # of process grids (P x Q)
  * 2 1 4        Ps
  * 2 4 1        Qs
@@ -145,8 +147,8 @@ int main( ARGC, ARGV )
  * 1            Equilibration (0=no,1=yes)
  * 8            memory alignment in double (> 0)
  */
-   HPL_pdinfo( &test, &ns, nval, &nbs, nbval, &npqs, pval, qval, &npfs,
-               pfaval, &nbms, nbmval, &ndvs, ndvval, &nrfs, rfaval,
+   HPL_pdinfo( &test, &ns, nval, &nbs, nbval, &pmapping, &npqs, pval, qval,
+               &npfs, pfaval, &nbms, nbmval, &ndvs, ndvval, &nrfs, rfaval,
                &ntps, topval, &ndhs, ndhval, &fswap, &tswap, &L1notran,
                &Unotran, &equil, &align );
 /*
@@ -155,8 +157,8 @@ int main( ARGC, ARGV )
  */
    for( ipq = 0; ipq < npqs; ipq++ )
    {
-      (void) HPL_grid_init( MPI_COMM_WORLD, HPL_COLUMN_MAJOR,
-                            pval[ipq], qval[ipq], &grid );
+      (void) HPL_grid_init( MPI_COMM_WORLD, pmapping, pval[ipq], qval[ipq],
+                            &grid );
       (void) HPL_grid_info( &grid, &nprow, &npcol, &myrow, &mycol );
 
       if( ( myrow < 0 ) || ( myrow >= nprow ) ||

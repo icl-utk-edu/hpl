@@ -1,32 +1,14 @@
-.TH HPL_ptimer_walltime 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_ptimer_walltime 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_ptimer_walltime \- Return the elapsed (wall-clock) time.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&double\fR
 \fB\&HPL_ptimer_walltime();\fR
 .SH DESCRIPTION
 \fB\&HPL_ptimer_walltime\fR
 returns the elapsed (wall-clock) time.
- 
-If HPL_USE_PentiumCPS  is defined to be the clock cycle per second on
-an i[56]86 Intel processor (e.g., HPL_USE_PentiumCPS is defined to be
-300  on a  300 Mhz Pentium processor), we read the internal processor
-counters.  If HPL_USE_GETTIMEOFDAY  is  defined,  the  gettimeofday()
-function is used to return  the elapsed wallclock time of the system.
-Otherwise, the MPI_Wtime() function is used (default).
 .SH SEE ALSO
-.BR HPL_ptimer_cputime (3),
-.BR HPL_ptimer (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_ptimer_cputime \ (3),
+.BR HPL_ptimer \ (3).

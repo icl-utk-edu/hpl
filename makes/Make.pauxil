@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -79,55 +79,55 @@ lib.grd : $(HPL_pauobj)
 # ######################################################################
 #
 HPL_indxg2l.o          : ../HPL_indxg2l.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_indxg2l.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_indxg2l.c
 HPL_indxg2lp.o         : ../HPL_indxg2lp.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_indxg2lp.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_indxg2lp.c
 HPL_indxg2p.o          : ../HPL_indxg2p.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_indxg2p.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_indxg2p.c
 HPL_indxl2g.o          : ../HPL_indxl2g.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_indxl2g.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_indxl2g.c
 HPL_infog2l.o          : ../HPL_infog2l.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_infog2l.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_infog2l.c
 HPL_numroc.o           : ../HPL_numroc.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_numroc.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_numroc.c
 HPL_numrocI.o          : ../HPL_numrocI.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_numrocI.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_numrocI.c
 HPL_dlaswp00N.o        : ../HPL_dlaswp00N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp00N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp00N.c
 HPL_dlaswp10N.o        : ../HPL_dlaswp10N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp10N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp10N.c
 HPL_dlaswp01N.o        : ../HPL_dlaswp01N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp01N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp01N.c
 HPL_dlaswp01T.o        : ../HPL_dlaswp01T.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp01T.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp01T.c
 HPL_dlaswp02N.o        : ../HPL_dlaswp02N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp02N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp02N.c
 HPL_dlaswp03N.o        : ../HPL_dlaswp03N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp03N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp03N.c
 HPL_dlaswp03T.o        : ../HPL_dlaswp03T.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp03T.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp03T.c
 HPL_dlaswp04N.o        : ../HPL_dlaswp04N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp04N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp04N.c
 HPL_dlaswp04T.o        : ../HPL_dlaswp04T.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp04T.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp04T.c
 HPL_dlaswp05N.o        : ../HPL_dlaswp05N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp05N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp05N.c
 HPL_dlaswp05T.o        : ../HPL_dlaswp05T.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp05T.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp05T.c
 HPL_dlaswp06N.o        : ../HPL_dlaswp06N.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp06N.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp06N.c
 HPL_dlaswp06T.o        : ../HPL_dlaswp06T.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaswp06T.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaswp06T.c
 HPL_pwarn.o            : ../HPL_pwarn.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pwarn.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pwarn.c
 HPL_pabort.o           : ../HPL_pabort.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pabort.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pabort.c
 HPL_pdlaprnt.o         : ../HPL_pdlaprnt.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdlaprnt.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdlaprnt.c
 HPL_pdlamch.o          : ../HPL_pdlamch.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdlamch.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdlamch.c
 HPL_pdlange.o          : ../HPL_pdlange.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdlange.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdlange.c
 #
 # ######################################################################
 #

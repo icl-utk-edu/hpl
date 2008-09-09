@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -114,7 +114,7 @@ void HPL_timer( I )
  *  
  * t0 = HPL_timer_inquire( HPL_WALL_TIME | HPL_CPU_TIME, I )
  *  
- * where  I  is the timer index in  [0..64).  To  inititialize the timer
+ * where  I  is the timer index in  [0..64).  To  initialize  the  timer
  * functionality, one must have called HPL_timer_boot()  prior to any of
  * the functions mentioned above.
  *

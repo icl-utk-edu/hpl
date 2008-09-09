@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_rollT HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_rollT HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_rollT</B> Roll U and forward the column panel.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_rollT(</CODE>
 <CODE>HPL_T_panel *</CODE>
@@ -47,7 +47,7 @@ PBCST   (local input/output)          HPL_T_panel *
         panel (to be broadcast) information.
 </PRE>
 <PRE>
-IFLAG   (local intput/output)         int *
+IFLAG   (local input/output)          int *
         On entry, IFLAG  indicates  whether or not  the broadcast has
         already been completed.  If not,  probing will occur, and the
         outcome will be contained in IFLAG on exit.
@@ -93,7 +93,7 @@ IPMAPM1 (global input)                const int *
 </PRE>
 
 <H1>See Also</H1>
-<A HREF="HPL_pdlaswp01T.html">HPL_pdlaswp01T</A>
+<A HREF="HPL_pdlaswp01T.html">HPL_pdlaswp01T</A>.
 
 </BODY>
 </HTML>

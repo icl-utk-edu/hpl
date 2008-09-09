@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -75,21 +75,6 @@ LIBdir       = $(TOPdir)/lib/$(ARCH)
 HPLlib       = $(LIBdir)/libhpl.a 
 #
 # ----------------------------------------------------------------------
-# - Compilers / linkers - Optimization flags ---------------------------
-# ----------------------------------------------------------------------
-#
-CC           = mpcc_r
-NOOPT        =
-CCFLAGS      = -O3 -qarch=pwr2 -qtune=pwr2 -qmaxmem=-1
-#
-LINKER       = mpxlf_r
-LINKFLAGS    = -bmaxdata:0x70000000 $(CCFLAGS)
-#
-ARCHIVER     = ar
-ARFLAGS      = r
-RANLIB       = echo
-#
-# ----------------------------------------------------------------------
 # - Message Passing library (MPI) --------------------------------------
 # ----------------------------------------------------------------------
 # MPinc tells the  C  compiler where to find the Message Passing library
@@ -99,6 +84,17 @@ RANLIB       = echo
 MPdir        =
 MPinc        =
 MPlib        =
+#
+# ----------------------------------------------------------------------
+# - Linear Algebra library (BLAS or VSIPL) -----------------------------
+# ----------------------------------------------------------------------
+# LAinc tells the  C  compiler where to find the Linear Algebra  library
+# header files,  LAlib  is defined  to be the name of  the library to be
+# used. The variable LAdir is only used for defining LAinc and LAlib.
+#
+LAdir        =
+LAinc        =
+LAlib        = -lesslp2
 #
 # ----------------------------------------------------------------------
 # - F77 / C interface --------------------------------------------------
@@ -112,14 +108,14 @@ MPlib        =
 # 1) name space (How C calls a Fortran 77 routine)
 #
 # -DAdd_              : all lower case and a suffixed underscore  (Suns,
-#                       Intel, ...),
+#                       Intel, ...),                           [default]
 # -DNoChange          : all lower case (IBM RS6000),
 # -DUpCase            : all upper case (Cray),
-# -Df77IsF2C          : the FORTRAN compiler in use is f2c.
+# -DAdd__             : the FORTRAN compiler in use is f2c.
 #
 # 2) C and Fortran 77 integer mapping
 #
-# -DF77_INTEGER=int   : Fortran 77 INTEGER is a C int,
+# -DF77_INTEGER=int   : Fortran 77 INTEGER is a C int,         [default]
 # -DF77_INTEGER=long  : Fortran 77 INTEGER is a C long,
 # -DF77_INTEGER=short : Fortran 77 INTEGER is a C short.
 #
@@ -128,29 +124,18 @@ MPlib        =
 # -DStringSunStyle    : The string address is passed at the string loca-
 #                       tion on the stack, and the string length is then
 #                       passed as  an  F77_INTEGER  after  all  explicit
-#                       stack arguments,
+#                       stack arguments,                       [default]
 # -DStringStructPtr   : The address  of  a  structure  is  passed  by  a
 #                       Fortran 77  string,  and the structure is of the
 #                       form: struct {char *cp; F77_INTEGER len;},
 # -DStringStructVal   : A structure is passed by value for each  Fortran
 #                       77 string,  and  the  structure is  of the form:
 #                       struct {char *cp; F77_INTEGER len;},
-# -DCrayStyle         : Special option for  Cray  machines,  which  uses
+# -DStringCrayStyle   : Special option for  Cray  machines,  which  uses
 #                       Cray  fcd  (fortran  character  descriptor)  for
 #                       interoperation.
 #
 F2CDEFS      = -DNoChange -DF77_INTEGER=int -DStringSunStyle
-#
-# ----------------------------------------------------------------------
-# - Linear Algebra library (BLAS or VSIPL) -----------------------------
-# ----------------------------------------------------------------------
-# LAinc tells the  C  compiler where to find the Linear Algebra  library
-# header files,  LAlib  is defined  to be the name of  the library to be
-# used. The variable LAdir is only used for defining LAinc and LAlib.
-#
-LAdir        =
-LAinc        =
-LAlib        = -lesslp2
 #
 # ----------------------------------------------------------------------
 # - HPL includes / libraries / specifics -------------------------------
@@ -176,5 +161,20 @@ HPL_OPTS     =
 # ----------------------------------------------------------------------
 #
 HPL_DEFS     = $(F2CDEFS) $(HPL_OPTS) $(HPL_INCLUDES)
+#
+# ----------------------------------------------------------------------
+# - Compilers / linkers - Optimization flags ---------------------------
+# ----------------------------------------------------------------------
+#
+CC           = mpcc_r
+CCNOOPT      = $(HPL_DEFS)
+CCFLAGS      = $(HPL_DEFS) -O3 -qarch=pwr2 -qtune=pwr2 -qmaxmem=-1
+#
+LINKER       = mpxlf_r
+LINKFLAGS    = -bmaxdata:0x70000000 $(CCFLAGS)
+#
+ARCHIVER     = ar
+ARFLAGS      = r
+RANLIB       = echo
 #
 # ----------------------------------------------------------------------

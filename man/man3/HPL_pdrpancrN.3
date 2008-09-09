@@ -1,8 +1,8 @@
-.TH HPL_pdrpancrN 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_pdrpancrN 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_pdrpancrN \- Crout recursive panel factorization.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_pdrpancrN(\fR
@@ -44,47 +44,36 @@ portion N0 * log_2(P) * lat.  Mono-directional links will double this
 communication cost.
 .SH ARGUMENTS
 .TP 8
-PANEL   (local input/output)          HPL_T_panel *
+PANEL   (local input/output)    HPL_T_panel *
 On entry,  PANEL  points to the data structure containing the
 panel information.
 .TP 8
-M       (local input)                 const int
+M       (local input)           const int
 On entry,  M specifies the local number of rows of sub(A).
 .TP 8
-N       (local input)                 const int
+N       (local input)           const int
 On entry,  N specifies the local number of columns of sub(A).
 .TP 8
-ICOFF   (global input)                const int
+ICOFF   (global input)          const int
 On entry, ICOFF specifies the row and column offset of sub(A)
 in A.
 .TP 8
-WORK    (local workspace)             double *
+WORK    (local workspace)       double *
 On entry, WORK  is a workarray of size at least 2*(4+2*N0).
 .SH SEE ALSO
-.BR HPL_dlocmax   (3),
-.BR HPL_dlocswpN  (3),
-.BR HPL_dlocswpT  (3),
-.BR HPL_pdmxswp   (3),
-.BR HPL_pdpancrN  (3),
-.BR HPL_pdpancrT  (3),
-.BR HPL_pdpanllN  (3),
-.BR HPL_pdpanllT  (3),
-.BR HPL_pdpanrlN  (3),
-.BR HPL_pdpanrlT  (3),
-.BR HPL_pdrpancrT (3),
-.BR HPL_pdrpanllN (3),
-.BR HPL_pdrpanllT (3),
-.BR HPL_pdrpanrlN (3),
-.BR HPL_pdrpanrlT (3),
-.BR HPL_pdfact    (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_dlocmax \ (3),
+.BR HPL_dlocswpN \ (3),
+.BR HPL_dlocswpT \ (3),
+.BR HPL_pdmxswp \ (3),
+.BR HPL_pdpancrN \ (3),
+.BR HPL_pdpancrT \ (3),
+.BR HPL_pdpanllN \ (3),
+.BR HPL_pdpanllT \ (3),
+.BR HPL_pdpanrlN \ (3),
+.BR HPL_pdpanrlT \ (3),
+.BR HPL_pdrpancrT \ (3),
+.BR HPL_pdrpanllN \ (3),
+.BR HPL_pdrpanllT \ (3),
+.BR HPL_pdrpanrlN \ (3),
+.BR HPL_pdrpanrlT \ (3),
+.BR HPL_pdfact \ (3).

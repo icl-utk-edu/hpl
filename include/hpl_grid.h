@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -126,7 +126,7 @@ typedef void (*HPL_T_OP)
  * grid function prototypes
  * ---------------------------------------------------------------------
  */
-int               HPL_grid_init
+int                              HPL_grid_init
 STDC_ARGS( (
    MPI_Comm,
    const HPL_T_ORDER,
@@ -134,12 +134,12 @@ STDC_ARGS( (
    const int,
    HPL_T_grid *
 ) );
-int               HPL_grid_exit
+int                              HPL_grid_exit
 STDC_ARGS( (
    HPL_T_grid *
 ) );
 
-int               HPL_grid_info
+int                              HPL_grid_info
 STDC_ARGS( (
    const HPL_T_grid *,
    int *,
@@ -147,18 +147,18 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-int               HPL_pnum
+int                              HPL_pnum
 STDC_ARGS( (
    const HPL_T_grid *,
    const int,
    const int
 ) );
 
-int               HPL_barrier
+int                              HPL_barrier
 STDC_ARGS( (
    MPI_Comm
 ) );
-int               HPL_broadcast
+int                              HPL_broadcast
 STDC_ARGS( (
    void *,
    const int,
@@ -166,7 +166,7 @@ STDC_ARGS( (
    const int,
    MPI_Comm
 ) );
-int               HPL_reduce
+int                              HPL_reduce
 STDC_ARGS( (
    void *,
    const int,
@@ -175,7 +175,7 @@ STDC_ARGS( (
    const int,
    MPI_Comm
 ) );
-int               HPL_all_reduce
+int                              HPL_all_reduce
 STDC_ARGS( (
    void *,
    const int,
@@ -184,21 +184,21 @@ STDC_ARGS( (
    MPI_Comm
 ) );
 
-void              HPL_max
+void                             HPL_max
 STDC_ARGS( (
    const int,
    const void *,
    void *,
    const HPL_T_TYPE
 ) );
-void              HPL_min
+void                             HPL_min
 STDC_ARGS( (
    const int,
    const void *,
    void *,
    const HPL_T_TYPE
 ) );
-void              HPL_sum
+void                             HPL_sum
 STDC_ARGS( (
    const int,
    const void *,

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -44,20 +44,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  * ---------------------------------------------------------------------
  */ 
-/*
- * Include files
- */
 #include "hpl.h"
 
 #ifdef STDC_HEADERS
 int HPL_pdpanel_free
 (
-   HPL_T_panel *              PANEL
+   HPL_T_panel *                    PANEL
 )
 #else
 int HPL_pdpanel_free
 ( PANEL )
-   HPL_T_panel *              PANEL;
+   HPL_T_panel *                    PANEL;
 #endif
 {
 /* 

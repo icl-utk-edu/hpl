@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_pdinfo HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_pdinfo HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_pdinfo</B> Read input parameter file.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_pdinfo(</CODE>
 <CODE>HPL_T_test *</CODE>
@@ -23,6 +23,8 @@
 <CODE>NBS</CODE>,
 <CODE>int *</CODE>
 <CODE>NB</CODE>,
+<CODE>HPL_T_ORDER *</CODE>
+<CODE>PMAPPIN</CODE>,
 <CODE>int *</CODE>
 <CODE>NPQS</CODE>,
 <CODE>int *</CODE>
@@ -103,6 +105,12 @@ NBS     (global output)               int *
 </PRE>
 <PRE>
 NB      (global output)               int *
+        On exit,  PMAPPIN  specifies the process mapping onto the no-
+        des of the  MPI machine configuration.  PMAPPIN  defaults  to
+        row-major ordering.
+</PRE>
+<PRE>
+PMAPPIN (global output)               HPL_T_ORDER *
         On entry, NB is an array of dimension HPL_MAX_PARAM. On exit,
         the first NBS entries of this array contain the values of the
         various distribution blocking factors, to run the code with.
@@ -238,7 +246,7 @@ ALIGN   (global output)               int *
 
 <H1>See Also</H1>
 <A HREF="HPL_pddriver.html">HPL_pddriver</A>,
-<A HREF="HPL_pdtest.html">HPL_pdtest</A>
+<A HREF="HPL_pdtest.html">HPL_pdtest</A>.
 
 </BODY>
 </HTML>

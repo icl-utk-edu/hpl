@@ -1,8 +1,8 @@
-.TH HPL_dmatgen 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_dmatgen 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_dmatgen \- random matrix generator.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_dmatgen(\fR
@@ -26,41 +26,30 @@ X(n+1) = (a * X(n) + c) mod m  as  described  in the  Art of Computer
 Programming, Knuth 1973, Vol. 2.
 .SH ARGUMENTS
 .TP 8
-M       (input)                       const int
+M       (input)                 const int
 On entry,  M  specifies  the number  of rows of the matrix A.
 M must be at least zero.
 .TP 8
-N       (input)                       const int
+N       (input)                 const int
 On entry,  N specifies the number of columns of the matrix A.
 N must be at least zero.
 .TP 8
-A       (output)                      double *
+A       (output)                double *
 On entry, A points to an array of dimension (LDA,N). On exit,
 this  array  contains   the   coefficients  of  the  randomly
 generated matrix.
 .TP 8
-LDA     (input)                       const int
+LDA     (input)                 const int
 On entry, LDA specifies the leading dimension of the array A.
 LDA must be at least max(1,M).
 .TP 8
-ISEED   (input)                       const int
+ISEED   (input)                 const int
 On entry, ISEED  specifies  the  seed  number to generate the
 matrix A. ISEED must be at least zero.
 .SH SEE ALSO
-.BR HPL_ladd (3),
-.BR HPL_lmul (3),
-.BR HPL_setran (3),
-.BR HPL_xjumpm (3),
-.BR HPL_jumpit (3),
-.BR HPL_rand (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_ladd \ (3),
+.BR HPL_lmul \ (3),
+.BR HPL_setran \ (3),
+.BR HPL_xjumpm \ (3),
+.BR HPL_jumpit \ (3),
+.BR HPL_rand \ (3).

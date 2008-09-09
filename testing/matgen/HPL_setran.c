@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -58,15 +58,15 @@ static int       ias[2], ics[2], irand[2];
 #ifdef STDC_HEADERS
 void HPL_setran
 (
-   const int                  OPTION,
-   int *                      IRAN
+   const int                        OPTION,
+   int *                            IRAN
 )
 #else
 void HPL_setran
 ( OPTION, IRAN )
-   const int                  OPTION;
-   int *                      IRAN;
-#endif 
+   const int                        OPTION;
+   int *                            IRAN;
+#endif
 {
 /* 
  * Purpose

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,25 +52,24 @@
 #ifdef STDC_HEADERS
 void HPL_pdmatgen
 (
-   const HPL_T_grid           * GRID,
-   const int                  M,
-   const int                  N,
-   const int                  NB,
-   double                     * A,
-   const int                  LDA,
-   const int                  ISEED
+   const HPL_T_grid *               GRID,
+   const int                        M,
+   const int                        N,
+   const int                        NB,
+   double *                         A,
+   const int                        LDA,
+   const int                        ISEED
 )
 #else
-void HPL_pdmatgen( GRID, M, N, NB, A, LDA, ISEED )
-/*
- * .. Scalar Arguments ..
- */
-   const int                  ISEED, LDA, M, N, NB;
-/*
- * .. Array Arguments ..
- */
-   const HPL_T_grid           * GRID;
-   double                     * A;
+void HPL_pdmatgen
+( GRID, M, N, NB, A, LDA, ISEED )
+   const HPL_T_grid *               GRID;
+   const int                        M;
+   const int                        N;
+   const int                        NB;
+   double *                         A;
+   const int                        LDA;
+   const int                        ISEED;
 #endif
 {
 /* 

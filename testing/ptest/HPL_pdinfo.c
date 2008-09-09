@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,62 +52,64 @@
 #ifdef STDC_HEADERS
 void HPL_pdinfo
 (
-   HPL_T_test *               TEST,
-   int *                      NS,
-   int *                      N,
-   int *                      NBS,
-   int *                      NB,
-   int *                      NPQS,
-   int *                      P,
-   int *                      Q,
-   int *                      NPFS,
-   HPL_T_FACT *               PF,
-   int *                      NBMS,
-   int *                      NBM,
-   int *                      NDVS,
-   int *                      NDV,
-   int *                      NRFS,
-   HPL_T_FACT *               RF,
-   int *                      NTPS,
-   HPL_T_TOP *                TP,
-   int *                      NDHS,
-   int *                      DH,
-   HPL_T_SWAP *               FSWAP,
-   int *                      TSWAP,
-   int *                      L1NOTRAN,
-   int *                      UNOTRAN,
-   int *                      EQUIL,
-   int *                      ALIGN
+   HPL_T_test *                     TEST,
+   int *                            NS,
+   int *                            N,
+   int *                            NBS,
+   int *                            NB,
+   HPL_T_ORDER *                    PMAPPIN,
+   int *                            NPQS,
+   int *                            P,
+   int *                            Q,
+   int *                            NPFS,
+   HPL_T_FACT *                     PF,
+   int *                            NBMS,
+   int *                            NBM,
+   int *                            NDVS,
+   int *                            NDV,
+   int *                            NRFS,
+   HPL_T_FACT *                     RF,
+   int *                            NTPS,
+   HPL_T_TOP *                      TP,
+   int *                            NDHS,
+   int *                            DH,
+   HPL_T_SWAP *                     FSWAP,
+   int *                            TSWAP,
+   int *                            L1NOTRAN,
+   int *                            UNOTRAN,
+   int *                            EQUIL,
+   int *                            ALIGN
 )
 #else
 void HPL_pdinfo
-( TEST, NS, N, NBS, NB, NPQS, P, Q, NPFS, PF, NBMS, NBM, NDVS, NDV, NRFS, RF, NTPS, TP, NDHS, DH, FSWAP, TSWAP, L1NOTRAN, UNOTRAN, EQUIL, ALIGN )
-   HPL_T_test *               TEST;
-   int *                      NS;
-   int *                      N;
-   int *                      NBS;
-   int *                      NB;
-   int *                      NPQS;
-   int *                      P;
-   int *                      Q;
-   int *                      NPFS;
-   HPL_T_FACT *               PF;
-   int *                      NBMS;
-   int *                      NBM;
-   int *                      NDVS;
-   int *                      NDV;
-   int *                      NRFS;
-   HPL_T_FACT *               RF;
-   int *                      NTPS;
-   HPL_T_TOP *                TP;
-   int *                      NDHS;
-   int *                      DH;
-   HPL_T_SWAP *               FSWAP;
-   int *                      TSWAP;
-   int *                      L1NOTRAN;
-   int *                      UNOTRAN;
-   int *                      EQUIL;
-   int *                      ALIGN;
+( TEST, NS, N, NBS, NB, PMAPPIN, NPQS, P, Q, NPFS, PF, NBMS, NBM, NDVS, NDV, NRFS, RF, NTPS, TP, NDHS, DH, FSWAP, TSWAP, L1NOTRAN, UNOTRAN, EQUIL, ALIGN )
+   HPL_T_test *                     TEST;
+   int *                            NS;
+   int *                            N;
+   int *                            NBS;
+   int *                            NB;
+   HPL_T_ORDER *                    PMAPPIN;
+   int *                            NPQS;
+   int *                            P;
+   int *                            Q;
+   int *                            NPFS;
+   HPL_T_FACT *                     PF;
+   int *                            NBMS;
+   int *                            NBM;
+   int *                            NDVS;
+   int *                            NDV;
+   int *                            NRFS;
+   HPL_T_FACT *                     RF;
+   int *                            NTPS;
+   HPL_T_TOP *                      TP;
+   int *                            NDHS;
+   int *                            DH;
+   HPL_T_SWAP *                     FSWAP;
+   int *                            TSWAP;
+   int *                            L1NOTRAN;
+   int *                            UNOTRAN;
+   int *                            EQUIL;
+   int *                            ALIGN;
 #endif
 {
 /* 
@@ -145,6 +147,11 @@ void HPL_pdinfo
  *         to HPL_MAX_PARAM.
  *
  * NB      (global output)               int *
+ *         On exit,  PMAPPIN  specifies the process mapping onto the no-
+ *         des of the  MPI machine configuration.  PMAPPIN  defaults  to
+ *         row-major ordering.
+ *
+ * PMAPPIN (global output)               HPL_T_ORDER *
  *         On entry, NB is an array of dimension HPL_MAX_PARAM. On exit,
  *         the first NBS entries of this array contain the values of the
  *         various distribution blocking factors, to run the code with.
@@ -363,8 +370,12 @@ void HPL_pdinfo
          }
       }
 /*
- * Process grids (>=1) (P, Q)
+ * Process grids, mapping, (>=1) (P, Q)
  */
+      (void) fgets( line, HPL_LINE_MAX - 2, infp );
+      (void) sscanf( line, "%s", num );
+      *PMAPPIN = ( atoi( num ) == 1 ? HPL_COLUMN_MAJOR : HPL_ROW_MAJOR );
+
       (void) fgets( line, HPL_LINE_MAX - 2, infp );
       (void) sscanf( line, "%s", num ); *NPQS = atoi( num );
       if( ( *NPQS < 1 ) || ( *NPQS > HPL_MAX_PARAM ) )
@@ -627,25 +638,25 @@ label_error:
 /*
  * Broadcast array sizes
  */
-   iwork = (int *)malloc( 14 * sizeof( int ) );
+   iwork = (int *)malloc( 15 * sizeof( int ) );
    if( rank == 0 )
    {
-      iwork[ 0] = *NS;    iwork[ 1] = *NBS;      iwork[ 2] = *NPQS;
-      iwork[ 3] = *NPFS;  iwork[ 4] = *NBMS;     iwork[ 5] = *NDVS;
-      iwork[ 6] = *NRFS;  iwork[ 7] = *NTPS;     iwork[ 8] = *NDHS;
-      iwork[ 9] = *TSWAP; iwork[10] = *L1NOTRAN; iwork[11] = *UNOTRAN;
-      iwork[12] = *EQUIL; iwork[13] = *ALIGN;
-
+      iwork[ 0] = *NS;      iwork[ 1] = *NBS;
+      iwork[ 2] = ( *PMAPPIN == HPL_ROW_MAJOR ? 0 : 1 );
+      iwork[ 3] = *NPQS;    iwork[ 4] = *NPFS;     iwork[ 5] = *NBMS;
+      iwork[ 6] = *NDVS;    iwork[ 7] = *NRFS;     iwork[ 8] = *NTPS;
+      iwork[ 9] = *NDHS;    iwork[10] = *TSWAP;    iwork[11] = *L1NOTRAN;
+      iwork[12] = *UNOTRAN; iwork[13] = *EQUIL;    iwork[14] = *ALIGN;
    }
-   (void) HPL_broadcast( (void *)iwork, 14, HPL_INT, 0,
-                         MPI_COMM_WORLD );
+   (void) HPL_broadcast( (void *)iwork, 15, HPL_INT, 0, MPI_COMM_WORLD );
    if( rank != 0 )
    {
-      *NS    = iwork[ 0]; *NBS      = iwork[ 1]; *NPQS    = iwork[ 2];
-      *NPFS  = iwork[ 3]; *NBMS     = iwork[ 4]; *NDVS    = iwork[ 5];
-      *NRFS  = iwork[ 6]; *NTPS     = iwork[ 7]; *NDHS    = iwork[ 8];
-      *TSWAP = iwork[ 9]; *L1NOTRAN = iwork[10]; *UNOTRAN = iwork[11];
-      *EQUIL = iwork[12]; *ALIGN    = iwork[13];
+      *NS       = iwork[ 0]; *NBS   = iwork[ 1];
+      *PMAPPIN  = ( iwork[ 2] == 0 ?  HPL_ROW_MAJOR : HPL_COLUMN_MAJOR );
+      *NPQS     = iwork[ 3]; *NPFS  = iwork[ 4]; *NBMS     = iwork[ 5];
+      *NDVS     = iwork[ 6]; *NRFS  = iwork[ 7]; *NTPS     = iwork[ 8];
+      *NDHS     = iwork[ 9]; *TSWAP = iwork[10]; *L1NOTRAN = iwork[11];
+      *UNOTRAN  = iwork[12]; *EQUIL = iwork[13]; *ALIGN    = iwork[14];
    }
    if( iwork ) free( iwork );
 /*
@@ -747,8 +758,8 @@ label_error:
                    "======================================",
                    "======================================" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
-          "HPLinpack 1.0  --  High-Performance Linpack benchmark  --  ",
-          "September 27, 2000" );
+          "HPLinpack 1.0a  --  High-Performance Linpack benchmark  --  ",
+          " January 20, 2004" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
           "Written by A. Petitet and R. Clint Whaley,  ",
           "Innovative Computing Labs.,  UTK" );
@@ -810,6 +821,14 @@ label_error:
                HPL_fprintf( TEST->outfp, "%8d ", NB[i] );
          }
       }
+/*
+ * Process mapping
+ */
+      HPL_fprintf( TEST->outfp,       "\nPMAP   :" );
+      if(      *PMAPPIN == HPL_ROW_MAJOR    )
+         HPL_fprintf( TEST->outfp, " Row-major process mapping" );
+      else if( *PMAPPIN == HPL_COLUMN_MAJOR )
+         HPL_fprintf( TEST->outfp, " Column-major process mapping" );
 /*
  * Process grid
  */

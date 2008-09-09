@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -79,7 +79,7 @@ typedef enum
  * comm function prototypes
  * ---------------------------------------------------------------------
  */
-int               HPL_send
+int                              HPL_send
 STDC_ARGS( (
    double *,
    int,
@@ -87,7 +87,7 @@ STDC_ARGS( (
    int,
    MPI_Comm
 ) );
-int               HPL_recv
+int                              HPL_recv
 STDC_ARGS( (
    double *,
    int,
@@ -95,7 +95,7 @@ STDC_ARGS( (
    int,
    MPI_Comm
 ) );
-int               HPL_sdrv
+int                              HPL_sdrv
 STDC_ARGS( (
    double *,
    int,
@@ -106,27 +106,27 @@ STDC_ARGS( (
    int,
    MPI_Comm
 ) );
-int               HPL_binit
+int                              HPL_binit
 STDC_ARGS( (
    HPL_T_panel *
 ) );
-int               HPL_bcast
+int                              HPL_bcast
 STDC_ARGS( (
    HPL_T_panel *,
    int *
 ) );
-int               HPL_bwait
+int                              HPL_bwait
 STDC_ARGS( (
    HPL_T_panel *
 ) );
-int               HPL_packL
+int                              HPL_packL
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
    const int,
    const int
 ) );
-void              HPL_copyL
+void                             HPL_copyL
 STDC_ARGS( (
    HPL_T_panel *
 ) );

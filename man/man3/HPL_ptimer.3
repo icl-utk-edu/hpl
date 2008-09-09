@@ -1,8 +1,8 @@
-.TH HPL_ptimer 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_ptimer 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_ptimer \- Timer facility.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_ptimer(\fR
@@ -28,19 +28,8 @@ functionality, one must have called HPL_ptimer_boot() prior to any of
 the functions mentioned above.
 .SH ARGUMENTS
 .TP 8
-I       (global input)                const int
+I       (global input)          const int
 On entry, I specifies the timer to stop/start.
 .SH SEE ALSO
-.BR HPL_ptimer_cputime (3),
-.BR HPL_ptimer_walltime (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_ptimer_cputime \ (3),
+.BR HPL_ptimer_walltime \ (3).

@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -70,11 +70,11 @@ lib.grd : $(HPL_timobj)
 # ######################################################################
 #
 HPL_timer.o            : ../HPL_timer.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_timer.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_timer.c
 HPL_timer_cputime.o    : ../HPL_timer_cputime.c    $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_timer_cputime.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_timer_cputime.c
 HPL_timer_walltime.o   : ../HPL_timer_walltime.c   $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_timer_walltime.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_timer_walltime.c
 #
 # ######################################################################
 #

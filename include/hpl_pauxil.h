@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -239,7 +239,7 @@
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_indxg2lp
+void                             HPL_indxg2lp
 STDC_ARGS( (
    int *,
    int *,
@@ -249,7 +249,7 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-int               HPL_indxg2l
+int                              HPL_indxg2l
 STDC_ARGS( (
    const int,
    const int,
@@ -257,7 +257,7 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-int               HPL_indxg2p
+int                              HPL_indxg2p
 STDC_ARGS( (
    const int,
    const int,
@@ -265,7 +265,7 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-int               HPL_indxl2g
+int                              HPL_indxl2g
 STDC_ARGS( (
    const int,
    const int,
@@ -274,7 +274,7 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-void              HPL_infog2l
+void                             HPL_infog2l
 STDC_ARGS( (
    int,
    int,
@@ -293,7 +293,7 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-int               HPL_numroc
+int                              HPL_numroc
 STDC_ARGS( (
    const int,
    const int,
@@ -302,7 +302,7 @@ STDC_ARGS( (
    const int,
    const int
 ) );
-int               HPL_numrocI
+int                              HPL_numrocI
 STDC_ARGS( (
    const int,
    const int,
@@ -313,7 +313,7 @@ STDC_ARGS( (
    const int
 ) );
 
-void              HPL_dlaswp00N
+void                             HPL_dlaswp00N
 STDC_ARGS( (
    const int,
    const int,
@@ -321,7 +321,7 @@ STDC_ARGS( (
    const int,
    const int *
 ) );
-void              HPL_dlaswp10N
+void                             HPL_dlaswp10N
 STDC_ARGS( (
    const int,
    const int,
@@ -329,18 +329,7 @@ STDC_ARGS( (
    const int,
    const int *
 ) );
-void              HPL_dlaswp01N
-STDC_ARGS( (
-   const int,
-   const int,
-   double *,
-   const int,
-   double *,
-   const int,
-   const int *,
-   const int *
-) );
-void              HPL_dlaswp01T
+void                             HPL_dlaswp01N
 STDC_ARGS( (
    const int,
    const int,
@@ -351,7 +340,18 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp02N
+void                             HPL_dlaswp01T
+STDC_ARGS( (
+   const int,
+   const int,
+   double *,
+   const int,
+   double *,
+   const int,
+   const int *,
+   const int *
+) );
+void                             HPL_dlaswp02N
 STDC_ARGS( (
    const int,
    const int,
@@ -363,7 +363,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp03N
+void                             HPL_dlaswp03N
 STDC_ARGS( (
    const int,
    const int,
@@ -373,7 +373,7 @@ STDC_ARGS( (
    const double *,
    const int
 ) );
-void              HPL_dlaswp03T
+void                             HPL_dlaswp03T
 STDC_ARGS( (
    const int,
    const int,
@@ -383,7 +383,7 @@ STDC_ARGS( (
    const double *,
    const int
 ) );
-void              HPL_dlaswp04N
+void                             HPL_dlaswp04N
 STDC_ARGS( (
    const int,
    const int,
@@ -398,7 +398,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp04T
+void                             HPL_dlaswp04T
 STDC_ARGS( (
    const int,
    const int,
@@ -413,7 +413,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp05N
+void                             HPL_dlaswp05N
 STDC_ARGS( (
    const int,
    const int,
@@ -424,7 +424,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp05T
+void                             HPL_dlaswp05T
 STDC_ARGS( (
    const int,
    const int,
@@ -435,7 +435,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_dlaswp06N
+void                             HPL_dlaswp06N
 STDC_ARGS( (
    const int,
    const int,
@@ -445,7 +445,7 @@ STDC_ARGS( (
    const int,
    const int *
 ) );
-void              HPL_dlaswp06T
+void                             HPL_dlaswp06T
 STDC_ARGS( (
    const int,
    const int,
@@ -456,14 +456,14 @@ STDC_ARGS( (
    const int *
 ) );
 
-void              HPL_pabort
+void                             HPL_pabort
 STDC_ARGS( (
    int,
    const char *,
    const char *,
    ...
 ) );
-void              HPL_pwarn
+void                             HPL_pwarn
 STDC_ARGS( (
    FILE *,
    int,
@@ -471,7 +471,7 @@ STDC_ARGS( (
    const char *,
    ...
 ) );
-void              HPL_pdlaprnt
+void                             HPL_pdlaprnt
 STDC_ARGS( (
    const HPL_T_grid *,
    const int,
@@ -483,12 +483,12 @@ STDC_ARGS( (
    const int,
    const char *
 ) );
-double            HPL_pdlamch
+double                           HPL_pdlamch
 STDC_ARGS( (
    MPI_Comm,
    const HPL_T_MACH
 ) );
-double            HPL_pdlange
+double                           HPL_pdlange
 STDC_ARGS( (
    const HPL_T_grid *,
    const HPL_T_NORM,

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -55,28 +55,28 @@
 #ifdef STDC_HEADERS
 void HPL_rollT
 (
-   HPL_T_panel *              PBCST,
-   int *                      IFLAG,
-   HPL_T_panel *              PANEL,
-   const int                  N,
-   double *                   U,
-   const int                  LDU,
-   const int *                IPLEN,
-   const int *                IPMAP,
-   const int *                IPMAPM1
+   HPL_T_panel *                    PBCST,
+   int *                            IFLAG,
+   HPL_T_panel *                    PANEL,
+   const int                        N,
+   double *                         U,
+   const int                        LDU,
+   const int *                      IPLEN,
+   const int *                      IPMAP,
+   const int *                      IPMAPM1
 )
 #else
 void HPL_rollT
 ( PBCST, IFLAG, PANEL, N, U, LDU, IPLEN, IPMAP, IPMAPM1 )
-   HPL_T_panel *              PBCST;
-   int *                      IFLAG;
-   HPL_T_panel *              PANEL;
-   const int                  N;
-   double *                   U;
-   const int                  LDU;
-   const int *                IPLEN;
-   const int *                IPMAP;
-   const int *                IPMAPM1;
+   HPL_T_panel *                    PBCST;
+   int *                            IFLAG;
+   HPL_T_panel *                    PANEL;
+   const int                        N;
+   double *                         U;
+   const int                        LDU;
+   const int *                      IPLEN;
+   const int *                      IPMAP;
+   const int *                      IPMAPM1;
 #endif
 {
 /* 
@@ -95,7 +95,7 @@ void HPL_rollT
  *         On entry,  PBCST  points to the data structure containing the
  *         panel (to be broadcast) information.
  *
- * IFLAG   (local intput/output)         int *
+ * IFLAG   (local input/output)          int *
  *         On entry, IFLAG  indicates  whether or not  the broadcast has
  *         already been completed.  If not,  probing will occur, and the
  *         outcome will be contained in IFLAG on exit.

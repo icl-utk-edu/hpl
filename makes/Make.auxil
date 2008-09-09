@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -76,21 +76,21 @@ lib.grd : $(HPL_auxobj)
 # ######################################################################
 #
 HPL_dlacpy.o           : ../HPL_dlacpy.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlacpy.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlacpy.c
 HPL_dlatcpy.o          : ../HPL_dlatcpy.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlatcpy.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlatcpy.c
 HPL_fprintf.o          : ../HPL_fprintf.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_fprintf.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_fprintf.c
 HPL_warn.o             : ../HPL_warn.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_warn.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_warn.c
 HPL_abort.o            : ../HPL_abort.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_abort.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_abort.c
 HPL_dlaprnt.o          : ../HPL_dlaprnt.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlaprnt.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlaprnt.c
 HPL_dlange.o           : ../HPL_dlange.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlange.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlange.c
 HPL_dlamch.o           : ../HPL_dlamch.c           $(INCdep)
-	$(CC) -o $@ -c $(NOOPT)   $(HPL_DEFS) ../HPL_dlamch.c
+	$(CC) -o $@ -c $(CCNOOPT)  ../HPL_dlamch.c
 #
 # ######################################################################
 #

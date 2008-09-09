@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -48,47 +48,47 @@
  * Include files
  */
 #include "hpl.h"
- 
+
 #ifdef STDC_HEADERS
 void HPL_infog2l
 (
-   int                        I,
-   int                        J,
-   const int                  IMB,
-   const int                  MB,
-   const int                  INB,
-   const int                  NB,
-   const int                  RSRC,
-   const int                  CSRC,
-   const int                  MYROW,
-   const int                  MYCOL,
-   const int                  NPROW,
-   const int                  NPCOL,
-   int *                      II,
-   int *                      JJ,
-   int *                      PROW,
-   int *                      PCOL
+   int                              I,
+   int                              J,
+   const int                        IMB,
+   const int                        MB,
+   const int                        INB,
+   const int                        NB,
+   const int                        RSRC,
+   const int                        CSRC,
+   const int                        MYROW,
+   const int                        MYCOL,
+   const int                        NPROW,
+   const int                        NPCOL,
+   int *                            II,
+   int *                            JJ,
+   int *                            PROW,
+   int *                            PCOL
 )
 #else
 void HPL_infog2l
 ( I, J, IMB, MB, INB, NB, RSRC, CSRC, MYROW, MYCOL, NPROW, NPCOL, II, JJ, PROW, PCOL )
-   int                        I;
-   int                        J;
-   const int                  IMB;
-   const int                  MB;
-   const int                  INB;
-   const int                  NB;
-   const int                  RSRC;
-   const int                  CSRC;
-   const int                  MYROW;
-   const int                  MYCOL;
-   const int                  NPROW;
-   const int                  NPCOL;
-   int *                      II;
-   int *                      JJ;
-   int *                      PROW;
-   int *                      PCOL;
-#endif
+   int                              I;
+   int                              J;
+   const int                        IMB;
+   const int                        MB;
+   const int                        INB;
+   const int                        NB;
+   const int                        RSRC;
+   const int                        CSRC;
+   const int                        MYROW;
+   const int                        MYCOL;
+   const int                        NPROW;
+   const int                        NPCOL;
+   int *                            II;
+   int *                            JJ;
+   int *                            PROW;
+   int *                            PCOL;
+#endif 
 {
 /* 
  * Purpose

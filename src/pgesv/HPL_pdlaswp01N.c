@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,18 +52,18 @@
 #ifdef STDC_HEADERS
 void HPL_pdlaswp01N
 (
-   HPL_T_panel *              PBCST,
-   int *                      IFLAG,
-   HPL_T_panel *              PANEL,
-   const int                  NN
+   HPL_T_panel *                    PBCST,
+   int *                            IFLAG,
+   HPL_T_panel *                    PANEL,
+   const int                        NN
 )
 #else
 void HPL_pdlaswp01N
 ( PBCST, IFLAG, PANEL, NN )
-   HPL_T_panel *              PBCST;
-   int *                      IFLAG;
-   HPL_T_panel *              PANEL;
-   const int                  NN;
+   HPL_T_panel *                    PBCST;
+   int *                            IFLAG;
+   HPL_T_panel *                    PANEL;
+   const int                        NN;
 #endif
 {
 /* 
@@ -91,16 +91,16 @@ void HPL_pdlaswp01N
  * Arguments
  * =========
  *
- * PBCST   (local input/local output)    HPL_T_panel *
+ * PBCST   (local input/output)          HPL_T_panel *
  *         On entry,  PBCST  points to the data structure containing the
  *         panel (to be broadcast) information.
  *
- * IFLAG   (local intput/output)         int *
+ * IFLAG   (local input/output)          int *
  *         On entry, IFLAG  indicates  whether or not  the broadcast has
  *         already been completed.  If not,  probing will occur, and the
  *         outcome will be contained in IFLAG on exit.
  *
- * PANEL   (local input/local output)    HPL_T_panel *
+ * PANEL   (local input/output)          HPL_T_panel *
  *         On entry,  PANEL  points to the data structure containing the
  *         panel information.
  *

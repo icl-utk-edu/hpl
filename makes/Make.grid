@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -73,27 +73,27 @@ lib.grd : $(HPL_griobj)
 # ######################################################################
 #
 HPL_grid_init.o        : ../HPL_grid_init.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_grid_init.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_grid_init.c
 HPL_pnum.o             : ../HPL_pnum.c             $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pnum.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pnum.c
 HPL_grid_info.o        : ../HPL_grid_info.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_grid_info.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_grid_info.c
 HPL_grid_exit.o        : ../HPL_grid_exit.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_grid_exit.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_grid_exit.c
 HPL_broadcast.o        : ../HPL_broadcast.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_broadcast.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_broadcast.c
 HPL_reduce.o           : ../HPL_reduce.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_reduce.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_reduce.c
 HPL_all_reduce.o       : ../HPL_all_reduce.c       $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_all_reduce.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_all_reduce.c
 HPL_barrier.o          : ../HPL_barrier.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_barrier.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_barrier.c
 HPL_min.o              : ../HPL_min.c              $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_min.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_min.c
 HPL_max.o              : ../HPL_max.c              $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_max.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_max.c
 HPL_sum.o              : ../HPL_sum.c              $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_sum.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_sum.c
 #
 # ######################################################################
 #

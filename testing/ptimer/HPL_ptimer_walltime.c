@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -54,60 +54,12 @@
  * =======
  *
  * HPL_ptimer_walltime returns the elapsed (wall-clock) time.
- *  
- * If HPL_USE_PentiumCPS  is defined to be the clock cycle per second on
- * an i[56]86 Intel processor (e.g., HPL_USE_PentiumCPS is defined to be
- * 300  on a  300 Mhz Pentium processor), we read the internal processor
- * counters.  If HPL_USE_GETTIMEOFDAY  is  defined,  the  gettimeofday()
- * function is used to return  the elapsed wallclock time of the system.
- * Otherwise, the MPI_Wtime() function is used (default).
+ * 
  *
  * ---------------------------------------------------------------------
  */ 
  
-#if defined( HPL_USE_PentiumCPS )
- 
-#include <sys/time.h>
-#include <sys/types.h>
- 
-#define    CPS     HPL_USE_PentiumCPS * 1e6
- 
-static unsigned               usec, sec, tusec, tsec, start = 0, startu;
-static long long              tmp;
- 
-#ifdef STDC_HEADERS
-static inline void microtime
-(
-   unsigned                   * LO,
-   unsigned                   * HI
-)
-#else
-static inline void microtime( LO, HI )
-   unsigned                   * HI, * LO;
-#endif
-{
-  __asm __volatile (
-        ".byte 0x0f; .byte 0x31   # RDTSC instruction
-        movl    %%edx,%0          # High order 32 bits
-        movl    %%eax,%1          # Low order 32 bits"
-                : "=g" (*HI), "=g" (*LO) :: "eax", "edx");
-}
-
-#ifdef STDC_HEADERS
-double HPL_ptimer_walltime( void )
-#else
-double HPL_ptimer_walltime()
-#endif 
-{
-  if( !start ) { microtime( &startu, &start ); return( HPL_rzero ); }
- 
-  microtime( &usec, &sec );
- 
-  tmp = sec; tmp -= start; tmp = ( tmp << 32 ) + usec; tmp -= startu;
-  return( ( (double)(tmp) ) / (double)(CPS) );
-}
- 
-#elif defined( HPL_USE_GETTIMEOFDAY )
+#if defined( HPL_USE_GETTIMEOFDAY )
  
 #include <sys/time.h>
 #include <sys/resource.h>
@@ -116,7 +68,7 @@ double HPL_ptimer_walltime()
 double HPL_ptimer_walltime( void )
 #else
 double HPL_ptimer_walltime()
-#endif 
+#endif
 {
    struct timeval             tp;
    static long                start=0, startu;

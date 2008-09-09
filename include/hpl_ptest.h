@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -106,13 +106,14 @@ typedef struct HPL_S_test
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_pdinfo
+void                             HPL_pdinfo
 STDC_ARGS( (
    HPL_T_test *,
    int *,
    int *,
    int *,
    int *,
+   HPL_T_ORDER *,
    int *,
    int *,
    int *,
@@ -135,7 +136,7 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-void              HPL_pdtest
+void                             HPL_pdtest
 STDC_ARGS( (
    HPL_T_test *,
    HPL_T_grid *,

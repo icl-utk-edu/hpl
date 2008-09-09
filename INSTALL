@@ -1,13 +1,13 @@
 ==============================================================
  High Performance Computing Linpack Benchmark (HPL)
- HPL 1.0 - September 27, 2000
+ HPL 1.0a - January 20, 2004
 ==============================================================
 
  1) Retrieve the tar file, then
 
-    gunzip hpl.tar.gz; tar -xvf hpl.tar
+    gunzip hpl.tgz; tar -xvf hpl.tar
 
- this will create an hpl directory, that we call below the
+ this  will create an  hpl  directory,  that we call below the
  top-level directory.
 
  2) Create a file Make.<arch> in the  top-level directory. For

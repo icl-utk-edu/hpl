@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -50,21 +50,21 @@
 #include "hpl.h"
 
 #ifndef HPL_idamax
- 
+
 #ifdef STDC_HEADERS
 int HPL_idamax
 (
-   const int                  N,
-   const double *             X,
-   const int                  INCX
+   const int                        N,
+   const double *                   X,
+   const int                        INCX
 )
 #else
 int HPL_idamax
 ( N, X, INCX )
-   const int                  N;
-   const double *             X;
-   const int                  INCX;
-#endif
+   const int                        N;
+   const double *                   X;
+   const int                        INCX;
+#endif 
 {
 /* 
  * Purpose

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -77,12 +77,12 @@ STDC_ARGS(
 #ifdef STDC_HEADERS
 double HPL_dlamch
 (
-   const HPL_T_MACH           CMACH
+   const HPL_T_MACH                 CMACH
 )
 #else
 double HPL_dlamch
 ( CMACH )
-   const HPL_T_MACH           CMACH;
+   const HPL_T_MACH                 CMACH;
 #endif
 {
 /* 
@@ -542,13 +542,11 @@ static void HPL_dlamc2( BETA, T, RND, EPS, EMIN, RMIN, EMAX, RMAX )
       if( iwarn != 0 )
       {
          first = 1;
-         HPL_fprintf( stderr, "\n %s %8d\n%s%s\n%s%s\n%s\n",
-         "WARNING. The value EMIN may be incorrect:- EMIN =", lemin,
-         "If, after inspection, the value EMIN looks acceptable,",
-         " please comment out",
-         "the if block as marked within the code of routine  HPL_dlamc2,",
-         "  otherwise"
-         "supply EMIN explicitly." );
+         HPL_fprintf( stderr, "\n %s %8d\n%s\n%s\n%s\n",
+"WARNING. The value EMIN may be incorrect:- EMIN =", lemin,
+"If, after inspection, the value EMIN looks acceptable, please comment ",
+"out the  if  block  as marked within the code of routine  HPL_dlamc2, ",
+"otherwise supply EMIN explicitly." );
       }
 /*
  * Assume IEEE arithmetic if we found denormalised  numbers above, or if

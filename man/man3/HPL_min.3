@@ -1,8 +1,8 @@
-.TH HPL_min 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_min 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_min \- Combine (min) two buffers.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_min(\fR
@@ -20,35 +20,24 @@ HPL_min \- Combine (min) two buffers.
 combines (min) two buffers.
 .SH ARGUMENTS
 .TP 8
-N       (input)                       const int
+N       (input)                 const int
 On entry, N  specifies  the  length  of  the  buffers  to  be
 combined. N must be at least zero.
 .TP 8
-IN      (input)                       const void *
+IN      (input)                 const void *
 On entry, IN points to the input-only buffer to be combined.
 .TP 8
-INOUT   (input/output)                void *
+INOUT   (input/output)          void *
 On entry, INOUT  points  to  the  input-output  buffer  to be
 combined.  On exit,  the  entries of this array contains  the
 combined results.
 .TP 8
-DTYPE   (input)                       const HPL_T_TYPE
+DTYPE   (input)                 const HPL_T_TYPE
 On entry,  DTYPE  specifies the type of the buffers operands.
 .SH SEE ALSO
-.BR HPL_broadcast (3),
-.BR HPL_reduce (3),
-.BR HPL_all_reduce (3),
-.BR HPL_barrier   (3),
-.BR HPL_max    (3),
-.BR HPL_sum        (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_broadcast \ (3),
+.BR HPL_reduce \ (3),
+.BR HPL_all_reduce \ (3),
+.BR HPL_barrier \ (3),
+.BR HPL_max \ (3),
+.BR HPL_sum \ (3).

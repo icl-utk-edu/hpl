@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -106,7 +106,7 @@ typedef struct HPL_S_panel
  */
 #include "hpl_pgesv.h"
 
-void              HPL_pdpanel_new
+void                             HPL_pdpanel_new
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
@@ -119,7 +119,7 @@ STDC_ARGS( (
    const int,
    HPL_T_panel * *
 ) );
-void              HPL_pdpanel_init
+void                             HPL_pdpanel_init
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
@@ -132,11 +132,11 @@ STDC_ARGS( (
    const int,
    HPL_T_panel *
 ) );
-int               HPL_pdpanel_disp
+int                              HPL_pdpanel_disp
 STDC_ARGS( (
    HPL_T_panel * *
 ) );
-int               HPL_pdpanel_free
+int                              HPL_pdpanel_free
 STDC_ARGS( (
    HPL_T_panel *
 ) );

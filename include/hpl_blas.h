@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -183,7 +183,7 @@ STDC_ARGS(
  * ---------------------------------------------------------------------
  */
 #ifndef NoChange
-#ifndef Upcase
+#ifndef UpCase
 #ifndef Add__
 #ifndef Add_
 
@@ -264,6 +264,23 @@ STDC_ARGS(
  *          FORTRAN DECLARATION            C CALL
  *          SUBROUTINE DGEMM(...)          DGEMM(...)
  */
+#ifdef CRAY_BLAS
+                                                                                
+#define    F77dswap               SSWAP
+#define    F77dscal               SSCAL
+#define    F77dcopy               SCOPY
+#define    F77daxpy               SAXPY
+#define    F77idamax              ISAMAX
+                                                                                
+#define    F77dgemv               SGEMV
+#define    F77dtrsv               STRSV
+#define    F77dger                SGER
+                                                                                
+#define    F77dgemm               SGEMM
+#define    F77dtrsm               STRSM
+                                                                                
+#else
+
 #define    F77dswap               DSWAP
 #define    F77dscal               DSCAL
 #define    F77dcopy               DCOPY
@@ -276,6 +293,8 @@ STDC_ARGS(
 
 #define    F77dgemm               DGEMM
 #define    F77dtrsm               DTRSM
+
+#endif
 
 #endif
 
@@ -394,7 +413,7 @@ typedef struct { char *cp; F77_INTEGER len; } F77_CHAR;
 #define    F77_MIN_DECL        const double *         /* input matrix */
 #define    F77_MINOUT_DECL     double *        /* input/output matrix */
  
-#ifdef CRAY                              /* Type of FORTRAN functions */
+#ifdef CRAY_PVP_ENV                      /* Type of FORTRAN functions */
 #define    F77_VOID_FUN        extern fortran void      /* subroutine */
 #define    F77_INT_FUN         extern fortran int /* integer function */
 #else
@@ -461,13 +480,13 @@ STDC_ARGS(
  */
 #ifndef HPL_CALL_CBLAS
 
-int               HPL_idamax
+int                              HPL_idamax
 STDC_ARGS( (
    const int,
    const double *,
    const int
 ) );
-void              HPL_daxpy
+void                             HPL_daxpy
 STDC_ARGS( (
    const int,
    const double,
@@ -476,7 +495,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dcopy
+void                             HPL_dcopy
 STDC_ARGS( (
    const int,
    const double *,
@@ -484,14 +503,14 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dscal
+void                             HPL_dscal
 STDC_ARGS( (
    const int,
    const double,
    double *,
    const int
 ) );
-void              HPL_dswap
+void                             HPL_dswap
 STDC_ARGS( (
    const int,
    double *,
@@ -499,7 +518,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dgemv
+void                             HPL_dgemv
 STDC_ARGS( (
    const enum HPL_ORDER,
    const enum HPL_TRANS,
@@ -514,7 +533,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dger
+void                             HPL_dger
 STDC_ARGS( (
    const enum HPL_ORDER,
    const int,
@@ -527,7 +546,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dtrsv
+void                             HPL_dtrsv
 STDC_ARGS( (
    const enum HPL_ORDER,
    const enum HPL_UPLO,
@@ -539,7 +558,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dgemm
+void                             HPL_dgemm
 STDC_ARGS( (
    const enum HPL_ORDER,
    const enum HPL_TRANS,
@@ -556,7 +575,7 @@ STDC_ARGS( (
    double *,
    const int
 ) );
-void              HPL_dtrsm
+void                             HPL_dtrsm
 STDC_ARGS( (
    const enum HPL_ORDER,
    const enum HPL_SIDE,

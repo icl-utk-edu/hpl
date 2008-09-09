@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_dlange HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_dlange HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_dlange</B> Compute ||A||.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>double</CODE>
 <CODE>HPL_dlange(</CODE>
 <CODE>const HPL_T_NORM</CODE>
@@ -66,22 +66,21 @@ LDA     (local input)                 const int
 </PRE>
 
 <H1>Example</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <PRE>
 int main(int argc, char *argv[])
 {
    double a[2*2];
    a[0] = 1.0; a[1] = 3.0; a[2] = 2.0; a[3] = 4.0;
    norm = HPL_dlange( HPL_NORM_I, 2, 2, a, 2 );
-   printf("norm=%f", norm);
-   exit(0);
-   return(0);
+   printf("norm=%f\n", norm);
+   exit(0); return(0);
 }
 </PRE>
 
 <H1>See Also</H1>
 <A HREF="HPL_dlaprnt.html">HPL_dlaprnt</A>,
-<A HREF="HPL_fprintf.html">HPL_fprintf</A>
+<A HREF="HPL_fprintf.html">HPL_fprintf</A>.
 
 </BODY>
 </HTML>

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -75,7 +75,7 @@
 double HPL_ptimer_cputime( void )
 #else
 double HPL_ptimer_cputime()
-#endif 
+#endif
 {
    static double              cps = CLOCKS_PER_SEC;
    double                     d;
@@ -97,7 +97,7 @@ double HPL_ptimer_cputime()
 double HPL_ptimer_cputime( void )
 #else
 double HPL_ptimer_cputime()
-#endif 
+#endif
 {
    clock_t                    t1;
    struct tms                 ts;
@@ -118,7 +118,7 @@ double HPL_ptimer_cputime()
 double HPL_ptimer_cputime( void )
 #else
 double HPL_ptimer_cputime()
-#endif 
+#endif
 {
    struct rusage              ruse;
  

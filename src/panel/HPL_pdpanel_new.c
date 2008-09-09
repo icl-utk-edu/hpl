@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,30 +52,30 @@
 #ifdef STDC_HEADERS
 void HPL_pdpanel_new
 (
-   HPL_T_grid *               GRID,
-   HPL_T_palg *               ALGO,
-   const int                  M,
-   const int                  N,
-   const int                  JB,
-   HPL_T_pmat *               A,
-   const int                  IA,
-   const int                  JA,
-   const int                  TAG,
-   HPL_T_panel * *            PANEL
+   HPL_T_grid *                     GRID,
+   HPL_T_palg *                     ALGO,
+   const int                        M,
+   const int                        N,
+   const int                        JB,
+   HPL_T_pmat *                     A,
+   const int                        IA,
+   const int                        JA,
+   const int                        TAG,
+   HPL_T_panel * *                  PANEL
 )
 #else
 void HPL_pdpanel_new
 ( GRID, ALGO, M, N, JB, A, IA, JA, TAG, PANEL )
-   HPL_T_grid *               GRID;
-   HPL_T_palg *               ALGO;
-   const int                  M;
-   const int                  N;
-   const int                  JB;
-   HPL_T_pmat *               A;
-   const int                  IA;
-   const int                  JA;
-   const int                  TAG;
-   HPL_T_panel * *            PANEL;
+   HPL_T_grid *                     GRID;
+   HPL_T_palg *                     ALGO;
+   const int                        M;
+   const int                        N;
+   const int                        JB;
+   HPL_T_pmat *                     A;
+   const int                        IA;
+   const int                        JA;
+   const int                        TAG;
+   HPL_T_panel * *                  PANEL;
 #endif
 {
 /* 

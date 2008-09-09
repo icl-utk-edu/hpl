@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -76,39 +76,39 @@ lib.grd          : $(HPL_pfaobj)
 # ######################################################################
 #
 HPL_dlocmax.o          : ../HPL_dlocmax.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlocmax.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlocmax.c
 HPL_dlocswpN.o         : ../HPL_dlocswpN.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlocswpN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlocswpN.c
 HPL_dlocswpT.o         : ../HPL_dlocswpT.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dlocswpT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dlocswpT.c
 HPL_pdmxswp.o          : ../HPL_pdmxswp.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdmxswp.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdmxswp.c
 HPL_pdpancrN.o         : ../HPL_pdpancrN.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpancrN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpancrN.c
 HPL_pdpancrT.o         : ../HPL_pdpancrT.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpancrT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpancrT.c
 HPL_pdpanllN.o         : ../HPL_pdpanllN.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanllN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanllN.c
 HPL_pdpanllT.o         : ../HPL_pdpanllT.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanllT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanllT.c
 HPL_pdpanrlN.o         : ../HPL_pdpanrlN.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanrlN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanrlN.c
 HPL_pdpanrlT.o         : ../HPL_pdpanrlT.c         $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdpanrlT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdpanrlT.c
 HPL_pdrpanllN.o        : ../HPL_pdrpanllN.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpanllN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpanllN.c
 HPL_pdrpanllT.o        : ../HPL_pdrpanllT.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpanllT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpanllT.c
 HPL_pdrpancrN.o        : ../HPL_pdrpancrN.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpancrN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpancrN.c
 HPL_pdrpancrT.o        : ../HPL_pdrpancrT.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpancrT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpancrT.c
 HPL_pdrpanrlN.o        : ../HPL_pdrpanrlN.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpanrlN.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpanrlN.c
 HPL_pdrpanrlT.o        : ../HPL_pdrpanrlT.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdrpanrlT.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdrpanrlT.c
 HPL_pdfact.o           : ../HPL_pdfact.c           $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_pdfact.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_pdfact.c
 #
 # ######################################################################
 #

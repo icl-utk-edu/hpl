@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -59,34 +59,34 @@
 #ifdef STDC_HEADERS
 void HPL_dlaswp04T
 (
-   const int                  M0,
-   const int                  M1,
-   const int                  N,
-   double *                   U,
-   const int                  LDU,
-   double *                   A,
-   const int                  LDA,
-   const double *             W0,
-   const double *             W,
-   const int                  LDW,
-   const int *                LINDXA,
-   const int *                LINDXAU
+   const int                        M0,
+   const int                        M1,
+   const int                        N,
+   double *                         U,
+   const int                        LDU,
+   double *                         A,
+   const int                        LDA,
+   const double *                   W0,
+   const double *                   W,
+   const int                        LDW,
+   const int *                      LINDXA,
+   const int *                      LINDXAU
 )
 #else
 void HPL_dlaswp04T
 ( M0, M1, N, U, LDU, A, LDA, W0, W, LDW, LINDXA, LINDXAU )
-   const int                  M0;
-   const int                  M1;
-   const int                  N;
-   double *                   U;
-   const int                  LDU;
-   double *                   A;
-   const int                  LDA;
-   const double *             W0;
-   const double *             W;
-   const int                  LDW;
-   const int *                LINDXA;
-   const int *                LINDXAU;
+   const int                        M0;
+   const int                        M1;
+   const int                        N;
+   double *                         U;
+   const int                        LDU;
+   double *                         A;
+   const int                        LDA;
+   const double *                   W0;
+   const double *                   W;
+   const int                        LDW;
+   const int *                      LINDXA;
+   const int *                      LINDXAU;
 #endif
 {
 /* 

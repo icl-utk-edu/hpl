@@ -1,8 +1,8 @@
-.TH HPL_pdlamch 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_pdlamch 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_pdlamch \- determines machine-specific arithmetic constants.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&double\fR
 \fB\&HPL_pdlamch(\fR
@@ -23,10 +23,10 @@ exponent before  (gradual)  underflow (emin),  the  underflow  threshold
 overflow threshold (rmax)  - (base**emax)*(1-eps).
 .SH ARGUMENTS
 .TP 8
-COMM    (global/local input)          MPI_Comm
+COMM    (global/local input)    MPI_Comm
 The MPI communicator identifying the process collection.
 .TP 8
-CMACH   (global input)                const HPL_T_MACH
+CMACH   (global input)          const HPL_T_MACH
 Specifies the value to be returned by HPL_pdlamch            
    = HPL_MACH_EPS,   HPL_pdlamch := eps (default)            
    = HPL_MACH_SFMIN, HPL_pdlamch := sfmin                    
@@ -51,14 +51,3 @@ where
    rmin  = underflow threshold,                              
    emax  = largest exponent before overflow,                 
    rmax  = overflow threshold.
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              

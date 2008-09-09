@@ -11,6 +11,11 @@ VLINK       = "#000099"
 ALINK       = "#947153"
 LINK        = "#0000ff">
 
+<TABLE HSPACE=0 VSPACE=0 WIDTH=100% BORDER=0 CELLSPACING=1 CELLPADDING=0>
+<TR><TD ALIGN=LEFT VALIGN=LEFT>
+<IMG SRC    = "aprunner.gif" BORDER=0 HEIGHT=160 WIDTH=220>
+</TD>
+<TD ALIGN=LEFT VALIGN=LEFT>
 <H2>HPL Performance Results</H2>
 
 <STRONG>
@@ -23,12 +28,19 @@ those measurements have been obtained.  To obtain  accurate figures
 on your system, it is absolutely necessary to
 <A HREF = "software.html">download the software</A> and run it there.
 </STRONG>
+</TD>
+</TR></TABLE>
+<HR NOSHADE>
 
-<UL>
+<TABLE HSPACE=0 VSPACE=0 WIDTH=100% BORDER=0 CELLSPACING=1 CELLPADDING=0><TR>
+<TD><UL>
 <LI><A HREF = "results.html#AMD_K7000">Athlon 4-nodes cluster</A>
+</UL></TD><TD><UL>
 <LI><A HREF = "results.html#I550p3000">Intel PIII 8-duals cluster</A>
-<LI><A HREF = "results.html#compaq000">Compaq 16-node AlphaServer SC</A>
-</UL>
+</UL></TD><TD><UL>
+<LI><A HREF = "results.html#compaq000">Compaq 64 nodes AlphaServer SC</A>
+</UL></TD>
+</TR></TABLE>
 <HR NOSHADE>
 
 <H3><A NAME="AMD_K7000">4 AMD Athlon K7 500 Mhz (256 Mb) - (2x) 100 Mbs
@@ -76,40 +88,6 @@ Switched - 2 NICs per node (channel bonding)</A></H3>
 Performance (Gflops) w.r.t Problem size on 4 nodes.
 </TABLE><P>
 </CENTER>
-The input file HPL.dat used for this run was:
-
-<PRE>
-HPLinpack benchmark input file - Athlon cluster - 09/00
-Innovative Computing Laboratory, University of Tennessee
-HPL.out      output file name (if any)
-6            device out (6=stdout,7=stderr,file)
-4            # of problems sizes (N)
-2000 5000 8000 10000 Ns
-2            # of NBs
-60 60        NBs
-3            # of process grids (P x Q)
-1 2 4        Ps
-4 2 1        Qs
-16.0         threshold
-1            # of panel fact
-1            PFACTs (0=left, 1=Crout, 2=Right)
-1            # of recursive stopping criterium
-4            NBMINs (>= 1)
-1            # of panels in recursion
-2            NDIVs
-1            # of recursive panel fact.
-2            RFACTs (0=left, 1=Crout, 2=Right)
-1            # of broadcast
-1            BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
-1            # of lookahead depth
-1            DEPTHs (>=0)
-2            SWAP (0=bin-exch,1=long,2=mix)
-60           swapping threshold
-0            L1 in (0=transposed,1=no-transposed) form
-0            U  in (0=transposed,1=no-transposed) form
-1            Equilibration (0=no,1=yes)
-8            memory alignment in double (> 0)
-</PRE>
 
 <HR NOSHADE>
 <H3><A NAME="I550p3000">8 Duals Intel PIII 550 Mhz (512 Mb) - Myrinet</A></H3>
@@ -157,43 +135,9 @@ HPL.out      output file name (if any)
 Performance (Gflops) w.r.t Problem size on 8- and 16-processors grids.
 </TABLE><P>
 </CENTER>
-The input file HPL.dat used for this run was:
-
-<PRE>
-HPL Linpack benchmark input file - Torc - 09/00
-Innovative Computing Laboratory, University of Tennessee
-HPL.out      output file name (if any)
-6            device out (6=stdout,7=stderr,file)
-6            # of problems sizes (N)
-2000 5000 8000 10000 15000 20000 Ns
-2            # of NBs
-80 80           NBs
-2            # of process grids (P x Q)
-2 4            Ps
-4 4            Qs
-16.0         threshold
-1            # of panel fact
-2            PFACTs (0=left, 1=Crout, 2=Right)
-1            # of recursive stopping criterium
-8            NBMINs (>= 1)
-1            # of panels in recursion
-2            NDIVs
-1            # of recursive panel fact.
-2            RFACTs (0=left, 1=Crout, 2=Right)
-1            # of broadcast
-1            BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
-1            # of lookahead depth
-1            DEPTHs (>=0)
-2            SWAP (0=bin-exch,1=long,2=mix)
-80           swapping threshold
-0            L1 in (0=transposed,1=no-transposed) form
-0            U  in (0=transposed,1=no-transposed) form
-1            Equilibration (0=no,1=yes)
-8            memory alignment in double (> 0)
-</PRE>
 
 <HR NOSHADE>
-<H3><A NAME="compaq000">Compaq 16-node (4 ev67 667 Mhz processors per node)
+<H3><A NAME="compaq000">Compaq 64 nodes (4 ev67 667 Mhz processors per node)
 AlphaServer SC</A></H3>
 
 <CENTER>
@@ -207,60 +151,74 @@ AlphaServer SC</A></H3>
 <TD><A HREF = "http://www.ccs.ornl.gov/ccs">ORNL / CCS</A>
  - falcon - 09 / 00</TD></TR>
 </TABLE><P>
+</CENTER>
 
+In the table below, each row corresponds to a given number of cpus (or
+processors) and nodes.  The first row for example is denoted by 1 / 1,
+i.e.,  1 cpu / 1 node.  Rmax is given in Gflops, and the value of Nmax
+in fact corresponds to  351 Mb per cpu for all machine configurations.<BR><BR>
+
+<CENTER>
 <TABLE BORDER>
 <TR>
-<TH ALIGN=CENTER> GRID</TH>
-<TH ALIGN=CENTER> 5000</TH>
-<TH ALIGN=CENTER>10000</TH>
-<TH ALIGN=CENTER>25000</TH>
-<TH ALIGN=CENTER>53000</TH>
+<TH ALIGN=CENTER>    CPUS / NODES     </TH>
+<TH ALIGN=CENTER>       GRID          </TH>
+<TH ALIGN=CENTER>      N 1/2          </TH>
+<TH ALIGN=CENTER>       Nmax          </TH>
+<TH ALIGN=CENTER>    Rmax (Gflops)    </TH>
+<TH ALIGN=CENTER> Parallel Efficiency </TH>
 </TR>
 <TR>
-<TH ALIGN=CENTER>8 x 8</TH>
-<TD ALIGN=CENTER>26.37</TD>
-<TD ALIGN=CENTER>45.00</TD>
-<TD ALIGN=CENTER>60.99</TD>
-<TD ALIGN=CENTER>66.93</TD>
+<TH ALIGN=CENTER>   1 / 1    </TH>
+<TH ALIGN=CENTER>   1 x 1    </TH>
+<TD ALIGN=CENTER>     150    </TD>
+<TD ALIGN=CENTER>    6625    </TD>
+<TD ALIGN=CENTER>   1.136    </TD>
+<TD ALIGN=CENTER>   1.000    </TD>
 </TR>
-Performance (Gflops) w.r.t Problem size on 16 nodes (64 processors).
+<TR>
+<TH ALIGN=CENTER>   4 / 1    </TH>
+<TH ALIGN=CENTER>   2 x 2    </TH>
+<TD ALIGN=CENTER>     800    </TD>
+<TD ALIGN=CENTER>   13250    </TD>
+<TD ALIGN=CENTER>   4.360    </TD>
+<TD ALIGN=CENTER>   0.960    </TD>
+</TR>
+<TR>
+<TH ALIGN=CENTER>  16 / 4    </TH>
+<TH ALIGN=CENTER>   4 x 4    </TH>
+<TD ALIGN=CENTER>    2300    </TD>
+<TD ALIGN=CENTER>   26500    </TD>
+<TD ALIGN=CENTER>   17.00    </TD>
+<TD ALIGN=CENTER>   0.935    </TD>
+</TR>
+<TR>
+<TH ALIGN=CENTER>  64 / 16   </TH>
+<TH ALIGN=CENTER>   8 x 8    </TH>
+<TD ALIGN=CENTER>    5700    </TD>
+<TD ALIGN=CENTER>   53000    </TD>
+<TD ALIGN=CENTER>   67.50    </TD>
+<TD ALIGN=CENTER>   0.928    </TD>
+</TR>
+<TR>
+<TH ALIGN=CENTER> 256 / 64   </TH>
+<TH ALIGN=CENTER>  16 x 16   </TH>
+<TD ALIGN=CENTER>   14000    </TD>
+<TD ALIGN=CENTER>  106000    </TD>
+<TD ALIGN=CENTER>   263.6    </TD>
+<TD ALIGN=CENTER>   0.906    </TD>
+</TR>
 </TABLE><P>
 </CENTER> 
-The input file HPL.dat used for this run was:
+For Rmax shown in the table, the  parallel efficiency  per  cpu has been
+computed using the performance achieved by  HPL on 1 cpu.  That is fair,
+since the CXML matrix multiply routine was achieving at best 1.24 Gflops
+for large matrix operands on one cpu, it would have been difficult for a
+sequential  Linpack  benchmark  implementation to achieve much more than
+1.136 Gflops on this same cpu. For constant load (as in the table 351 Mb
+per cpu for Nmax),  HPL  scales almost linearly as it should.
 
-<PRE>
-HPL Linpack benchmark input file - falcon - 09/00
-Innovative Computing Laboratory, University of Tennessee
-HPL.out      output file name (if any)
-6            device out (6=stdout,7=stderr,file)
-4            # of problems sizes (N)
-5000 10000 25000 53000 Ns
-2            # of NBs
-88 88        NBs
-1            # of process grids (P x Q)
-8            Ps
-8            Qs
-16.0         threshold
-1            # of panel fact
-1            PFACTs (0=left, 1=Crout, 2=Right)
-1            # of recursive stopping criterium
-4            NBMINs (>= 1)
-1            # of panels in recursion
-2            NDIVs
-1            # of recursive panel fact.
-1            RFACTs (0=left, 1=Crout, 2=Right)
-1            # of broadcast
-1            BCASTs (0=1rg,1=1rM,2=2rg,3=2rM,4=Lng,5=LnM)
-1            # of lookahead depth
-1            DEPTHs (>=0)
-2            SWAP (0=bin-exch,1=long,2=mix)
-88           swapping threshold
-0            L1 in (0=transposed,1=no-transposed) form
-0            U  in (0=transposed,1=no-transposed) form
-1            Equilibration (0=no,1=yes)
-8            memory alignment in double (> 0)
-</PRE><BR><BR>
-
+<BR><BR>
 The authors acknowledge the use  of the Oak Ridge National Laboratory
 Compaq computer, funded by the Department of Energy's Office
 of Science and Energy Efficiency programs.<BR><BR>
@@ -268,7 +226,6 @@ of Science and Energy Efficiency programs.<BR><BR>
 <HR NOSHADE>
 <CENTER>
 <A HREF = "index.html">            [Home]</A>
-<A HREF = "mailto:hpl@cs.utk.edu"> [Contact]</A>
 <A HREF = "copyright.html">        [Copyright and Licensing Terms]</A>
 <A HREF = "algorithm.html">        [Algorithm]</A>
 <A HREF = "scalability.html">      [Scalability]</A>

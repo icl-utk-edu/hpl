@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -66,7 +66,7 @@ build_tst        :
 	( $(CD) testing/pmatgen/$(arch);   $(MAKE) )
 	( $(CD) testing/ptimer/$(arch);    $(MAKE) )
 	( $(CD) testing/ptest/$(arch);     $(MAKE) )
-#( HPL_make_cd`' testing/test/$(arch);      HPL_make_make`' )
+#( SPMS_make_cd`' testing/test/$(arch);      SPMS_make_make`' )
 #
 ## startup #############################################################
 #
@@ -93,7 +93,7 @@ startup_tst      :
 	- $(MAKE) -f Make.top leaf le=testing/pmatgen arch=$(arch)
 	- $(MAKE) -f Make.top leaf le=testing/ptimer  arch=$(arch)
 	- $(MAKE) -f Make.top leaf le=testing/ptest   arch=$(arch)
-#- HPL_make_make`' -f Make.top leaf le=testing/test    arch=$(arch)
+#- SPMS_make_make`' -f Make.top leaf le=testing/test    arch=$(arch)
 #
 ## refresh #############################################################
 #
@@ -113,7 +113,7 @@ refresh_tst      :
 	- $(CP) makes/Make.pmatgen  testing/pmatgen/$(arch)/Makefile
 	- $(CP) makes/Make.ptimer   testing/ptimer/$(arch)/Makefile
 	- $(CP) makes/Make.ptest    testing/ptest/$(arch)/Makefile
-#- HPL_make_cp`' makes/Make.test     testing/test/$(arch)/Makefile
+#- SPMS_make_cp`' makes/Make.test     testing/test/$(arch)/Makefile
 #
 ## clean ###############################################################
 #
@@ -133,7 +133,7 @@ clean_tst        :
 	- ( $(CD) testing/pmatgen/$(arch);  $(MAKE) clean )
 	- ( $(CD) testing/ptimer/$(arch);   $(MAKE) clean )
 	- ( $(CD) testing/ptest/$(arch);    $(MAKE) clean )
-#- ( HPL_make_cd`' testing/test/$(arch);     HPL_make_make`' clean )
+#- ( SPMS_make_cd`' testing/test/$(arch);     SPMS_make_make`' clean )
 #
 ## clean_arch ##########################################################
 #
@@ -153,7 +153,7 @@ clean_arch_tst   :
 	- $(RM) -r testing/pmatgen/$(arch)
 	- $(RM) -r testing/ptimer/$(arch)
 	- $(RM) -r testing/ptest/$(arch)
-#- HPL_make_rm`' -r testing/test/$(arch)
+#- SPMS_make_rm`' -r testing/test/$(arch)
 #
 ## clean_arch_all ######################################################
 #
@@ -180,7 +180,7 @@ clean_guard_tst  :
 	- ( $(CD) testing/pmatgen/$(arch); $(RM) *.grd )
 	- ( $(CD) testing/ptimer/$(arch);  $(RM) *.grd )
 	- ( $(CD) testing/ptest/$(arch);   $(RM) *.grd )
-#- ( HPL_make_cd`' testing/test/$(arch);    HPL_make_rm`' *.grd )
+#- ( SPMS_make_cd`' testing/test/$(arch);    SPMS_make_rm`' *.grd )
 #
 ## misc ################################################################
 #

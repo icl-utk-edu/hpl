@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,18 +52,18 @@
 #ifdef STDC_HEADERS
 void HPL_perm
 (
-   const int                  N,
-   int *                      LINDXA,
-   int *                      LINDXAU,
-   int *                      IWORK
+   const int                        N,
+   int *                            LINDXA,
+   int *                            LINDXAU,
+   int *                            IWORK
 )
 #else
 void HPL_perm
 ( N, LINDXA, LINDXAU, IWORK )
-   const int                  N;
-   int *                      LINDXA;
-   int *                      LINDXAU;
-   int *                      IWORK;
+   const int                        N;
+   int *                            LINDXA;
+   int *                            LINDXAU;
+   int *                            IWORK;
 #endif
 {
 /* 

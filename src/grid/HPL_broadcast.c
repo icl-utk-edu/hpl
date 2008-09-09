@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -52,20 +52,20 @@
 #ifdef STDC_HEADERS
 int HPL_broadcast
 (
-   void *                     BUFFER,
-   const int                  COUNT,
-   const HPL_T_TYPE           DTYPE,
-   const int                  ROOT,
-   MPI_Comm                   COMM
+   void *                           BUFFER,
+   const int                        COUNT,
+   const HPL_T_TYPE                 DTYPE,
+   const int                        ROOT,
+   MPI_Comm                         COMM
 )
 #else
 int HPL_broadcast
 ( BUFFER, COUNT, DTYPE, ROOT, COMM )
-   void *                     BUFFER;
-   const int                  COUNT;
-   const HPL_T_TYPE           DTYPE;
-   const int                  ROOT;
-   MPI_Comm                   COMM;
+   void *                           BUFFER;
+   const int                        COUNT;
+   const HPL_T_TYPE                 DTYPE;
+   const int                        ROOT;
+   MPI_Comm                         COMM;
 #endif
 {
 /* 
@@ -78,7 +78,7 @@ int HPL_broadcast
  * Arguments
  * =========
  *
- * BUFFER  (local input/global output)   void *
+ * BUFFER  (local input/output)          void *
  *         On entry,  BUFFER  points to  the  buffer to be broadcast. On
  *         exit, this array contains the broadcast data and is identical
  *         on all processes in the group.

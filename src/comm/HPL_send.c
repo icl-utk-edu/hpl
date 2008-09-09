@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -59,20 +59,20 @@
 #ifdef STDC_HEADERS
 int HPL_send
 (
-   double *                   SBUF,
-   int                        SCOUNT,
-   int                        DEST,
-   int                        STAG,
-   MPI_Comm                   COMM
+   double *                         SBUF,
+   int                              SCOUNT,
+   int                              DEST,
+   int                              STAG,
+   MPI_Comm                         COMM
 )
 #else
 int HPL_send
 ( SBUF, SCOUNT, DEST, STAG, COMM )
-   double *                   SBUF;
-   int                        SCOUNT;
-   int                        DEST;
-   int                        STAG;
-   MPI_Comm                   COMM;
+   double *                         SBUF;
+   int                              SCOUNT;
+   int                              DEST;
+   int                              STAG;
+   MPI_Comm                         COMM;
 #endif
 {
 /* 
@@ -96,7 +96,7 @@ int HPL_send
  *         On entry,  SCOUNT  specifies  the number of  double precision
  *         entries in SBUF. SCOUNT must be at least zero.
  *
- * DEST    (local  input)                int
+ * DEST    (local input)                 int
  *         On entry, DEST specifies the rank of the receiving process in
  *         the communication space defined by COMM.
  *

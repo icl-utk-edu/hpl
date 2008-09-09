@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -728,34 +728,34 @@ static void HPL_dtrsm0( SIDE, UPLO, TRANS, DIAG, M, N, ALPHA, A, LDA, B, LDB )
 #ifdef STDC_HEADERS
 void HPL_dtrsm
 (
-   const enum HPL_ORDER       ORDER,
-   const enum HPL_SIDE        SIDE,
-   const enum HPL_UPLO        UPLO,
-   const enum HPL_TRANS       TRANS,
-   const enum HPL_DIAG        DIAG,
-   const int                  M,
-   const int                  N,
-   const double               ALPHA,
-   const double *             A,
-   const int                  LDA,
-   double *                   B,
-   const int                  LDB
+   const enum HPL_ORDER             ORDER,
+   const enum HPL_SIDE              SIDE,
+   const enum HPL_UPLO              UPLO,
+   const enum HPL_TRANS             TRANS,
+   const enum HPL_DIAG              DIAG,
+   const int                        M,
+   const int                        N,
+   const double                     ALPHA,
+   const double *                   A,
+   const int                        LDA,
+   double *                         B,
+   const int                        LDB
 )
 #else
 void HPL_dtrsm
 ( ORDER, SIDE, UPLO, TRANS, DIAG, M, N, ALPHA, A, LDA, B, LDB )
-   const enum HPL_ORDER       ORDER;
-   const enum HPL_SIDE        SIDE;
-   const enum HPL_UPLO        UPLO;
-   const enum HPL_TRANS       TRANS;
-   const enum HPL_DIAG        DIAG;
-   const int                  M;
-   const int                  N;
-   const double               ALPHA;
-   const double *             A;
-   const int                  LDA;
-   double *                   B;
-   const int                  LDB;
+   const enum HPL_ORDER             ORDER;
+   const enum HPL_SIDE              SIDE;
+   const enum HPL_UPLO              UPLO;
+   const enum HPL_TRANS             TRANS;
+   const enum HPL_DIAG              DIAG;
+   const int                        M;
+   const int                        N;
+   const double                     ALPHA;
+   const double *                   A;
+   const int                        LDA;
+   double *                         B;
+   const int                        LDB;
 #endif
 {
 /* 
@@ -923,8 +923,8 @@ void HPL_dtrsm
                 A, &F77lda, B, &F77ldb, IONE, IONE, IONE, IONE );
 #endif
 #ifdef StringCrayStyle
-      fside = HPL_C2F_Char( cside ); fuplo = HPL_C2F_CHAR( cuplo );
-      ftran = HPL_C2F_Char( ctran ); fdiag = HPL_C2F_CHAR( cdiag );
+      fside = HPL_C2F_CHAR( cside ); fuplo = HPL_C2F_CHAR( cuplo );
+      ftran = HPL_C2F_CHAR( ctran ); fdiag = HPL_C2F_CHAR( cdiag );
       F77dtrsm( fside,  fuplo,  ftran,  fdiag,  &F77M, &F77N, &alpha,
                 A, &F77lda, B, &F77ldb );
 #endif
@@ -950,8 +950,8 @@ void HPL_dtrsm
                 A, &F77lda, B, &F77ldb, IONE, IONE, IONE, IONE );
 #endif
 #ifdef StringCrayStyle
-      fside = HPL_C2F_Char( cside ); fuplo = HPL_C2F_CHAR( cuplo );
-      ftran = HPL_C2F_Char( ctran ); fdiag = HPL_C2F_CHAR( cdiag );
+      fside = HPL_C2F_CHAR( cside ); fuplo = HPL_C2F_CHAR( cuplo );
+      ftran = HPL_C2F_CHAR( ctran ); fdiag = HPL_C2F_CHAR( cdiag );
       F77dtrsm( fside,  fuplo,  ftran,  fdiag,  &F77N, &F77M, &alpha,
                 A, &F77lda, B, &F77ldb );
 #endif

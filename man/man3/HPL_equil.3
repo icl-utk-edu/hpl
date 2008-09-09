@@ -1,8 +1,8 @@
-.TH HPL_equil 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_equil 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_equil \- Equilibrate U and forward the column panel L.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_equil(\fR
@@ -38,65 +38,54 @@ this  function probes  for  the  column panel L and forwards it when
 possible.
 .SH ARGUMENTS
 .TP 8
-PBCST   (local input/output)          HPL_T_panel *
+PBCST   (local input/output)    HPL_T_panel *
 On entry,  PBCST  points to the data structure containing the
 panel (to be broadcast) information.
 .TP 8
-IFLAG   (local intput/output)         int *
+IFLAG   (local input/output)    int *
 On entry, IFLAG  indicates  whether or not  the broadcast has
 already been completed.  If not,  probing will occur, and the
 outcome will be contained in IFLAG on exit.
 .TP 8
-PANEL   (local input/output)          HPL_T_panel *
+PANEL   (local input/output)    HPL_T_panel *
 On entry,  PANEL  points to the data structure containing the
 panel (to be equilibrated) information.
 .TP 8
-TRANS   (global input)                const enum HPL_TRANS
+TRANS   (global input)          const enum HPL_TRANS
 On entry, TRANS specifies whether  U  is stored in transposed
 or non-transposed form.
 .TP 8
-N       (local input)                 const int
+N       (local input)           const int
 On entry, N  specifies the number of rows or columns of  U. N
 must be at least 0.
 .TP 8
-U       (local input/output)          double *
+U       (local input/output)    double *
 On entry,  U  is an array of dimension (LDU,*) containing the
 local pieces of U in each process row.
 .TP 8
-LDU     (local input)                 const int
+LDU     (local input)           const int
 On entry, LDU specifies the local leading dimension of U. LDU
 should be at least MAX(1,IPLEN[nprow]) when  U  is stored  in
 non-transposed form, and MAX(1,N) otherwise.
 .TP 8
-IPLEN   (global input)                int *
+IPLEN   (global input)          int *
 On entry, IPLEN is an array of dimension NPROW+1.  This array
 is such that IPLEN[i+1] - IPLEN[i] is the number of rows of U
 in process IPMAP[i].
 .TP 8
-IPMAP   (global input)                const int *
+IPMAP   (global input)          const int *
 On entry, IPMAP is an array of dimension  NPROW.  This  array
 contains  the  logarithmic mapping of the processes. In other
 words, IPMAP[myrow]  is the absolute coordinate of the sorted
 process.
 .TP 8
-IPMAPM1 (global input)                const int *
+IPMAPM1 (global input)          const int *
 On entry, IPMAPM1  is an array of dimension NPROW. This array
 contains  the inverse of the logarithmic mapping contained in
 IPMAP: For i in [0.. NPROCS) IPMAPM1[IPMAP[i]] = i.
 .TP 8
-IWORK   (workspace)                   int *
+IWORK   (workspace)             int *
 On entry, IWORK is a workarray of dimension NPROW+1.
 .SH SEE ALSO
-.BR HPL_pdlaswp01N (3),
-.BR HPL_pdlaswp01T (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_pdlaswp01N \ (3),
+.BR HPL_pdlaswp01T \ (3).

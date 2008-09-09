@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -131,13 +131,13 @@ typedef struct HPL_S_pmat
  * Function prototypes
  * ---------------------------------------------------------------------
  */
-void              HPL_pipid
+void                             HPL_pipid
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
    int *
 ) );
-void              HPL_plindx0
+void                             HPL_plindx0
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
@@ -146,14 +146,14 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-void              HPL_pdlaswp00N
+void                             HPL_pdlaswp00N
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
    HPL_T_panel *,
    const int
 ) );
-void              HPL_pdlaswp00T
+void                             HPL_pdlaswp00T
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -161,14 +161,14 @@ STDC_ARGS( (
    const int
 ) );
 
-void              HPL_perm
+void                             HPL_perm
 STDC_ARGS( (
    const int,
    int *,
    int *,
    int *
 ) );
-void              HPL_logsort
+void                             HPL_logsort
 STDC_ARGS( (
    const int,
    const int,
@@ -176,22 +176,22 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-void              HPL_plindx10
-STDC_ARGS( (
-   HPL_T_panel *,
-   const int,
-   const int *,
-   int *,
-   int *,
-   int *
-) );
-void              HPL_plindx1
+void                             HPL_plindx10
 STDC_ARGS( (
    HPL_T_panel *,
    const int,
    const int *,
    int *,
    int *,
+   int *
+) );
+void                             HPL_plindx1
+STDC_ARGS( (
+   HPL_T_panel *,
+   const int,
+   const int *,
+   int *,
+   int *,
    int *,
    int *,
    int *,
@@ -199,7 +199,7 @@ STDC_ARGS( (
    int *,
    int *
 ) );
-void              HPL_spreadN
+void                             HPL_spreadN
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -213,7 +213,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_spreadT
+void                             HPL_spreadT
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -227,7 +227,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_equil
+void                             HPL_equil
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -241,7 +241,7 @@ STDC_ARGS( (
    const int *,
    int *
 ) );
-void              HPL_rollN
+void                             HPL_rollN
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -253,7 +253,7 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_rollT
+void                             HPL_rollT
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -265,43 +265,14 @@ STDC_ARGS( (
    const int *,
    const int *
 ) );
-void              HPL_pdlaswp01N
+void                             HPL_pdlaswp01N
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
    HPL_T_panel *,
    const int
 ) );
-void              HPL_pdlaswp01T
-STDC_ARGS( (
-   HPL_T_panel *,
-   int *,
-   HPL_T_panel *,
-   const int
-) );
-
-void              HPL_pdupdateNN
-STDC_ARGS( (
-   HPL_T_panel *,
-   int *,
-   HPL_T_panel *,
-   const int
-) );
-void              HPL_pdupdateNT
-STDC_ARGS( (
-   HPL_T_panel *,
-   int *,
-   HPL_T_panel *,
-   const int
-) );
-void              HPL_pdupdateTN
-STDC_ARGS( (
-   HPL_T_panel *,
-   int *,
-   HPL_T_panel *,
-   const int
-) );
-void              HPL_pdupdateTT
+void                             HPL_pdlaswp01T
 STDC_ARGS( (
    HPL_T_panel *,
    int *,
@@ -309,32 +280,61 @@ STDC_ARGS( (
    const int
 ) );
 
-void              HPL_pdgesv0
+void                             HPL_pdupdateNN
+STDC_ARGS( (
+   HPL_T_panel *,
+   int *,
+   HPL_T_panel *,
+   const int
+) );
+void                             HPL_pdupdateNT
+STDC_ARGS( (
+   HPL_T_panel *,
+   int *,
+   HPL_T_panel *,
+   const int
+) );
+void                             HPL_pdupdateTN
+STDC_ARGS( (
+   HPL_T_panel *,
+   int *,
+   HPL_T_panel *,
+   const int
+) );
+void                             HPL_pdupdateTT
+STDC_ARGS( (
+   HPL_T_panel *,
+   int *,
+   HPL_T_panel *,
+   const int
+) );
+
+void                             HPL_pdgesv0
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
    HPL_T_pmat *
 ) );
-void              HPL_pdgesvK1
+void                             HPL_pdgesvK1
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
    HPL_T_pmat *
 ) );
-void              HPL_pdgesvK2
+void                             HPL_pdgesvK2
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
    HPL_T_pmat *
 ) );
-void              HPL_pdgesv
+void                             HPL_pdgesv
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_palg *,
    HPL_T_pmat *
 ) );
  
-void              HPL_pdtrsv
+void                             HPL_pdtrsv
 STDC_ARGS( (
    HPL_T_grid *,
    HPL_T_pmat *

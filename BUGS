@@ -1,48 +1,9 @@
 ==============================================================
  List of the known problems with the HPL software
 
- Current as of release 1.0 - September 27, 2000
+ Current as of release 1.0a - January 20, 2004
 ==============================================================
- Check out  the website  www.netlib.org/benchmark/hpl  for the 
- latest information.
-
- 1) Some  older  version  of the cxml  BLAS  library  seems to 
- require operands adresses  to be aligned on  64  or 96  bytes
- boundaries.  This error was tracked down to the  Level 2 BLAS
- DGER routine.  It is rather difficult to reproduce in a small
- example program since the operands  A,  X  and  Y  need to be
- stored at specific places in memory for the problem to occur.
- There are at least  4  possibles independent fixes  (applying
- one of them should be enough): 
-
- 1. Get the latest cxml library.
-
- 2. Do  not   use  the  right-looking  variant  of  the  panel
- factorization: Line 14 of the input data file HPL.dat  should
- not contain a 2. Use only 0s or 1s on that line.
-
- 3. Link  in the  Fortran 77  reference implementation of that
- routine. Download the source from netlib and compile it. Move
- the object file  "dger.o"  into  the hpl/testing/ptest/<arch>
- directory.  Edit the  Makefile  there and add "dger.o" to the
- list of object files. Issue in that directory a  "make clean;
- make".  You  should  have  just  built  a  patched executable
- (hpl/bin/<arch>/xhpl).
-
- 4. Another  possible fix that does not seem to always work is
- to set the value of the  ALIGN  parameter  in  the data input
- file hpl/bin/<arch>/HPL.dat to a multiple of 8 (or 12) larger
- than or equal to 8 (or 12).
 
 ==============================================================
- A  bug report consists of a short description of the problem,
- minimally  including a description of  the  environment (name
- and versions  of  the operating  system, compilers, libraries
- used ...) .  When appropriate,  a short (less than 100 lines)
- example program demonstrating the problem should be attached.
- Such a report should be sent to the following e-mail address:
- hpl@cs.utk.edu                                               
-                                                              
- Everything else, that you believe being a bug report as well,
- will be handled as time allows.                              
+ 
 ==============================================================

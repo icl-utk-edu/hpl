@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_pdlaswp01T HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_pdlaswp01T HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_pdlaswp01T</B> Broadcast a column panel L and swap the row panel U.
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_pdlaswp01T(</CODE>
 <CODE>HPL_T_panel *</CODE>
@@ -45,18 +45,18 @@ optimistic value of K is typically 2.4.
 
 <H1>Arguments</H1>
 <PRE>
-PBCST   (local input/local output)    HPL_T_panel *
+PBCST   (local input/output)          HPL_T_panel *
         On entry,  PBCST  points to the data structure containing the
         panel (to be broadcast) information.
 </PRE>
 <PRE>
-IFLAG   (local intput/output)         int *
+IFLAG   (local input/output)          int *
         On entry, IFLAG  indicates  whether or not  the broadcast has
         already been completed.  If not,  probing will occur, and the
         outcome will be contained in IFLAG on exit.
 </PRE>
 <PRE>
-PANEL   (local input/local output)    HPL_T_panel *
+PANEL   (local input/output)          HPL_T_panel *
         On entry,  PANEL  points to the data structure containing the
         panel information.
 </PRE>
@@ -80,7 +80,7 @@ NN      (local input)                 const int
 <A HREF="HPL_rollT.html">HPL_rollT</A>,
 <A HREF="HPL_dlaswp10N.html">HPL_dlaswp10N</A>,
 <A HREF="HPL_dlaswp01T.html">HPL_dlaswp01T</A>,
-<A HREF="HPL_dlaswp06T.html">HPL_dlaswp06T</A>
+<A HREF="HPL_dlaswp06T.html">HPL_dlaswp06T</A>.
 
 </BODY>
 </HTML>

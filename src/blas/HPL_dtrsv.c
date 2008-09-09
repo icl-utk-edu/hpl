@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -337,28 +337,28 @@ static void HPL_dtrsv0( UPLO, TRANS, DIAG, N, A, LDA, X, INCX )
 #ifdef STDC_HEADERS
 void HPL_dtrsv
 (
-   const enum HPL_ORDER       ORDER,
-   const enum HPL_UPLO        UPLO,
-   const enum HPL_TRANS       TRANS,
-   const enum HPL_DIAG        DIAG,
-   const int                  N,
-   const double *             A,
-   const int                  LDA,
-   double *                   X,
-   const int                  INCX
+   const enum HPL_ORDER             ORDER,
+   const enum HPL_UPLO              UPLO,
+   const enum HPL_TRANS             TRANS,
+   const enum HPL_DIAG              DIAG,
+   const int                        N,
+   const double *                   A,
+   const int                        LDA,
+   double *                         X,
+   const int                        INCX
 )
 #else
 void HPL_dtrsv
 ( ORDER, UPLO, TRANS, DIAG, N, A, LDA, X, INCX )
-   const enum HPL_ORDER       ORDER;
-   const enum HPL_UPLO        UPLO;
-   const enum HPL_TRANS       TRANS;
-   const enum HPL_DIAG        DIAG;
-   const int                  N;
-   const double *             A;
-   const int                  LDA;
-   double *                   X;
-   const int                  INCX;
+   const enum HPL_ORDER             ORDER;
+   const enum HPL_UPLO              UPLO;
+   const enum HPL_TRANS             TRANS;
+   const enum HPL_DIAG              DIAG;
+   const int                        N;
+   const double *                   A;
+   const int                        LDA;
+   double *                         X;
+   const int                        INCX;
 #endif
 {
 /* 

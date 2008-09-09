@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -54,30 +54,30 @@
 #ifdef STDC_HEADERS
 void HPL_dger
 (
-   const enum HPL_ORDER       ORDER,
-   const int                  M,
-   const int                  N,
-   const double               ALPHA,
-   const double *             X,
-   const int                  INCX,
-   double *                   Y,
-   const int                  INCY,
-   double *                   A,
-   const int                  LDA
+   const enum HPL_ORDER             ORDER,
+   const int                        M,
+   const int                        N,
+   const double                     ALPHA,
+   const double *                   X,
+   const int                        INCX,
+   double *                         Y,
+   const int                        INCY,
+   double *                         A,
+   const int                        LDA
 )
 #else
 void HPL_dger
 ( ORDER, M, N, ALPHA, X, INCX, Y, INCY, A, LDA )
-   const enum HPL_ORDER       ORDER;
-   const int                  M;
-   const int                  N;
-   const double               ALPHA;
-   const double *             X;
-   const int                  INCX;
-   double *                   Y;
-   const int                  INCY;
-   double *                   A;
-   const int                  LDA;
+   const enum HPL_ORDER             ORDER;
+   const int                        M;
+   const int                        N;
+   const double                     ALPHA;
+   const double *                   X;
+   const int                        INCX;
+   double *                         Y;
+   const int                        INCY;
+   double *                         A;
+   const int                        LDA;
 #endif
 {
 /* 

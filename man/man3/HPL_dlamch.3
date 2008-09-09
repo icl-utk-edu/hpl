@@ -1,8 +1,8 @@
-.TH HPL_dlamch 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_dlamch 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_dlamch \- determines machine-specific arithmetic constants.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&double\fR
 \fB\&HPL_dlamch(\fR
@@ -21,7 +21,7 @@ threshold (rmin) base**(emin-1), the largest exponent before overflow
 (emax), the overflow threshold (rmax) (base**emax)*(1-eps).
 .SH ARGUMENTS
 .TP 8
-CMACH   (local input)                 const HPL_T_MACH
+CMACH   (local input)           const HPL_T_MACH
 Specifies the value to be returned by HPL_dlamch             
    = HPL_MACH_EPS,   HPL_dlamch := eps (default)             
    = HPL_MACH_SFMIN, HPL_dlamch := sfmin                     
@@ -47,7 +47,7 @@ where
    emax  = largest exponent before overflow,                 
    rmax  = overflow threshold.
 .SH EXAMPLE
-\fI\&#include <hpl.h>\fR
+\fI\&#include "hpl.h"\fR
  
 int main(int argc, char *argv[])
 .br
@@ -59,9 +59,7 @@ int main(int argc, char *argv[])
 .br
    printf("eps=%18.8e\en", eps);
 .br
-   exit(0);
-.br
-   return(0);
+   exit(0); return(0);
 .br
 }
 .SH REFERENCES
@@ -76,14 +74,3 @@ arithmetic.,  Comms. of the ACM, 15, 949-951 (1972).
 Gentleman W. M. and Marovich S. B.,  More  on algorithms  that reveal
 properties of  floating point arithmetic units.,  Comms. of  the ACM,
 17, 276-277 (1974).
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              

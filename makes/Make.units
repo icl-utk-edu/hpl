@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -82,27 +82,27 @@ dexe.grd         : $(HPL_uniobj) $(HPLlib)
 # ######################################################################
 #
 HPL_unit_driver.o      : ../HPL_unit_driver.c      $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_driver.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_driver.c
 HPL_unit_info.o        : ../HPL_unit_info.c        $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_info.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_info.c
 HPL_unit_indxg2l.o     : ../HPL_unit_indxg2l.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_indxg2l.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_indxg2l.c
 HPL_chek_indxg2l.o     : ../HPL_chek_indxg2l.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_chek_indxg2l.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_chek_indxg2l.c
 HPL_unit_indxg2p.o     : ../HPL_unit_indxg2p.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_indxg2p.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_indxg2p.c
 HPL_chek_indxg2p.o     : ../HPL_chek_indxg2p.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_chek_indxg2p.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_chek_indxg2p.c
 HPL_unit_indxl2g.o     : ../HPL_unit_indxl2g.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_indxl2g.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_indxl2g.c
 HPL_chek_indxl2g.o     : ../HPL_chek_indxl2g.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_chek_indxl2g.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_chek_indxl2g.c
 HPL_unit_numroc.o      : ../HPL_unit_numroc.c      $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_numroc.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_numroc.c
 HPL_unit_numrocI.o     : ../HPL_unit_numrocI.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_unit_numrocI.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_unit_numrocI.c
 HPL_chek_numrocI.o     : ../HPL_chek_numrocI.c     $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_chek_numrocI.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_chek_numrocI.c
 #
 # ######################################################################
 #

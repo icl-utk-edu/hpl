@@ -1,10 +1,10 @@
 #  
 #  -- High Performance Computing Linpack Benchmark (HPL)                
-#     HPL - 1.0 - September 27, 2000                          
+#     HPL - 1.0a - January 20, 2004                          
 #     Antoine P. Petitet                                                
 #     University of Tennessee, Knoxville                                
 #     Innovative Computing Laboratories                                 
-#     (C) Copyright 2000 All Rights Reserved                            
+#     (C) Copyright 2000-2004 All Rights Reserved                       
 #                                                                       
 #  -- Copyright notice and Licensing terms:                             
 #                                                                       
@@ -79,11 +79,11 @@ dexe.grd: $(HPL_tesobj) $(HPLlib)
 # ######################################################################
 #
 HPL_ddriver.o          : ../HPL_ddriver.c          $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_ddriver.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_ddriver.c
 HPL_dinfo.o            : ../HPL_dinfo.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dinfo.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dinfo.c
 HPL_dtest.o            : ../HPL_dtest.c            $(INCdep)
-	$(CC) -o $@ -c $(CCFLAGS) $(HPL_DEFS) ../HPL_dtest.c
+	$(CC) -o $@ -c $(CCFLAGS)  ../HPL_dtest.c
 #
 # ######################################################################
 #

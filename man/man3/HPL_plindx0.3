@@ -1,8 +1,8 @@
-.TH HPL_plindx0 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_plindx0 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_plindx0 \- Compute local swapping index arrays.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&void\fR
 \fB\&HPL_plindx0(\fR
@@ -133,47 +133,36 @@ This information is kept in the array  LLEN  of size NPROW. Also note
 that the arrays LINDXA and LINDXAU are of max length equal to 2*N.
 .SH ARGUMENTS
 .TP 8
-PANEL   (local input/output)          HPL_T_panel *
+PANEL   (local input/output)    HPL_T_panel *
 On entry,  PANEL  points to the data structure containing the
 panel information.
 .TP 8
-K       (global input)                const int
+K       (global input)          const int
 On entry, K specifies the number of entries in IPID.  K is at
 least 2*N, and at most 4*N.
 .TP 8
-IPID    (global input)                int *
+IPID    (global input)          int *
 On entry,  IPID  is an array of length K. The first K entries
 of that array contain the src and final destination resulting
 from the application of the interchanges.
 .TP 8
-LINDXA  (local output)                int *
+LINDXA  (local output)          int *
 On entry, LINDXA  is an array of dimension 2*N. On exit, this
 array contains the local indexes of the rows of A I have that
 should be copied into U.
 .TP 8
-LINDXAU (local output)                int *
+LINDXAU (local output)          int *
 On exit, LINDXAU  is an array of dimension 2*N. On exit, this
 array contains  the local destination  information encoded as
 follows.  If LINDXAU(k) >= 0, row  LINDXA(k)  of A  is  to be
 copied in U at position LINDXAU(k).  Otherwise, row LINDXA(k)
 of A should be locally copied into A(-LINDXAU(k),:).
 .TP 8
-LLEN    (global output)               int *
+LLEN    (global output)         int *
 On entry,  LLEN  is  an array  of length  NPROW.  On exit, it
 contains how many rows every process has.
 .SH SEE ALSO
-.BR HPL_pdlaswp00N (3),
-.BR HPL_pdlaswp00T (3),
-.BR HPL_pdlaswp01N (3),
-.BR HPL_pdlaswp01T (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_pdlaswp00N \ (3),
+.BR HPL_pdlaswp00T \ (3),
+.BR HPL_pdlaswp01N \ (3),
+.BR HPL_pdlaswp01T \ (3).

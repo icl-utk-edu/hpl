@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -117,34 +117,34 @@ static void HPL_dgemv0( TRANS, M, N, ALPHA, A, LDA, X, INCX, BETA, Y, INCY )
 #ifdef STDC_HEADERS
 void HPL_dgemv
 (
-   const enum HPL_ORDER       ORDER,
-   const enum HPL_TRANS       TRANS,
-   const int                  M,
-   const int                  N,
-   const double               ALPHA,
-   const double *             A,
-   const int                  LDA,
-   const double *             X,
-   const int                  INCX,
-   const double               BETA,
-   double *                   Y,
-   const int                  INCY
+   const enum HPL_ORDER             ORDER,
+   const enum HPL_TRANS             TRANS,
+   const int                        M,
+   const int                        N,
+   const double                     ALPHA,
+   const double *                   A,
+   const int                        LDA,
+   const double *                   X,
+   const int                        INCX,
+   const double                     BETA,
+   double *                         Y,
+   const int                        INCY
 )
 #else
 void HPL_dgemv
 ( ORDER, TRANS, M, N, ALPHA, A, LDA, X, INCX, BETA, Y, INCY )
-   const enum HPL_ORDER       ORDER;
-   const enum HPL_TRANS       TRANS;
-   const int                  M;
-   const int                  N;
-   const double               ALPHA;
-   const double *             A;
-   const int                  LDA;
-   const double *             X;
-   const int                  INCX;
-   const double               BETA;
-   double *                   Y;
-   const int                  INCY;
+   const enum HPL_ORDER             ORDER;
+   const enum HPL_TRANS             TRANS;
+   const int                        M;
+   const int                        N;
+   const double                     ALPHA;
+   const double *                   A;
+   const int                        LDA;
+   const double *                   X;
+   const int                        INCX;
+   const double                     BETA;
+   double *                         Y;
+   const int                        INCY;
 #endif
 {
 /* 

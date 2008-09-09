@@ -6,6 +6,7 @@ HPL.out      output file name (if any)
 29 30 34 35  Ns
 4            # of NBs
 1 2 3 4      NBs
+0            PMAP process mapping (0=Row-,1=Column-major)
 3            # of process grids (P x Q)
 2 1 4        Ps
 2 4 1        Qs

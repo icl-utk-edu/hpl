@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>HPL_dlatcpy HPL 1.0 Library Functions September 27, 2000</TITLE> 
+<TITLE>HPL_dlatcpy HPL 1.0a Library Functions January 20, 2004</TITLE> 
 </HEAD>
 
 <BODY BGCOLOR="WHITE" TEXT = "#000000" LINK = "#0000ff" VLINK = "#000099"
@@ -10,7 +10,7 @@
 <B>HPL_dlatcpy</B> B := A^T
 
 <H1>Synopsis</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <CODE>void</CODE>
 <CODE>HPL_dlatcpy(</CODE>
 <CODE>const int</CODE>
@@ -63,22 +63,21 @@ LDB     (local input)                 const int
 </PRE>
 
 <H1>Example</H1>
-<CODE>#include &#60hpl.h&#62</CODE><BR><BR>
+<CODE>#include "hpl.h"</CODE><BR><BR>
 <PRE>
 int main(int argc, char *argv[])
 {
    double a[2*2], b[2*2];
    a[0] = 1.0; a[1] = 3.0; a[2] = 2.0; a[3] = 4.0;
    HPL_dlacpy( 2, 2, a, 2, b, 2 );
-   printf("b=[%f,%f]", b[0], b[2]);
-   printf("  [%f,%f]", b[1], b[3]);
-   exit(0);
-   return(0);
+   printf("  [%f,%f]\n", b[0], b[2]);
+   printf("b=[%f,%f]\n", b[1], b[3]);
+   exit(0); return(0);
 }
 </PRE>
 
 <H1>See Also</H1>
-<A HREF="HPL_dlacpy.html">HPL_dlacpy</A>
+<A HREF="HPL_dlacpy.html">HPL_dlacpy</A>.
 
 </BODY>
 </HTML>

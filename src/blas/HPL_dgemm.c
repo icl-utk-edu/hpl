@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0 - September 27, 2000                          
+ *    HPL - 1.0a - January 20, 2004                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
  *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000 All Rights Reserved                            
+ *    (C) Copyright 2000-2004 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -270,38 +270,38 @@ static void HPL_dgemm0( TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB,
 #ifdef STDC_HEADERS
 void HPL_dgemm
 (
-   const enum HPL_ORDER       ORDER,
-   const enum HPL_TRANS       TRANSA,
-   const enum HPL_TRANS       TRANSB,
-   const int                  M,
-   const int                  N,
-   const int                  K,
-   const double               ALPHA,
-   const double *             A,
-   const int                  LDA,
-   const double *             B,
-   const int                  LDB,
-   const double               BETA,
-   double *                   C,
-   const int                  LDC
+   const enum HPL_ORDER             ORDER,
+   const enum HPL_TRANS             TRANSA,
+   const enum HPL_TRANS             TRANSB,
+   const int                        M,
+   const int                        N,
+   const int                        K,
+   const double                     ALPHA,
+   const double *                   A,
+   const int                        LDA,
+   const double *                   B,
+   const int                        LDB,
+   const double                     BETA,
+   double *                         C,
+   const int                        LDC
 )
 #else
 void HPL_dgemm
 ( ORDER, TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC )
-   const enum HPL_ORDER       ORDER;
-   const enum HPL_TRANS       TRANSA;
-   const enum HPL_TRANS       TRANSB;
-   const int                  M;
-   const int                  N;
-   const int                  K;
-   const double               ALPHA;
-   const double *             A;
-   const int                  LDA;
-   const double *             B;
-   const int                  LDB;
-   const double               BETA;
-   double *                   C;
-   const int                  LDC;
+   const enum HPL_ORDER             ORDER;
+   const enum HPL_TRANS             TRANSA;
+   const enum HPL_TRANS             TRANSB;
+   const int                        M;
+   const int                        N;
+   const int                        K;
+   const double                     ALPHA;
+   const double *                   A;
+   const int                        LDA;
+   const double *                   B;
+   const int                        LDB;
+   const double                     BETA;
+   double *                         C;
+   const int                        LDC;
 #endif
 {
 /* 

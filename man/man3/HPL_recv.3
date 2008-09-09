@@ -1,8 +1,8 @@
-.TH HPL_recv 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.TH HPL_recv 3 "January 20, 2004" "HPL 1.0a" "HPL Library Functions"
 .SH NAME
 HPL_recv \- Receive a message.
 .SH SYNOPSIS
-\fB\&#include <hpl.h>\fR
+\fB\&#include "hpl.h"\fR
  
 \fB\&int\fR
 \fB\&HPL_recv(\fR
@@ -26,35 +26,24 @@ HPL_SUCCESS.  In the case of messages of length less than or equal to
 zero, this function returns immediately.
 .SH ARGUMENTS
 .TP 8
-RBUF    (local output)                double *
+RBUF    (local output)          double *
 On entry, RBUF specifies the starting address of buffer to be
 received.
 .TP 8
-RCOUNT  (local input)                 int
+RCOUNT  (local input)           int
 On entry,  RCOUNT  specifies  the number  of double precision
 entries in RBUF. RCOUNT must be at least zero.
 .TP 8
-SRC     (local input)                 int
+SRC     (local input)           int
 On entry, SRC  specifies the rank of the  sending  process in
 the communication space defined by COMM.
 .TP 8
-RTAG    (local input)                 int
+RTAG    (local input)           int
 On entry,  STAG specifies the message tag to be used for this
 communication operation.
 .TP 8
-COMM    (local input)                 MPI_Comm
+COMM    (local input)           MPI_Comm
 The MPI communicator identifying the communication space.
 .SH SEE ALSO
-.BR HPL_send (3),
-.BR HPL_sendrecv (3)
-.SH REPORTING BUGS
-A  bug report consists of a short description of the problem,
-minimally  including a description of  the  environment (name
-and versions  of  the operating  system, compilers, libraries
-used ...) .  When appropriate,  a short (less than 100 lines)
-example program demonstrating the problem should be attached.
-Such a report should be sent to the following e-mail address:
-hpl@cs.utk.edu                                               
-                                                             
-Everything else, that you believe being a bug report as well,
-will be handled as time allows.                              
+.BR HPL_send \ (3),
+.BR HPL_sendrecv \ (3).
