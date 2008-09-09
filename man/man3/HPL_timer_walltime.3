@@ -1,0 +1,31 @@
+.TH HPL_timer_walltime 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.SH NAME
+HPL_timer_walltime \- Return the elapsed (wall-clock) time.
+.SH SYNOPSIS
+\fB\&#include <hpl.h>\fR
+ 
+\fB\&double\fR
+\fB\&HPL_timer_walltime();\fR
+.SH DESCRIPTION
+\fB\&HPL_timer_walltime\fR
+returns the elapsed (wall-clock) time.
+ 
+If HPL_USE_PentiumCPS  is defined to be the clock cycle per second on
+an i[56]86 Intel processor (e.g., HPL_USE_PentiumCPS is defined to be
+300  on a  300 Mhz Pentium processor), we read the internal processor
+counters. Otherwise we use the  gettimeofday()  function that returns
+the wall-clock time of the system (default).
+.SH SEE ALSO
+.BR HPL_timer_cputime (3),
+.BR HPL_timer (3)
+.SH REPORTING BUGS
+A  bug report consists of a short description of the problem,
+minimally  including a description of  the  environment (name
+and versions  of  the operating  system, compilers, libraries
+used ...) .  When appropriate,  a short (less than 100 lines)
+example program demonstrating the problem should be attached.
+Such a report should be sent to the following e-mail address:
+hpl@cs.utk.edu                                               
+                                                             
+Everything else, that you believe being a bug report as well,
+will be handled as time allows.                              

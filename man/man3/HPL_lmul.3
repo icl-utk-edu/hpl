@@ -1,0 +1,53 @@
+.TH HPL_lmul 3 "September 27, 2000" "HPL 1.0" "HPL Library Functions"
+.SH NAME
+HPL_lmul \- multiplies 2 long positive integers.
+.SH SYNOPSIS
+\fB\&#include <hpl.h>\fR
+ 
+\fB\&void\fR
+\fB\&HPL_lmul(\fR
+\fB\&int *\fR
+\fI\&K\fR,
+\fB\&int *\fR
+\fI\&J\fR,
+\fB\&int *\fR
+\fI\&I\fR
+\fB\&);\fR
+.SH DESCRIPTION
+\fB\&HPL_lmul\fR
+multiplies  without carry two long positive integers K and J
+and put the result into I.  The long integers  I, J, K are encoded on
+31 bits using an array of 2 integers. The 16-lower bits are stored in
+the first entry of each array, the 15-higher bits in the second entry
+of each array. For efficiency purposes, the  intrisic modulo function
+is inlined.
+.SH ARGUMENTS
+.TP 8
+K       (local input)                 int *
+On entry, K is an integer array of dimension 2 containing the
+encoded long integer K.
+.TP 8
+J       (local input)                 int *
+On entry, J is an integer array of dimension 2 containing the
+encoded long integer J.
+.TP 8
+I       (local output)                int *
+On entry, I is an integer array of dimension 2. On exit, this
+array contains the encoded long integer result.
+.SH SEE ALSO
+.BR HPL_ladd (3),
+.BR HPL_setran (3),
+.BR HPL_xjumpm (3),
+.BR HPL_jumpit (3),
+.BR HPL_rand (3)
+.SH REPORTING BUGS
+A  bug report consists of a short description of the problem,
+minimally  including a description of  the  environment (name
+and versions  of  the operating  system, compilers, libraries
+used ...) .  When appropriate,  a short (less than 100 lines)
+example program demonstrating the problem should be attached.
+Such a report should be sent to the following e-mail address:
+hpl@cs.utk.edu                                               
+                                                             
+Everything else, that you believe being a bug report as well,
+will be handled as time allows.                              
