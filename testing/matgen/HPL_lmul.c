@@ -69,9 +69,9 @@ void HPL_lmul
  * =======
  *
  * HPL_lmul multiplies  without carry two long positive integers K and J
- * and put the result into I.  The long integers  I, J, K are encoded on
- * 31 bits using an array of 2 integers. The 16-lower bits are stored in
- * the first entry of each array, the 15-higher bits in the second entry
+ * and puts the result into I. The long integers  I, J, K are encoded on
+ * 32 bits using an array of 2 integers. The 32-lower bits are stored in
+ * the first entry of each array, the 32-higher bits in the second entry
  * of each array. For efficiency purposes, the  intrisic modulo function
  * is inlined.
  *
@@ -101,15 +101,10 @@ void HPL_lmul
  * .. Executable Statements ..
  */
 /*
- *    K[1] K[0] K  kt = K[0]*J[0]
- *    0XXX XXXX    if(kt < 0) kt += 2^31
- * x               I[0] = kt % 2^16
- *                 lt = K[0]*J[1] + K[1]*J[0]
- *    J[1] J[0] J  if(lt < 0) lt += 2^31
- *    0XXX XXXX    kt = (kt / 2^16) + lt
- * --------------  if(kt < 0) kt += 2^31
- *    I[1] I[0]    I[1] = kt % 2^15
- *    0XXX XXXX I
+ * Addition is done with 16 bits at a time. Multiplying two 16-bit
+ * integers yields a 32-bit result. The lower 16-bits of the result
+ * are kept in I, and the higher 16-bits are carried over to the
+ * next multiplication.
  */
    for (c = 0; c < 2; ++c) {
      kk[2*c] = K[c] & 65535;

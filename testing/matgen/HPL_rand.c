@@ -64,13 +64,13 @@ double HPL_rand()
  *  
  * The static array irand contains the information (2 integers) required
  * to generate the  next number  in the sequence  X(n).  This  number is
- * computed as X(n) = (2^16 * irand[1] + irand[0]) / d - 0.5,  where the
- * constant d is the largest 32 bit positive integer. The array irand is
- * then  updated  for the generation of the next number  X(n+1)  in  the
- * random sequence as follows X(n+1) = a * X(n) + c. The constants a and
- * c  should have been preliminarily stored in the arrays ias and ics as
- * 2 pairs of integers.  The initialization of  ias,  ics and  irand  is
- * performed by the function HPL_setran.
+ * computed as X(n) = (2^32 * irand[1] + irand[0]) / d - 0.5,  where the
+ * constant d is the largest 64 bit positive unsigned integer. The array
+ * irand is then  updated  for the generation of the next number  X(n+1)
+ * in  the  random   sequence  as   follows  X(n+1) = a * X(n) + c.  The
+ * constants a and c should have been preliminarily stored in the arrays
+ * ias and ics as 2 pairs of integers.  The initialization of  ias,  ics
+ * and  irand  is performed by the function HPL_setran.
  *
  * ---------------------------------------------------------------------
  */ 

@@ -68,10 +68,10 @@ void HPL_ladd
  * Purpose
  * =======
  *
- * HPL_ladd adds  without carry two long positive integers  K and J  an
- * put the result into I.  The long integers  I, J, K are encoded on 31
- * bits using an array of 2 integers.  The 16-lower bits  are stored  i
- * the  first  entry  of each array,  the 15-higher bits  in the second
+ * HPL_ladd adds  without carry two long positive integers  K and J and
+ * puts the result into I. The long integers  I, J, K are encoded on 64
+ * bits using an array of 2 integers.  The 32-lower bits  are stored in
+ * the  first  entry  of each array,  the 32-higher bits  in the second
  * entry.
  *
  * Arguments
@@ -104,11 +104,11 @@ void HPL_ladd
  * .. Executable Statements ..
  */
 /*
- *    K[1] K[0] K  I[0]  = (K[0]+J[0]) % 2^16
- *    0XXX XXXX    carry = (K[0]+J[0]) / 2^16
+ *    K[1] K[0] K  I[0]  = (K[0]+J[0]) % 2^32
+ *    XXXX XXXX    carry = (K[0]+J[0]) / 2^32
  *
  * +  J[1] J[0] J  I[1] = K[1] + J[1] + carry
- *    0XXX XXXX    I[1] = I[1] % 2^15
+ *    XXXX XXXX    I[1] = I[1] % 2^32
  *    -------------
  *    I[1] I[0]
  *    0XXX XXXX I
