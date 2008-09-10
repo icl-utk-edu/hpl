@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0b - December 15, 2004                          
+ *    HPL - 2.0 - September 10, 2008                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
- *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000-2004 All Rights Reserved                       
+ *    Innovative Computing Laboratory                                 
+ *    (C) Copyright 2000-2008 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -22,7 +22,7 @@
  * 3. All  advertising  materials  mentioning  features  or  use of this
  * software must display the following acknowledgement:                 
  * This  product  includes  software  developed  at  the  University  of
- * Tennessee, Knoxville, Innovative Computing Laboratories.             
+ * Tennessee, Knoxville, Innovative Computing Laboratory.             
  *                                                                      
  * 4. The name of the  University,  the name of the  Laboratory,  or the
  * names  of  its  contributors  may  not  be used to endorse or promote
@@ -86,11 +86,11 @@ void HPL_pdtest
  *         specifies the output file where the results will be printed.
  *         It is only defined and used by the process  0  of the  grid.
  *         thrsh  specifies  the  threshhold value  for the test ratio.
- *         Concretely, a test is declared "PASSED"  if and only if  all
- *         of the following inequalities are satisfied:
- *         ||Ax-b||_oo / ( epsil * ||A||_1  * N        ) < thrsh,
- *         ||Ax-b||_oo / ( epsil * ||A||_1  * ||x||_1  ) < thrsh,
- *         ||Ax-b||_oo / ( epsil * ||A||_oo * ||x||_oo ) < thrsh.
+ *         Concretely, a test is declared "PASSED"  if and only if the
+ *         following inequality is satisfied:
+ *         ||Ax-b||_oo / ( epsil *
+ *                         ( || x ||_oo * || A ||_oo + || b ||_oo ) *
+ *                          N )  < thrsh.
  *         epsil  is the  relative machine precision of the distributed
  *         computer. Finally the test counters, kfail, kpass, kskip and
  *         ktest are updated as follows:  if the test passes,  kpass is
@@ -126,7 +126,7 @@ void HPL_pdtest
    double                     wtime[1];
    int                        info[3];
    double                     Anorm1, AnormI, Gflops, Xnorm1, XnormI,
-                              resid0, resid1, resid2, resid3;
+                              BnormI, resid0, resid1;
    double                     * Bptr;
    void                       * vptr = NULL;
    static int                 first=1;
@@ -336,10 +336,30 @@ void HPL_pdtest
    XnormI = HPL_pdlange( GRID, HPL_NORM_1, 1, N, NB, mat.X, 1 );
    Xnorm1 = HPL_pdlange( GRID, HPL_NORM_I, 1, N, NB, mat.X, 1 );
 /*
- * If I own b, compute ( b - A x ) and ( - A x ) otherwise
+ * If I am in the col that owns b, (1) compute local BnormI, (2) all_reduce to
+ * find the max (in the col). Then (3) broadcast along the rows so that every
+ * process has BnormI. Note that since we use a uniform distribution in [-0.5,0.5]
+ * for the entries of B, it is very likely that BnormI (<=,~) 0.5.
  */
    Bptr = mat.A + mat.ld * nq;
-
+   if( mycol == HPL_indxg2p( N, NB, NB, 0, npcol ) ){
+      if( mat.mp > 0 )
+      {
+         BnormI = Bptr[HPL_idamax( mat.mp, Bptr, 1 )]; BnormI = Mabs( BnormI );
+      }
+      else
+      {
+         BnormI = HPL_rzero;
+      }
+      (void) HPL_all_reduce( (void *)(&BnormI), 1, HPL_DOUBLE, HPL_max,
+                             GRID->col_comm );
+   }
+   (void) HPL_broadcast( (void *)(&BnormI), 1, HPL_DOUBLE,
+                          HPL_indxg2p( N, NB, NB, 0, npcol ),
+                          GRID->row_comm );
+/*
+ * If I own b, compute ( b - A x ) and ( - A x ) otherwise
+ */
    if( mycol == HPL_indxg2p( N, NB, NB, 0, npcol ) )
    {
       HPL_dgemv( HplColumnMajor, HplNoTrans, mat.mp, nq, -HPL_rone,
@@ -364,21 +384,17 @@ void HPL_pdtest
 /*
  * Computes and displays norms, residuals ...
  */
-   if( ( Anorm1 == HPL_rzero ) || ( AnormI == HPL_rzero ) ||
-       ( Xnorm1 == HPL_rzero ) || ( Xnorm1 == HPL_rzero ) || ( N <= 0 ) )
+   if( N <= 0 )
    {
-      resid1 = resid2 = resid3 = HPL_rzero;
+      resid1 = HPL_rzero;
    }
    else
    {
-      resid1 = resid0 / ( TEST->epsil * Anorm1          * (double)(N) );
-      resid2 = resid0 / ( TEST->epsil * Anorm1 * Xnorm1               );
-      resid3 = resid0 / ( TEST->epsil * AnormI * XnormI * (double)(N) );
+      resid1 = resid0 / ( TEST->epsil * ( AnormI * XnormI + BnormI ) * (double)(N) );
    }
 
-   if( ( Mmax( resid1, resid2 ) < TEST->thrsh ) &&
-       ( resid3 < TEST->thrsh ) ) (TEST->kpass)++;
-   else                           (TEST->kfail)++;
+   if( resid1 < TEST->thrsh ) (TEST->kpass)++;
+   else                       (TEST->kfail)++;
 
    if( ( myrow == 0 ) && ( mycol == 0 ) )
    {
@@ -386,17 +402,10 @@ void HPL_pdtest
                    "--------------------------------------",
                    "--------------------------------------" );
       HPL_fprintf( TEST->outfp, "%s%16.7f%s%s\n",
-         "||Ax-b||_oo / ( eps * ||A||_1  * N        ) = ", resid1,
+         "||Ax-b||_oo / ( eps * ( ||A||_oo * ||x||_oo + || b ||_oo ) * N ) = ", resid1,
          " ...... ", ( resid1 < TEST->thrsh ? "PASSED" : "FAILED" ) );
-      HPL_fprintf( TEST->outfp, "%s%16.7f%s%s\n",
-         "||Ax-b||_oo / ( eps * ||A||_1  * ||x||_1  ) = ", resid2,
-         " ...... ", ( resid2 < TEST->thrsh ? "PASSED" : "FAILED" ) );
-      HPL_fprintf( TEST->outfp, "%s%16.7f%s%s\n",
-         "||Ax-b||_oo / ( eps * ||A||_oo * ||x||_oo ) = ", resid3,
-         " ...... ", ( resid3 < TEST->thrsh ? "PASSED" : "FAILED" ) );
 
-      if( ( resid1 >= TEST->thrsh ) || ( resid2 >= TEST->thrsh ) ||
-          ( resid3 >= TEST->thrsh ) )
+      if( resid1 >= TEST->thrsh ) 
       {
          HPL_fprintf( TEST->outfp, "%s%18.6f\n",
          "||Ax-b||_oo  . . . . . . . . . . . . . . . . . = ", resid0 );
@@ -408,6 +417,8 @@ void HPL_pdtest
          "||x||_oo . . . . . . . . . . . . . . . . . . . = ", XnormI );
          HPL_fprintf( TEST->outfp, "%s%18.6f\n",
          "||x||_1  . . . . . . . . . . . . . . . . . . . = ", Xnorm1 );
+         HPL_fprintf( TEST->outfp, "%s%18.6f\n",
+         "||b||_oo . . . . . . . . . . . . . . . . . . . = ", BnormI );
       }
    }
    if( vptr ) free( vptr );

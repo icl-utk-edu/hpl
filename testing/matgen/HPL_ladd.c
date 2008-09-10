@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0b - December 15, 2004                          
+ *    HPL - 2.0 - September 10, 2008                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
- *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000-2004 All Rights Reserved                       
+ *    Innovative Computing Laboratory                                 
+ *    (C) Copyright 2000-2008 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -22,7 +22,7 @@
  * 3. All  advertising  materials  mentioning  features  or  use of this
  * software must display the following acknowledgement:                 
  * This  product  includes  software  developed  at  the  University  of
- * Tennessee, Knoxville, Innovative Computing Laboratories.             
+ * Tennessee, Knoxville, Innovative Computing Laboratory.             
  *                                                                      
  * 4. The name of the  University,  the name of the  Laboratory,  or the
  * names  of  its  contributors  may  not  be used to endorse or promote
@@ -94,7 +94,12 @@ void HPL_ladd
 /*
  * .. Local Variables ..
  */
-   int                        itmp0 = K[0] + J[0], itmp1;
+   unsigned int        itmp0, itmp1;
+   unsigned int        ktmp0 = K[0] & 65535, ktmp1 = (unsigned)K[0] >> 16;
+   unsigned int        ktmp2 = K[1] & 65535, ktmp3 = (unsigned)K[1] >> 16;
+   unsigned int        jtmp0 = J[0] & 65535, jtmp1 = (unsigned)J[0] >> 16;
+   unsigned int        jtmp2 = J[1] & 65535, jtmp3 = (unsigned)J[1] >> 16;
+
 /* ..
  * .. Executable Statements ..
  */
@@ -108,8 +113,13 @@ void HPL_ladd
  *    I[1] I[0]
  *    0XXX XXXX I
  */
-   itmp1 = itmp0 >> 16;         I[0] = itmp0 - ( itmp1 << 16 );
-   itmp0 = itmp1 + K[1] + J[1]; I[1] = itmp0 - (( itmp0 >> 15 ) << 15);
+   itmp0 = ktmp0 + jtmp0;
+   itmp1 = itmp0 >> 16;         I[0] = itmp0 - (itmp1 << 16 );
+   itmp1 += ktmp1 + jtmp1;      I[0] |= (itmp1 & 65535) << 16;
+   itmp0 = (itmp1 >> 16) + ktmp2 + jtmp2;
+   I[1] = itmp0 - ((itmp0 >> 16 ) << 16);
+   itmp1 = (itmp0 >> 16) + ktmp3 + jtmp3;
+   I[1] |= (itmp1 & 65535) << 16;
 /*
  * End of HPL_ladd
  */

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0b - December 15, 2004                          
+ *    HPL - 2.0 - September 10, 2008                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
- *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000-2004 All Rights Reserved                       
+ *    Innovative Computing Laboratory                                 
+ *    (C) Copyright 2000-2008 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -22,7 +22,7 @@
  * 3. All  advertising  materials  mentioning  features  or  use of this
  * software must display the following acknowledgement:                 
  * This  product  includes  software  developed  at  the  University  of
- * Tennessee, Knoxville, Innovative Computing Laboratories.             
+ * Tennessee, Knoxville, Innovative Computing Laboratory.             
  *                                                                      
  * 4. The name of the  University,  the name of the  Laboratory,  or the
  * names  of  its  contributors  may  not  be used to endorse or promote
@@ -755,17 +755,23 @@ label_error:
    if( rank == 0 )
    {
       HPL_fprintf( TEST->outfp, "%s%s\n",
-                   "======================================",
-                   "======================================" );
+                   "========================================",
+                   "========================================" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
-          "HPLinpack 1.0b  --  High-Performance Linpack benchmark  -- ",
-          "December 15, 2004" );
+          "HPLinpack 2.0  --  High-Performance Linpack benchmark  --  ",
+          " September 10, 2008" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
           "Written by A. Petitet and R. Clint Whaley,  ",
-          "Innovative Computing Labs.,  UTK" );
+          "Innovative Computing Laboratory, UTK" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
-                   "======================================",
-                   "======================================" );
+          "Modified by Piotr Luszczek, ",
+          "Innovative Computing Laboratory, UTK" );
+      HPL_fprintf( TEST->outfp, "%s%s\n",
+          "Modified by Julien Langou, ",
+          "University Colorado Denver");
+      HPL_fprintf( TEST->outfp, "%s%s\n",
+                   "========================================",
+                   "========================================" );
 
       HPL_fprintf( TEST->outfp, "\n%s\n",
           "An explanation of the input/output parameters follows:" );
@@ -1103,13 +1109,9 @@ label_error:
          HPL_fprintf( TEST->outfp, "%s\n",
             "- The matrix A is randomly generated for each test." );
          HPL_fprintf( TEST->outfp, "%s\n",
-            "- The following scaled residual checks will be computed:" );
+            "- The following scaled residual check will be computed:" );
          HPL_fprintf( TEST->outfp, "%s\n",
-            "   1) ||Ax-b||_oo / ( eps * ||A||_1  * N        )" );
-         HPL_fprintf( TEST->outfp, "%s\n",
-            "   2) ||Ax-b||_oo / ( eps * ||A||_1  * ||x||_1  )" );
-         HPL_fprintf( TEST->outfp, "%s\n",
-            "   3) ||Ax-b||_oo / ( eps * ||A||_oo * ||x||_oo )" );
+            "      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )" );
          HPL_fprintf( TEST->outfp, "%s %21.6e\n",
             "- The relative machine precision (eps) is taken to be",
             TEST->epsil );

@@ -1,10 +1,10 @@
 /* 
  * -- High Performance Computing Linpack Benchmark (HPL)                
- *    HPL - 1.0b - December 15, 2004                          
+ *    HPL - 2.0 - September 10, 2008                          
  *    Antoine P. Petitet                                                
  *    University of Tennessee, Knoxville                                
- *    Innovative Computing Laboratories                                 
- *    (C) Copyright 2000-2004 All Rights Reserved                       
+ *    Innovative Computing Laboratory                                 
+ *    (C) Copyright 2000-2008 All Rights Reserved                       
  *                                                                      
  * -- Copyright notice and Licensing terms:                             
  *                                                                      
@@ -22,7 +22,7 @@
  * 3. All  advertising  materials  mentioning  features  or  use of this
  * software must display the following acknowledgement:                 
  * This  product  includes  software  developed  at  the  University  of
- * Tennessee, Knoxville, Innovative Computing Laboratories.             
+ * Tennessee, Knoxville, Innovative Computing Laboratory.             
  *                                                                      
  * 4. The name of the  University,  the name of the  Laboratory,  or the
  * names  of  its  contributors  may  not  be used to endorse or promote
@@ -86,7 +86,8 @@ double HPL_rand()
  * return number between -0.5 and 0.5
  */
    return( HPL_HALF -
-           (((double)(j[0]) + HPL_POW16*(double)(j[1])) / HPL_DIVFAC) );
+           (((j[0] & 65535) + ((unsigned)j[0] >> 16) * HPL_POW16) / HPL_DIVFAC * HPL_HALF +
+           (j[1] & 65535) + ((unsigned)j[1] >> 16) * HPL_POW16) / HPL_DIVFAC * HPL_HALF );
 /*
  * End of HPL_rand
  */
