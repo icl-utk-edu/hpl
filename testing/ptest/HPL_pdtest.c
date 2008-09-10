@@ -180,7 +180,7 @@ void HPL_pdtest
  */
    mat.A  = (double *)HPL_PTR( vptr,
                                ((size_t)(ALGO->align) * sizeof(double) ) );
-   mat.X  = mat.A + (mat.ld * mat.nq);
+   mat.X  = Mptr( mat.A, 0, mat.nq, mat.ld );
    HPL_pdmatgen( GRID, N, N+1, NB, mat.A, mat.ld, HPL_ISEED );
 #ifdef HPL_CALL_VSIPL
    mat.block = vsip_blockbind_d( (vsip_scalar_d *)(mat.A),
@@ -341,7 +341,7 @@ void HPL_pdtest
  * process has BnormI. Note that since we use a uniform distribution in [-0.5,0.5]
  * for the entries of B, it is very likely that BnormI (<=,~) 0.5.
  */
-   Bptr = mat.A + mat.ld * nq;
+   Bptr = Mptr( mat.A, 0, nq, mat.ld );
    if( mycol == HPL_indxg2p( N, NB, NB, 0, npcol ) ){
       if( mat.mp > 0 )
       {
