@@ -1104,8 +1104,8 @@ label_error:
       if( TEST->thrsh > HPL_rzero )
       {
          HPL_fprintf( TEST->outfp, "%s%s\n\n",
-                      "--------------------------------------",
-                      "--------------------------------------" );
+                      "----------------------------------------",
+                      "----------------------------------------" );
          HPL_fprintf( TEST->outfp, "%s\n",
             "- The matrix A is randomly generated for each test." );
          HPL_fprintf( TEST->outfp, "%s\n",
