@@ -213,7 +213,7 @@ void HPL_pdtest
                       "========================================" );
          HPL_fprintf( TEST->outfp, "%s%s\n",
                       "T/V                N    NB     P     Q",
-                      "               Time             Gflops" );
+                      "               Time                 Gflops" );
          HPL_fprintf( TEST->outfp, "%s%s\n",
                       "----------------------------------------",
                       "----------------------------------------" );
@@ -245,7 +245,7 @@ void HPL_pdtest
 
       if( wtime[0] > HPL_rzero )
          HPL_fprintf( TEST->outfp,
-             "W%c%1d%c%c%1d%c%1d%12d %5d %5d %5d %18.2f %18.3e\n",
+             "W%c%1d%c%c%1d%c%1d%12d %5d %5d %5d %18.2f     %18.3e\n",
              ( GRID->order == HPL_ROW_MAJOR ? 'R' : 'C' ),
              ALGO->depth, ctop, crfact, ALGO->nbdiv, cpfact, ALGO->nbmin,
              N, NB, nprow, npcol, wtime[0], Gflops );
@@ -402,7 +402,7 @@ void HPL_pdtest
                    "----------------------------------------",
                    "----------------------------------------" );
       HPL_fprintf( TEST->outfp, "%s%16.7f%s%s\n",
-         "||Ax-b||_oo / ( eps * ( ||A||_oo * ||x||_oo + || b ||_oo ) * N ) = ", resid1,
+         "||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)= ", resid1,
          " ...... ", ( resid1 < TEST->thrsh ? "PASSED" : "FAILED" ) );
 
       if( resid1 >= TEST->thrsh ) 

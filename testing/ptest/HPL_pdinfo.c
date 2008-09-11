@@ -768,7 +768,7 @@ label_error:
           "Innovative Computing Laboratory, UTK" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
           "Modified by Julien Langou, ",
-          "University Colorado Denver");
+          "University of Colorado Denver");
       HPL_fprintf( TEST->outfp, "%s%s\n",
                    "========================================",
                    "========================================" );
@@ -1113,10 +1113,10 @@ label_error:
          HPL_fprintf( TEST->outfp, "%s\n",
             "      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )" );
          HPL_fprintf( TEST->outfp, "%s %21.6e\n",
-            "- The relative machine precision (eps) is taken to be",
+            "- The relative machine precision (eps) is taken to be     ",
             TEST->epsil );
          HPL_fprintf( TEST->outfp, "%s   %11.1f\n\n",
-            "- Computational tests pass if scaled residuals are less than ",
+            "- Computational tests pass if scaled residuals are less than      ",
             TEST->thrsh );
       }
    }
