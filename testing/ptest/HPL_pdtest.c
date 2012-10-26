@@ -132,6 +132,7 @@ void HPL_pdtest
    static int                 first=1;
    int                        ii, ip2, mycol, myrow, npcol, nprow, nq;
    char                       ctop, cpfact, crfact;
+   time_t                     current_time_start, current_time_end;
 /* ..
  * .. Executable Statements ..
  */
@@ -191,9 +192,11 @@ void HPL_pdtest
  * Solve linear system
  */
    HPL_ptimer_boot(); (void) HPL_barrier( GRID->all_comm );
+   time( &current_time_start );
    HPL_ptimer( 0 );
    HPL_pdgesv( GRID, ALGO, &mat );
    HPL_ptimer( 0 );
+   time( &current_time_end );
 #ifdef HPL_CALL_VSIPL
    (void) vsip_blockrelease_d( mat.block, VSIP_TRUE ); 
    vsip_blockdestroy_d( mat.block );
@@ -243,12 +246,17 @@ void HPL_pdtest
       else if( ALGO->btopo == HPL_BLONG   ) ctop = '4';
       else /* if( ALGO->btopo == HPL_BLONG_M ) */ ctop = '5';
 
-      if( wtime[0] > HPL_rzero )
+      if( wtime[0] > HPL_rzero ) {
          HPL_fprintf( TEST->outfp,
              "W%c%1d%c%c%1d%c%1d%12d %5d %5d %5d %18.2f     %18.3e\n",
              ( GRID->order == HPL_ROW_MAJOR ? 'R' : 'C' ),
              ALGO->depth, ctop, crfact, ALGO->nbdiv, cpfact, ALGO->nbmin,
              N, NB, nprow, npcol, wtime[0], Gflops );
+         HPL_fprintf( TEST->outfp,
+             "HPL_pdgesv() start time %s\n", ctime( &current_time_start ) );
+         HPL_fprintf( TEST->outfp,
+             "HPL_pdgesv() end time   %s\n", ctime( &current_time_end ) );
+      }
    }
 #ifdef HPL_DETAILED_TIMING
    HPL_ptimer_combine( GRID->all_comm, HPL_AMAX_PTIME, HPL_WALL_PTIME,
