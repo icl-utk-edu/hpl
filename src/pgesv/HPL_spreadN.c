@@ -247,8 +247,8 @@ void HPL_spreadN
 
          if( ( mydist & mask ) == 0 )
          {
-            k    = il + ip2; ibuf = IPLEN[SRCDIST+il];
-            lbuf = ( k >= nprow ? lgth : IPLEN[SRCDIST+k] ) - ibuf;
+            k    = il      ; ibuf = ( k >= nprow ? lgth : IPLEN[SRCDIST+k] );
+            k    = il + ip2; lbuf = ( k >= nprow ? lgth : IPLEN[SRCDIST+k] ) - ibuf;
 
             if( lbuf > 0 )
             {
