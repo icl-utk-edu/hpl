@@ -63,7 +63,7 @@
  Note that in our case || b ||_oo is almost for sure
  1/2, we compute it anyway.
 
- - 10/28/08 Version 2.1
+ - 10/28/2012 Version 2.1
 
  Piotr Luszczek introduced exact time stamping for HPL_pdgesv():
  -- [M] dist/include/hpl_misc.h
