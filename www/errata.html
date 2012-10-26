@@ -13,6 +13,18 @@ LINK        = "#0000ff">
 
 <H2>HPL Errata - Bugs</H2>
 
+<H3>Issues fixed in Version 2.1, October 26th, 2012</H3>
+
+The output now reports exact time stamps before and after the
+execution of the solver function pdgesv() was run. This could
+allow for accurate accounting of running time for data center
+management   purposes.    For   example  as  reporting  power
+consumption.  This  is  important  for  the Green500 project.<BR><BR>
+
+Fixed an out-of-bounds access to arrays  in the HPL_spreadN()
+and  HPL_spreadT()  functions.  This  may cause  segmentation
+fault signals. It was reported by Stephen Whalen from Cray.<BR><BR>
+
 <H3>Issues fixed in Version 2.0, September 10th, 2008</H3>
 
 Gregory Bauer  found  a  problem  size  corresponding  to the
