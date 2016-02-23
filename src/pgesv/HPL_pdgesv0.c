@@ -98,11 +98,18 @@ void HPL_pdgesv0
    HPL_T_UPD_FUN              HPL_pdupdate;
    int                        N, j, jb, n, nb, tag=MSGID_BEGIN_FACT,
                               test=HPL_KEEP_TESTING;
+#ifdef HPL_PROGRESS_REPORT
+   double start_time, time, gflops;
+#endif
 /* ..
  * .. Executable Statements ..
  */
    if( ( N = A->n ) <= 0 ) return;
 
+#ifdef HPL_PROGRESS_REPORT
+   start_time = HPL_timer_walltime();
+#endif
+ 
    HPL_pdupdate = ALGO->upfun; nb = A->nb;
 /*
  * Allocate a panel list of length 1 - Allocate panel[0] resources
@@ -119,6 +126,15 @@ void HPL_pdgesv0
    for( j = 0; j < N; j += nb )
    {
       n = N - j; jb = Mmin( n, nb );
+#ifdef HPL_PROGRESS_REPORT
+      /* if this is process 0,0 and not the first panel */
+      if ( GRID->myrow == 0 && GRID->mycol == 0 && j > 0 ) 
+      {
+          time = HPL_timer_walltime() - start_time;
+          gflops = 2.0*(N*(double)N*N - n*(double)n*n)/3.0/(time > 0.0 ? time : 1e-6)/1e9;
+          HPL_fprintf( stdout, "Column=%09d Fraction=%4.1f%% Gflops=%9.3e\n", j, j*100.0/N, gflops);
+      }
+#endif
 /*
  * Release panel resources - re-initialize panel data structure
  */
