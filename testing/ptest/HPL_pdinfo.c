@@ -758,8 +758,8 @@ label_error:
                    "========================================",
                    "========================================" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
-          "HPLinpack 2.1  --  High-Performance Linpack benchmark  --  ",
-          " October 26, 2012" );
+          "HPLinpack 2.2  --  High-Performance Linpack benchmark  --  ",
+          " February 24, 2016" );
       HPL_fprintf( TEST->outfp, "%s%s\n",
           "Written by A. Petitet and R. Clint Whaley,  ",
           "Innovative Computing Laboratory, UTK" );
