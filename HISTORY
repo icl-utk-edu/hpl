@@ -69,9 +69,14 @@
  -- [M] dist/include/hpl_misc.h
  -- [M] dist/testing/ptest/HPL_pdtest.c
 
- Piotr Luszczek fixed out-of-bounds access in data spreading functions. exact time stamping for HPL_pdgesv():
+ Piotr Luszczek fixed out-of-bounds access in data spreading functions
+ and exact time stamping for HPL_pdgesv():
  -- [M] dist/src/pgesv/HPL_spreadN.c
  -- [M] dist/src/pgesv/HPL_spreadT.c
  Thanks to Stephen Whalen from Cray.
 
-==============================================================
+ - 02/24/2016 Version 2.2
+
+ Piotr Luszczek added continuous reporting of factorization progress
+ submitted by Intel and make scripts that uses Intel software tools and
+ libraries and their Apple's Mac OS X equivalents.
