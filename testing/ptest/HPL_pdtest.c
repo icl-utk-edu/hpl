@@ -411,7 +411,7 @@ void HPL_pdtest
       HPL_fprintf( TEST->outfp, "%s%s\n",
                    "----------------------------------------",
                    "----------------------------------------" );
-      HPL_fprintf( TEST->outfp, "%s%16.7f%s%s\n",
+      HPL_fprintf( TEST->outfp, "%s%16.8e%s%s\n",
          "||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)= ", resid1,
          " ...... ", ( resid1 < TEST->thrsh ? "PASSED" : "FAILED" ) );
 
