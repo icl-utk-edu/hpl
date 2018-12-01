@@ -1,3 +1,4 @@
+syntax: glob
 aclocal.m4
 autom4te.cache
 config.guess
@@ -8,6 +9,8 @@ configure
 Makefile.in
 src/Makefile
 src/Makefile.in
+src/*/.deps
 testing/Makefile
 testing/Makefile.in
 testing/xhpl
+testing/*/.deps
