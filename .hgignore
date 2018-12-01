@@ -1,0 +1,13 @@
+aclocal.m4
+autom4te.cache
+config.guess
+config.log
+config.status
+config.sub
+configure
+Makefile.in
+src/Makefile
+src/Makefile.in
+testing/Makefile
+testing/Makefile.in
+testing/xhpl
