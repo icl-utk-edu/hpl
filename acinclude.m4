@@ -9,27 +9,64 @@ dnl FIXME: add --with-blas="<library spec>"
 
 current_LIBS="$LIBS"
 
-if test  x$hpl_blas_ok = xno; then
-dnl
-dnl -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread
-dnl
-LIBS="-lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread $LIBS"
-AC_MSG_CHECKING([for dgemm_ in sequential Intel MKL LP64])
-AC_TRY_LINK_FUNC(dgemm_, [hpl_blas_ok=yes;BLAS_LIBS="-lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread"])
-AC_MSG_RESULT($hpl_blas_ok)
-LIBS="$current_LIBS"
-dnl
-fi
+cat <<HPLEOF > hplvars.txt
+name1=OpenBLAS
+rout1=dgemm_
+libs1=-lopenblas -lm
 
+name2=Atlas Fortran BLAS
+rout2=dgemm_
+libs2=-lf77blas -latlas
+
+name3=Sequential Intel MKL LP64 (group)
+rout3=dgemm_
+libs3=-Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread
+
+name4=Sequential Intel MKL LP64
+rout4=dgemm_
+libs4=-lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread
+
+name5=AMD's ACML
+rout5=dgemm_
+libs5=-lacml -lm
+
+name6=Accelerate
+rout6=dgemm_
+libs6=-framework Accelerate
+
+name7=Apple VecLib
+rout7=dgemm_
+libs7=-framework vecLib
+
+name8=IBM ESSL
+rout8=dgemm_
+libs8=-lessl
+
+name9=NVIDIA nvblas
+rout9=dgemm_
+libs9=-lnvblas
+
+name10=Generic BLAS
+rout10=dgemm_
+libs10=-lblas
+
+HPLEOF
+for hpl_i in 1 2 3 4 5 6 7 8 9 10;
+do
 if test  x$hpl_blas_ok = xno; then
-dnl
-LIBS="-framework Accelerate $LIBS"
-AC_MSG_CHECKING([for dgemm_ in -framework Accelerate])
-AC_TRY_LINK_FUNC(dgemm_, [hpl_blas_ok=yes;BLAS_LIBS="-framework Accelerate"])
-AC_MSG_RESULT($hpl_blas_ok)
-LIBS="$current_LIBS"
-dnl
+  name="`grep ^name${hpl_i}= hplvars.txt | sed s/^name${hpl_i}=//`"
+  rout="`grep ^rout${hpl_i}= hplvars.txt | sed s/^rout${hpl_i}=//`"
+  libs="`grep ^libs${hpl_i}= hplvars.txt | sed s/^libs${hpl_i}=//`"
+  AC_MSG_CHECKING([for [$]rout in [$]name])
+
+  LIBS="[$]libs"
+  AC_TRY_LINK_FUNC([$]rout, [hpl_blas_ok=yes;BLAS_LIBS="[$]libs"])
+  LIBS="$current_LIBS"
+
+  AC_MSG_RESULT($hpl_blas_ok)
 fi
+done
+rm hplvars.txt
 
 if test  x$hpl_blas_ok = xno; then
 dnl
@@ -38,14 +75,6 @@ AC_CHECK_LIB(openblas, dgemm_, [hpl_blas_ok=yes;BLAS_LIBS="-lopenblas"])
 AC_MSG_RESULT($hpl_blas_ok)
 dnl
 fi
-
-dnl FIXME: test for Apple's vecLib
-dnl FIXME: test for ATLAS
-dnl FIXME: test for Netlib BLAS
-dnl FIXME: test for ESSL
-dnl FIXME: test for nvblas
-dnl FIXME: test for ACML
-dnl FIXME: test for GSL CBLAS
 
 AC_SUBST(BLAS_LIBS)
 

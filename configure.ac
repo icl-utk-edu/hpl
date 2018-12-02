@@ -22,6 +22,9 @@ dnl
 
 HPL_BLAS(LIBS="$BLAS_LIBS $LIBS",AC_MSG_ERROR([BLAS not found]))
 
+dnl FIXME: test for CBLAS: Atlas, MKL, OpenBLAS, ESSL, ...
+dnl FIXME: test for GSL CBLAS
+
 AC_CHECK_FUNCS([dgemm_])
 
 AC_CHECK_HEADERS([mpi.h])
