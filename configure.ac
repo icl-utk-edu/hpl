@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 
-AC_INIT(hpl, 2.2, hpl@icl.utk.edu)
+AC_INIT(hpl, 2.3, hpl@icl.utk.edu)
 AC_CONFIG_SRCDIR([include/hpl.h])
 AC_CONFIG_HEADERS([include/hplconfig.h])
 
