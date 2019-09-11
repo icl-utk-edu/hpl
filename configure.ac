@@ -14,6 +14,7 @@ AC_PROG_INSTALL
 
 AM_INIT_AUTOMAKE([subdir-objects])
 
+AM_PROG_CC_STDC
 AM_PROG_CC_C_O
 
 dnl
