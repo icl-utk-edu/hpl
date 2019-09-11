@@ -20,11 +20,11 @@ libs2=-lf77blas -latlas
 
 name3=Sequential Intel MKL LP64 (group)
 rout3=dgemm_
-libs3=-Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread
+libs3=-Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread -lm
 
 name4=Sequential Intel MKL LP64
 rout4=dgemm_
-libs4=-lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread
+libs4=-lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread -lm
 
 name5=AMD's ACML
 rout5=dgemm_
