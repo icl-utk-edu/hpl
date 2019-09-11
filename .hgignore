@@ -10,7 +10,9 @@ Makefile.in
 src/Makefile
 src/Makefile.in
 src/*/.deps
+src/*/.dirstamp
 testing/Makefile
 testing/Makefile.in
 testing/xhpl
 testing/*/.deps
+testing/*/.dirstamp
