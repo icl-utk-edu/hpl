@@ -46,12 +46,16 @@ name9=NVIDIA nvblas
 rout9=dgemm_
 libs9=-lnvblas
 
-name10=Generic BLAS
+name10=BLIS
 rout10=dgemm_
-libs10=-lblas
+libs10=-lblis
+
+name11=Generic BLAS
+rout11=dgemm_
+libs11=-lblas
 
 HPLEOF
-for hpl_i in 1 2 3 4 5 6 7 8 9 10;
+for hpl_i in 1 2 3 4 5 6 7 8 9 10 11;
 do
 if test  x$hpl_blas_ok = xno; then
   name="`grep ^name${hpl_i}= hplvars.txt | sed s/^name${hpl_i}=//`"
