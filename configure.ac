@@ -30,7 +30,7 @@ dnl FIXME: test for GSL CBLAS
 
 AC_CHECK_FUNCS([dgemm_])
 
-AC_CHECK_HEADERS([mpi.h])
+AC_CHECK_HEADER([mpi.h], [], AC_MSG_ERROR([MPI not found]))
 
 AC_CONFIG_FILES([Makefile src/Makefile testing/Makefile])
 
