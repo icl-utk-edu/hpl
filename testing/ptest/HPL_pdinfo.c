@@ -147,14 +147,14 @@ void HPL_pdinfo
  *         to HPL_MAX_PARAM.
  *
  * NB      (global output)               int *
- *         On exit,  PMAPPIN  specifies the process mapping onto the no-
- *         des of the  MPI machine configuration.  PMAPPIN  defaults  to
- *         row-major ordering.
- *
- * PMAPPIN (global output)               HPL_T_ORDER *
  *         On entry, NB is an array of dimension HPL_MAX_PARAM. On exit,
  *         the first NBS entries of this array contain the values of the
  *         various distribution blocking factors, to run the code with.
+ *
+ * PMAPPIN (global output)               HPL_T_ORDER *
+ *         On exit,  PMAPPIN  specifies the process mapping onto the no-
+ *         des of the  MPI machine configuration.  PMAPPIN  defaults  to
+ *         row-major ordering.
  *
  * NPQS    (global output)               int *
  *         On exit, NPQS  specifies the  number of different values that
